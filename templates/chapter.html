@@ -4,8 +4,8 @@
 
 {% block content %}
     <section class="chapter-header">
-        <h2>{{ chapter }}</h2>
-        <a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}">Take Quiz</a>
+        <h2 id="chapter_heading">{{ chapter.replace('_',' ') }}</h2>
+        <!--<a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}">Take Quiz</a>-->
     </section>
 
     <section class="chapter-content">

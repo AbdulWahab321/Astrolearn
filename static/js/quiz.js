@@ -1,20 +1,38 @@
-// quiz.js
-
 document.addEventListener('DOMContentLoaded', function() {
     const quizForm = document.getElementById('quiz-form');
     const resultsDiv = document.getElementById('results');
 
-    if (quizForm && typeof quizData !== 'undefined') {
+    if (quizForm) {
         quizForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            let score = 0;
-            quizData.forEach((q, i) => {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selected && selected.value === q.correct_answer) {
-                    score++;
-                }
+
+            const formData = new FormData(quizForm);
+            const answers = {};
+
+            formData.forEach((value, key) => {
+                answers[key] = value;
             });
-            resultsDiv.innerHTML = `You scored ${score} out of ${quizData.length}`;
+
+            fetch(quizForm.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(answers)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                resultsDiv.innerHTML = `You scored ${data.score} out of ${data.total}`;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultsDiv.innerHTML = 'An error occurred while submitting the quiz. Please try again.';
+            });
         });
     }
 });

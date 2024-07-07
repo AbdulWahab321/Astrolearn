@@ -3,24 +3,33 @@
 {% block title %}Quiz - {{ chapter }}{% endblock %}
 
 {% block content %}
-    <section class="quiz-header">
-        <h2>Quiz for {{ chapter }}</h2>
-    </section>
+<section class="quiz-header">
+    <h2>Quiz: {{ chapter }}</h2>
+</section>
 
-    <section class="quiz-content">
-        <form id="quiz-form" action="{{ url_for('quiz', subject=subject, chapter=chapter) }}" method="POST">
-            {% for question in quiz.questions %}
-                <div class="question">
-                    <label>{{ question.question }}</label>
-                    <div>
-                        {% for option in question.options %}
-                            <input type="radio" name="q{{ loop.index }}" value="{{ option }}" required> {{ option }}<br>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-            <button type="submit">Submit</button>
-        </form>
-        <div id="results"></div>
-    </section>
+<section class="quiz-content">
+    <form id="quiz-form" action="{{ url_for('quiz', subject=subject, chapter=chapter) }}" method="POST">
+        {% for question in quiz.questions %}
+        <div class="question">
+            <label>{{ loop.index }}. {{ question.question }}</label>
+            <div class="options">
+                {% for option in question.options %}
+                <label class="option">
+                    <input type="radio" name="q{{ loop.index0 }}" value="{{ option }}" required>
+                    <span>{{ option }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        <button type="submit" class="quiz-submit">Submit Quiz</button>
+    </form>
+    <div id="results"></div>
+</section>
+
+<script>
+    // Correctly embed the quiz data in JavaScript
+    const quizData = JSON.parse('{{ quiz.questions | tojson | safe }}');
+</script>
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
 {% endblock %}

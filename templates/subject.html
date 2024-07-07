@@ -11,7 +11,7 @@
         <ul class="chapter-list">
             {% for chapter in chapters %}
                 <li>
-                    <a class="chapter-link" href="{{ url_for('chapter', subject=subject, chapter=chapter) }}">{{ chapter }}</a>
+                    <a class="chapter-link" href="{{ url_for('chapter', subject=subject, chapter=chapter) }}">{{ chapter.replace('_',' ') }}</a>
                 </li>
             {% endfor %}
         </ul>

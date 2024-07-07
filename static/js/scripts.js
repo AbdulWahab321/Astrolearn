@@ -1,43 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Theme Toggle
-    const themeToggle = document.querySelector('.theme-toggle');
-    const body = document.body;
-    const currentTheme = localStorage.getItem('theme');
+document.addEventListener('DOMContentLoaded', function() {
+    const quizForm = document.getElementById('quiz-form');
+    const resultsDiv = document.getElementById('results');
 
-    if (currentTheme) {
-        body.classList.add(currentTheme);
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        if (body.classList.contains('dark')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.removeItem('theme');
-        }
-    });
-
-    // Quiz Logic
-    const quizForm = document.querySelector('#quiz-form');
     if (quizForm) {
-        quizForm.addEventListener('submit', function (event) {
-            event.preventDefault();
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             const formData = new FormData(quizForm);
-            const answers = {};
-            formData.forEach((value, key) => {
-                answers[key] = value;
-            });
+            
             fetch(quizForm.action, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(answers)
+                body: formData
             })
             .then(response => response.json())
-            .then(result => {
-                const resultsContainer = document.querySelector('#results');
-                resultsContainer.innerHTML = `You got ${result.correct} out of ${result.total} correct!`;
+            .then(data => {
+                resultsDiv.innerHTML = `You scored ${data.score} out of ${data.total}!`;
+                resultsDiv.style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultsDiv.innerHTML = 'An error occurred while submitting the quiz.';
+                resultsDiv.style.display = 'block';
             });
         });
     }
