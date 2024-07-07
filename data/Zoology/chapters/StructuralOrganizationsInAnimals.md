@@ -5,6 +5,7 @@
 | Phylum   | Class    |
 | -------- | -------- |
 | Chordata | Amphibia |
+
 - Is an amphibian
 - Cold blooded animals (**poikilotherm**)
 - They exhibit **camoflague** 
@@ -14,3 +15,4 @@
 ### Morphology of frogs
 - Males have vocal sacs, they produce croaking sound
 - Nictitating membrane present for protection of eyes while in water
+
