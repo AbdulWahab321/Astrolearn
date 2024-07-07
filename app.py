@@ -6,15 +6,7 @@ import socket
 import signal
 import subprocess  # Use subprocess to manage the Flask process
 
-def get_available_port():
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        # Bind to port 0 to let the OS choose an available port
-        s.bind(('localhost', 0))
-        port = s.getsockname()[1]
-    return port
-
-port = get_available_port()
-
+port = 5000
 # Global variable to store the Flask process
 flask_process = None
 

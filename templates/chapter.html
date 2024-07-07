@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ chapter }}{% endblock %}
+{% block title %}{{ chapter.replace('_',' ') }}{% endblock %}
 
 {% block content %}
     <section class="chapter-header">

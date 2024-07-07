@@ -8,10 +8,7 @@ import json
 import sys
 
 app = Flask(__name__)
-if __file__.endswith(".py"):
-    argv = sys.argv[1:]
-host, port = argv[0].split(":")
-port = int(port)
+
 dirs_to_ignore_in_data = [".obsidian", "cache"]
 # Path to the data directory
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
@@ -140,4 +137,4 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 if __name__ == '__main__':
-    app.run(host, port, debug=True)
+    app.run(debug=True)
