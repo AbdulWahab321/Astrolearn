@@ -11,9 +11,9 @@ Animals are multicellular, heterotrophic organisms
 7. Segmentation
 8. Reproduction of development
 
-![[PhylumClassification.svg]]
+![Phylum classification](PhylumClassification.svg)
 
 ## Subphylum Vertebra
 ---
 
-![[SubphylumVertebraClassification.svg]]
+![Subphylum Vertebra](SubphylumVertebraClassification.svg)
