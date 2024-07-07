@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz - {{ chapter }}{% endblock %}
+
+{% block content %}
+    <section class="quiz-header">
+        <h2>Quiz for {{ chapter }}</h2>
+    </section>
+
+    <section class="quiz-content">
+        <form id="quiz-form" action="{{ url_for('quiz', subject=subject, chapter=chapter) }}" method="POST">
+            {% for question in quiz.questions %}
+                <div class="question">
+                    <label>{{ question.question }}</label>
+                    <div>
+                        {% for option in question.options %}
+                            <input type="radio" name="q{{ loop.index }}" value="{{ option }}" required> {{ option }}<br>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <button type="submit">Submit</button>
+        </form>
+        <div id="results"></div>
+    </section>
+{% endblock %}

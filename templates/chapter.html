@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ chapter }}{% endblock %}
+
+{% block content %}
+    <section class="chapter-header">
+        <h2>{{ chapter }}</h2>
+        <a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}">Take Quiz</a>
+    </section>
+
+    <section class="chapter-content">
+        <div class="markdown-content">
+            {{ content|safe }}
+        </div>
+    </section>
+{% endblock %}

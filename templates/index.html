@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <h2>Welcome to School Notes</h2>
+        <p>Explore a variety of subjects and chapters. Click on a subject to get started!</p>
+    </section>
+
+    <section class="subjects">
+        <h2>Subjects</h2>
+        <div class="subjects-grid">
+            {% for subject in subjects %}
+                <a class="subject-card" href="{{ url_for('subject', subject=subject) }}">
+                    <h3>{{ subject }}</h3>
+                    <p>Explore {{ subject }} chapters</p>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
