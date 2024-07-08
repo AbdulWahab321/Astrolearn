@@ -46,12 +46,12 @@ class HighlightPreprocessor(Preprocessor):
         return new_lines
 def get_subjects():
     """Get a list of subjects from the data directory."""
-    return[d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d)) and os.path.exists(os.path.join(DATA_DIR, d,"chapters"))]
+    return [d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d)) and os.path.exists(os.path.join(DATA_DIR, d,"chapters"))]
 
 def get_chapters(subject, without_ext=False,spaced=False):
     """Get a list of chapter names for a given subject."""
     subject_path = os.path.join(DATA_DIR, subject, 'chapters')
-    chapters =  sorted([f for f in os.listdir(subject_path) if f.endswith('.md')],key=lambda x:int())
+    chapters =  sorted([f for f in os.listdir(subject_path) if f.endswith('.md')],key=lambda x:int(x.split("_",maxsplit=1)[0]))
     if without_ext:
         chapters = [os.path.splitext(f)[0].replace("_" if spaced else ""," " if spaced else "") for f in chapters]
     else:
