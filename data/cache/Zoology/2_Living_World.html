@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living World</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script defer src="/static/js/scripts.js"></script>
+</head>
+
+<body :class="{ 'dark': darkMode }">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="topheader">School Notes</h1>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="chapter-header">
+            <h3 style="text-align: center; margin-bottom: -50px;">Chapter: 2</h3>
+            <h1 id="chapter_heading">Living World</h1>
+        </section>
+        <section class="chapter-content">
+            <div class="markdown-content">
+                <h2>Difference between Living and Non living</h2>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Living</th>
+<th>Non Living</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Growth</td>
+<td>No Growth</td>
+</tr>
+<tr>
+<td>Reproduction</td>
+<td>No Reproduction</td>
+</tr>
+<tr>
+<td>Metabolism</td>
+<td>No Metabolism</td>
+</tr>
+<tr>
+<td>Consciousness</td>
+<td>No Consciousness</td>
+</tr>
+</tbody>
+</table>
+<h2>Taxonomy</h2>
+<hr />
+<p>Taxonomy is the branch of science that deals with the identification, naming and classification of organisms. <strong>Carolus Linnaeus</strong> is the <strong>father of taxonomy</strong></p>
+<h2>Binomial Nomenclature</h2>
+<hr />
+<p>It is the scientific naming of organisms having two parts, The first part represents genus and the second part represents species. It was introduced by <strong>Carolus Linnaeus</strong></p>
+<h4>Scientific names of some organisms:</h4>
+<table>
+<thead>
+<tr>
+<th>Organisms</th>
+<th>Scientific Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Man</td>
+<td><em>Homo sapien</em></td>
+</tr>
+<tr>
+<td>Housefly</td>
+<td><em>Musca domestica</em></td>
+</tr>
+<tr>
+<td>Mango</td>
+<td><em>Mangifera indica</em></td>
+</tr>
+<tr>
+<td>Wheat</td>
+<td><em>Triticum aestivum</em></td>
+</tr>
+</tbody>
+</table>
+<h3>Rules of Scientific Naming</h3>
+<ul>
+<li>Scientific names are in latin</li>
+<li>First should be genus and second name, species</li>
+<li>There should be a gap between the genus and species</li>
+<li>If printed, it is in italic, If handwritten it is seperately underlined</li>
+</ul>
+<h2>Taxonomic Category</h2>
+<hr />
+<ul>
+<li>It is the classification of organisms into different taxons (Rank/Levels)</li>
+</ul>
+<p><img alt="Taxons" src="/data/Zoology/chapters/diagrams/2_Living_World/Taxons.svg" />
+- In taxonomic category, taxas are arranged from lower levels to higher levels called taxonomic hierarchy</p>
+<h3>Taxonomic Category of Man and Housefly</h3>
+<table>
+<thead>
+<tr>
+<th>Taxon</th>
+<th>Man</th>
+<th>Housefly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kingdom</td>
+<td>Animalia</td>
+<td>Animalia<br></td>
+</tr>
+<tr>
+<td>Phylum</td>
+<td>chordata</td>
+<td>Antropoda</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>Mammalia</td>
+<td>Insecta</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>Primata</td>
+<td>Diptera</td>
+</tr>
+<tr>
+<td>Family</td>
+<td>Hominidae</td>
+<td>Muscidae</td>
+</tr>
+<tr>
+<td>Genus</td>
+<td>Homo</td>
+<td>Musca</td>
+</tr>
+<tr>
+<td>Species</td>
+<td>sapien</td>
+<td>domestica</td>
+</tr>
+</tbody>
+</table>
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var buttons = document.querySelectorAll(".q_and_a_button");
+                buttons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var answer = this.nextElementSibling;
+                        if (!answer || !answer.classList.contains('q_and_a_answer')) {
+                            return;
+                        }
+                        if (answer.classList.contains('show')) {
+                            answer.classList.remove('show');
+                            this.textContent = "Show Answer";
+                            answer.style.maxHeight = null;
+                        } else {
+                            answer.classList.add('show');
+                            this.textContent = "Hide Answer";
+                            setTimeout(() => {
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            }, 10);
+                        }
+                    });
+                });
+            });
+        </script>
+    </main>
+</body>
+
+</html>

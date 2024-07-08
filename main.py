@@ -6,12 +6,13 @@ import os
 import re
 import json
 import sys
-
+import hashlib
 app = Flask(__name__)
 
 dirs_to_ignore_in_data = [".obsidian", "cache"]
 # Path to the data directory
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+STATIC = "--static-mode" in sys.argv
 
 class HighlightExtension(Extension):
     def extendMarkdown(self, md):
@@ -20,19 +21,37 @@ class HighlightExtension(Extension):
 class HighlightPreprocessor(Preprocessor):
     def run(self, lines):
         new_lines = []
+        multiline_question = False
+        question_text = ""
+        answer_lines = []
         for line in lines:
-            line = re.sub(r'==(.+?)==', r'<strong><span style="color: #ED1C24;">\1</span></strong>', line)
+            line = re.sub(r'==(.+?)==', r'<strong><span class="highlighted_text">\1</span></strong>', line)
+            if multiline_question:
+                if re.search(r"}::>", line):
+                    answer_html = markdown.markdown("\n".join(answer_lines).strip())
+                    new_lines.append(f"""<div class="question"><p>{question_text.strip()}</p><button class="q_and_a_button" onclick="">Show Answer</button><div class="q_and_a_answer">{answer_html}</div></div>""")
+                    multiline_question = False
+                    question_text = ""
+                    answer_lines = []
+                else:
+                    answer_lines.append(line)
+                continue
+            match = re.match(r".+<Q::(.+?)::{\s*", line)
+            if match:
+                multiline_question = True
+                question_text = match.group(1)
+                continue
+            line = re.sub(r'<Q::(.+?)::(.+?)>', r"""<div class="question"><p>\1</p><button class="q_and_a_button" onclick="">Show Answer</button><p class="q_and_a_answer">\2</p></div>""", line)
             new_lines.append(line)
         return new_lines
-
 def get_subjects():
     """Get a list of subjects from the data directory."""
-    return [d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d)) and os.path.exists(os.path.join(DATA_DIR, d,"chapters"))]
+    return[d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d)) and os.path.exists(os.path.join(DATA_DIR, d,"chapters"))]
 
 def get_chapters(subject, without_ext=False,spaced=False):
     """Get a list of chapter names for a given subject."""
     subject_path = os.path.join(DATA_DIR, subject, 'chapters')
-    chapters = [f for f in os.listdir(subject_path) if f.endswith('.md')]
+    chapters =  sorted([f for f in os.listdir(subject_path) if f.endswith('.md')],key=lambda x:int())
     if without_ext:
         chapters = [os.path.splitext(f)[0].replace("_" if spaced else ""," " if spaced else "") for f in chapters]
     else:
@@ -70,22 +89,22 @@ def subject(subject):
         abort(404)
     navigation = get_navigation()
     chapters = get_chapters(subject, True)
-    chapters_names = get_chapters(subject, True,True)
-    return render_template('subject.html', subject=subject, chapters_names=chapters_names,chapters=chapters, navigation=navigation)
+    return render_template('subject.html', subject=subject,chapters=chapters, navigation=navigation)
 
 @app.route('/<subject>/<chapter>')
 def chapter(subject, chapter):
-    """Render the page for a specific chapter with Markdown content converted to HTML."""
     if chapter not in get_chapters(subject, without_ext=True):
         abort(404)
-    content = get_markdown_content(subject, chapter)
-    html_content = markdown.markdown(content, extensions=['tables', HighlightExtension()])
-    html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')
-    if not os.path.exists(os.path.join(DATA_DIR,"cache",subject)):
-        os.makedirs(os.path.join(DATA_DIR,"cache",subject))
-    with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"w") as f:
-        f.write(html_content)
-    return render_template('chapter.html', subject=subject, chapter=chapter, content=html_content)
+    if not STATIC:
+        content = get_markdown_content(subject, chapter)
+        html_content = markdown.markdown(content, extensions=['tables', HighlightExtension()])
+        #print("HTML content:", html_content)  # Debug print
+        html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')               
+        return render_template('chapter.html', subject=subject, chapter=chapter, content=html_content)
+    else:
+        with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:
+            return htmlfile.read()
+        
 
 def get_quiz(subject, chapter):
     """Get quiz data for a specific chapter."""
@@ -94,6 +113,7 @@ def get_quiz(subject, chapter):
         with open(quiz_path, 'r') as f:
             return json.load(f)
     return None
+
 @app.route('/<subject>/<chapter>/quiz', methods=['GET', 'POST'])
 def quiz(subject, chapter):
     """Render the quiz page for a specific chapter and handle quiz submissions."""
@@ -124,6 +144,7 @@ def quiz(subject, chapter):
 @app.route('/data/<subject>/chapters/diagrams/<chapter>/<path:filename>')
 def serve_diagram(subject, chapter, filename):
     """Serve diagram files for chapters."""
+    chapter = chapter.split("_",maxsplit=1)[1]
     directory = os.path.join(DATA_DIR, subject, 'chapters', 'diagrams', chapter)
     if not os.path.exists(os.path.join(directory, filename)):
         for root, dirs, files in os.walk(directory):
@@ -135,6 +156,11 @@ def serve_diagram(subject, chapter, filename):
 def page_not_found(e):
     """Render the 404 error page."""
     return render_template('404.html'), 404
-
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
 if __name__ == '__main__':
     app.run(debug=True)

@@ -34,7 +34,7 @@ Kingdom Plantae is classified into **5 groups**:
 
 ## Bryophytes
 
-Bryophytes are land plants but require water for sexual reproduction. They are known as the **"Amphibians of the Plant Kingdom"**.
+Bryophytes are land plants but require water for sexual reproduction. They are known as the =="Amphibians of the Plant Kingdom"==.
 
 ### General Characters of Bryophytes
 
@@ -63,7 +63,7 @@ Bryophytes are land plants but require water for sexual reproduction. They are k
 - Within the Archegonium, the female gamete, **Egg (n)**, is produced.
 - The Antherozoid (n) released from the Antheridium moves through water to fuse with the Egg (n) within the Archegonium, forming a **Zygote (2n)**.
 - The Sporophyte consists of three parts: **Foot, Seta, Capsule**.
-- **Haploid spores** are produced in the Capsule through **Meiosis**.
+- **Haploid spores** are produced in the Capsule through ==Meiosis==
 - Spores released from the Capsule undergo **germination**.
 - The Male spore develops into a **Male gametophyte**, and the Female spore develops into a **Female gametophyte**.
 - Bryophytes exhibit **Alternation of Generations**.
@@ -73,3 +73,31 @@ Bryophytes are land plants but require water for sexual reproduction. They are k
 The alternation between the **Haploid gametophyte** and **Diploid sporophyte** stages in the lifecycle of an organism is called **"Alternation of Generation"**.
 
 ![Alternation Of Generation](AlternationOfGeneration.svg)
+# Questions 
+
+#####  <Q::1. Who proposed the artificial system of classification?::Carolus Linnaeus>
+##### <Q::2. What criteria are used in the natural system of classification?::{
+- Morphology
+- Anatomy
+- Embryology
+- Phytochemistry
+}::>
+##### <Q::3. Who proposed the natural system of classification?::Bentham & Hooker>
+##### <Q::4. Which scientists are associated with the phylogenetic system of classification?::Bessey & Engler>
+##### <Q::5. What is the basis for cytotaxonomy?::Cell structure, Chromosome number, Behavior>
+##### <Q::6. What is chemotaxonomy based on?::Chemical constitution>
+##### <Q::7. What technique is used in numerical taxonomy for classification?::Using computer techniques>
+##### <Q::8. Into how many groups is the Kingdom Plantae classified?::5>
+##### <Q::9. Why are Bryophytes known as the "Amphibians of the Plant Kingdom"?::They are land plants but require water for sexual reproduction>
+##### <Q::10. What are the three main types of reproduction in Bryophytes?::Sexual, Asexual, Vegetative>
+##### <Q::11. Name an example of a plant that reproduces through Gemmae.::Marchantia>
+##### <Q::12. What is the structure within which Gemmae are produced?::Gemmae cups>
+##### <Q::13. What is the male sex organ of Bryophytes called?::Antheridium>
+##### <Q::14. What is the female sex organ of Bryophytes called?::Archegonium>
+##### <Q::15. What is produced inside the Archegonium?::Egg and later fuses with Antherozoid to form zygote>
+##### <Q::16. Describe the three parts of the Sporophyte in Bryophytes.::Foot, Seta, Capsule>
+##### <Q::17. What is the role of water in the sexual reproduction of Bryophytes?::The antherozoid moves through water to reach the archegonium>
+##### <Q::18. What happens to the spores after they are released from the Capsule?::They germinate and grow into gametophytes>
+##### <Q::19. What do male and female spores develop into?::Male and female gametophytes>
+##### <Q::20. How does vegetative reproduction occur in Bryophytes?::By fragmentation>
+##### <Q::21. What is "Alternation of Generation"?::The alternation of haploid gametophytes and diploid sporophytes in the lifecycle>

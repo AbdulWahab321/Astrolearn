@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ chapter.replace('_',' ') }}{% endblock %}
+{% block title %}{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}{% endblock %}
 
 {% block content %}
     <section class="chapter-header">
-        <h2 id="chapter_heading">{{ chapter.replace('_',' ') }}</h2>
+        <h3 style="text-align: center;margin-bottom: -50px;">Chapter: {{chapter.split("_",maxsplit=1)[0]}}</h3>
+        <h1 id="chapter_heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
         <!--<a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}">Take Quiz</a>-->
     </section>
 
@@ -13,4 +14,28 @@
             {{ content|safe }}
         </div>
     </section>
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var buttons = document.querySelectorAll(".q_and_a_button");
+                buttons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var answer = this.nextElementSibling;
+                        if (!answer || !answer.classList.contains('q_and_a_answer')) {
+                            return;
+                        }
+                        if (answer.classList.contains('show')) {
+                            answer.classList.remove('show');
+                            this.textContent = "Show Answer";
+                            answer.style.maxHeight = null;
+                        } else {
+                            answer.classList.add('show');
+                            this.textContent = "Hide Answer";
+                            setTimeout(() => {
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            }, 10);
+                        }
+                    });
+                });
+            });
+        </script>
 {% endblock %}

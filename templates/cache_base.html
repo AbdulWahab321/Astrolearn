@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ chapter.split("_", 1)[1].replace('_', ' ') }}</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script defer src="/static/js/scripts.js"></script>
+</head>
+
+<body :class="{ 'dark': darkMode }">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="topheader">School Notes</h1>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="/">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="chapter-header">
+            <h3 style="text-align: center; margin-bottom: -50px;">Chapter: {{ chapter.split("_", 1)[0] }}</h3>
+            <h1 id="chapter_heading">{{ chapter.split("_", 1)[1].replace('_', ' ') }}</h1>
+        </section>
+        <section class="chapter-content">
+            <div class="markdown-content">
+                {{ content|safe }}
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var buttons = document.querySelectorAll(".q_and_a_button");
+                buttons.forEach(function (button) {
+                    button.addEventListener("click", function () {
+                        var answer = this.nextElementSibling;
+                        if (!answer || !answer.classList.contains('q_and_a_answer')) {
+                            return;
+                        }
+                        if (answer.classList.contains('show')) {
+                            answer.classList.remove('show');
+                            this.textContent = "Show Answer";
+                            answer.style.maxHeight = null;
+                        } else {
+                            answer.classList.add('show');
+                            this.textContent = "Hide Answer";
+                            setTimeout(() => {
+                                answer.style.maxHeight = answer.scrollHeight + "px";
+                            }, 10);
+                        }
+                    });
+                });
+            });
+        </script>
+    </main>
+</body>
+
+</html>

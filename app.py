@@ -9,12 +9,12 @@ import subprocess  # Use subprocess to manage the Flask process
 port = 5000
 # Global variable to store the Flask process
 flask_process = None
-
+DEVMODE = 1
 def run_app():
     global flask_process
     try:
         # Start the Flask app process
-        flask_process = subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), "main.py"), f'127.0.0.1:{port}'])
+        flask_process = subprocess.Popen([sys.executable, os.path.join(os.path.dirname(__file__), "main.py"), f'127.0.0.1:{port}',("--dev-mode" if DEVMODE else "")])
     except Exception as e:
         print(f"Failed to start Flask app: {e}")
         sys.exit(1)  # Exit the script with an error code
