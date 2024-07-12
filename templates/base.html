@@ -1,28 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}School Notes{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+
+    {% block head %}
+        
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a90e2',
+                        secondary: '#f39c12',
+                        background: '#f4f4f4',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+    </style>
     <script defer src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </head>
-<body :class="{ 'dark': darkMode }">
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1 class="topheader">School Notes</h1>
-                <nav>
-                    <ul class="nav-links">
-                        <li><a href="{{ url_for('index') }}">Home</a></li>
-                    </ul>
-                </nav>
-                
-            </div>
-        </div>
-    </header>
-    <main class="container">
+<body class="flex flex-col h-full bg-background text-gray-800">
+    {% include '_navigation.html' %}
+    <main class="flex-grow container mx-auto px-4 py-8 mt-16">
         {% block content %}{% endblock %}
     </main>
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 School Notes. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

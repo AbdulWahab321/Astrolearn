@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
 
 {% block title %}{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}{% endblock %}
-
+{% block head %}
+{% endblock %}
 {% block content %}
-    <section class="chapter-header">
-        <h3 style="text-align: center;margin-bottom: -50px;">Chapter: {{chapter.split("_",maxsplit=1)[0]}}</h3>
-        <h1 id="chapter_heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
-        <!--<a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}">Take Quiz</a>-->
-    </section>
 
-    <section class="chapter-content">
-        <div class="markdown-content">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
+    <div class="bg-white rounded-lg shadow-md p-6 mb-8 chapter-content" >
+        <div class="prose max-w-none markdown-content">
             {{ content|safe }}
         </div>
-    </section>
+    </div>
+
+    <div id="flashcard-container" class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-4 text-primary">Flashcards</h2>
+        <div id="flashcard" class="bg-secondary text-white rounded-lg p-6 mb-4 min-h-[200px] flex items-center justify-center text-center">
+            <div id="question" class="text-xl"></div>
+            <div id="answer" class="hidden text-xl"></div>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button id="flip-btn" class="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Flip</button>
+            <button id="next-btn" class="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Next</button>
+        </div>
+    </div>
     <script>
-            document.addEventListener("DOMContentLoaded", function () {
+                    document.addEventListener("DOMContentLoaded", function () {
                 var buttons = document.querySelectorAll(".q_and_a_button");
                 buttons.forEach(function (button) {
                     button.addEventListener("click", function () {
@@ -36,6 +45,7 @@
                         }
                     });
                 });
+                
             });
-        </script>
+    </script>
 {% endblock %}

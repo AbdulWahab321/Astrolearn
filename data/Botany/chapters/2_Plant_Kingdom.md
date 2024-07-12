@@ -32,7 +32,7 @@ Kingdom Plantae is classified into **5 groups**:
 
 ---
 
-## Bryophytes
+## I - Bryophytes
 
 Bryophytes are land plants but require water for sexual reproduction. They are known as the =="Amphibians of the Plant Kingdom"==.
 
@@ -55,7 +55,7 @@ Bryophytes are land plants but require water for sexual reproduction. They are k
 
 ---
 
-## Lifecycle/Sexual Reproduction of Liverworts
+### Lifecycle/Sexual Reproduction of Liverworts
 
 - The male sex organ of Bryophytes is called **Antheridium**.
 - Within the Antheridium, the male gamete **Antherozoid (n)** is produced.
@@ -68,11 +68,45 @@ Bryophytes are land plants but require water for sexual reproduction. They are k
 - The Male spore develops into a **Male gametophyte**, and the Female spore develops into a **Female gametophyte**.
 - Bryophytes exhibit **Alternation of Generations**.
 
-## Alternation of Generation
+### Alternation of Generation
 
 The alternation between the **Haploid gametophyte** and **Diploid sporophyte** stages in the lifecycle of an organism is called **"Alternation of Generation"**.
 
 ![Alternation Of Generation](AlternationOfGeneration.svg)
+## Mosses
+### Lifecycle/Sexual Reproduction of Mosses
+
+-  Antherozooid (n) produced within Antheridium fuse with egg (n) produced within  Archegonium to form **Zygote (n)**
+-  Zygote develop into **Sporophyte (2n)**
+-  Sporophyte composed of three parts - **foot, seta, capsule**
+-  Haploid spores are produced within through **Meiosis**
+-  Spores released from capsule undergo **germination** to produce primary protonema, which is unbranched
+-  **Primary protonema** develop into **secondary protonema**, which is branched 
+-  **Leafy stage** produced by secondary protonema develop into gametophyte (n)
+-  Mosses also exhibit **Alternation of generation**
+
+### Importance of Bryophytes 
+
+-  They are the pioneers of ecological succession
+-  They prevent soil erosion
+-  Sphagnum is used for transport of plant materials due to it's water holding capacity 
+
+## II - Pteredophytesfi
+
+-  They are the first **They are vascular land plants**, having **xylem** and **phloem**
+-  Plant body is **Diploid sporophyte** which is differentiated Root, stem, leaf
+-  They exhibit **alternation of generation** 
+-  Example for pteredophytes:
+	-  **Neprolepis**
+	-  **Salagenella**
+	-  **Salvinia**
+	-  **Equisetum**
+### Lifecycle or sexual reproduction in Pteredophytes 
+
+-  Sporophyte (2n) of pteredophyte composed of three parts Root, stem, leaves 
+-  Mature leaf having **sporangia (2n)** is called **sporophyll (2n)**
+-  Haploid spores are produced within **sporangia (2n)**
+-  Spores released from sporangia undergoe germination to produce gametophyte called **Prothallus (n)** 
 # Questions 
 
 #####  <Q::1. Who proposed the artificial system of classification?::Carolus Linnaeus>
