@@ -91,16 +91,16 @@ The alternation between the **Haploid gametophyte** and **Diploid sporophyte** s
 -  They prevent soil erosion
 -  Sphagnum is used for transport of plant materials due to it's water holding capacity 
 
-## II - Pteredophytesfi
+## II - Pteredophytes
 
 -  They are the first **They are vascular land plants**, having **xylem** and **phloem**
 -  Plant body is **Diploid sporophyte** which is differentiated Root, stem, leaf
 -  They exhibit **alternation of generation** 
--  Example for pteredophytes:
-	-  **Neprolepis**
-	-  **Salagenella**
-	-  **Salvinia**
-	-  **Equisetum**
+###### Example for pteredophytes:
+- **Neprolepis**
+- **Salagenella**
+- **Salvinia**
+- **Equisetum**
 ### Lifecycle or sexual reproduction in Pteredophytes 
 
 -  Sporophyte (2n) of pteredophyte composed of three parts Root, stem, leaves 
