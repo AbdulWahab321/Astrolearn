@@ -91,29 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Q&A functionality
-document.addEventListener("DOMContentLoaded", function () {
-    var buttons = document.querySelectorAll(".q_and_a_button");
-    buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            var answer = this.nextElementSibling;
-            if (!answer || !answer.classList.contains('q_and_a_answer')) {
-                return;
-            }
-            if (answer.classList.contains('show')) {
-                answer.classList.remove('show');
-                this.textContent = "Show Answer";
-                answer.style.maxHeight = null;
-            } else {
-                answer.classList.add('show');
-                this.textContent = "Hide Answer";
-                setTimeout(() => {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                }, 10);
-            }
-        });
-    });
-});
+
+
 
 // Add smooth scrolling to all links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
