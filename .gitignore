@@ -3,5 +3,7 @@
 __pycache__
 build
 data/.obsidian
+data/cache
 crawled.txt
 crawler.py
+svgmodderlib/

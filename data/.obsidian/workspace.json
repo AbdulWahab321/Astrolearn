@@ -4,22 +4,43 @@
     "type": "split",
     "children": [
       {
-        "id": "5834eeda3a53b6c3",
-        "type": "tabs",
+        "id": "ef849eb1ef42b96f",
+        "type": "split",
         "children": [
           {
-            "id": "57f1aa7126a63702",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Botany/chapters/2_Plant_Kingdom.md",
-                "mode": "source",
-                "source": false
+            "id": "5834eeda3a53b6c3",
+            "type": "tabs",
+            "dimension": 26.109660574412537,
+            "children": [
+              {
+                "id": "57f1aa7126a63702",
+                "type": "leaf",
+                "state": {
+                  "type": "image",
+                  "state": {
+                    "file": "Zoology/chapters/diagrams/Animal_Kingdom/PhylumClassification.svg"
+                  }
+                }
               }
-            }
+            ]
+          },
+          {
+            "id": "dae32c2cdb5f1c50",
+            "type": "tabs",
+            "dimension": 73.89033942558747,
+            "children": [
+              {
+                "id": "fa07d29f7067f89a",
+                "type": "leaf",
+                "state": {
+                  "type": "diagrams-net",
+                  "state": {}
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -85,7 +106,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Botany/chapters/2_Plant_Kingdom.md",
+                "file": "Zoology/chapters/diagrams/Animal_Kingdom/PhylumClassification.svg",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Botany/chapters/2_Plant_Kingdom.md",
+                "file": "Zoology/chapters/diagrams/Animal_Kingdom/PhylumClassification.svg",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +146,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Botany/chapters/2_Plant_Kingdom.md"
+                "file": "Zoology/chapters/diagrams/Animal_Kingdom/PhylumClassification.svg"
               }
             }
           }
@@ -147,10 +168,11 @@
       "flashcards-obsidian:Generate flashcards": false
     }
   },
-  "active": "57f1aa7126a63702",
+  "active": "04c87f1916e1bff9",
   "lastOpenFiles": [
-    "Botany/chapters/1_Biological_Classification.md",
+    "Zoology/chapters/diagrams/Animal_Kingdom/PhylumClassification_light.svg",
     "Botany/chapters/2_Plant_Kingdom.md",
+    "Botany/chapters/1_Biological_Classification.md",
     "Zoology/chapters/3_Structural_Organizations_In_Animals.md",
     "Zoology/chapters/1_Animal_Kingdom.md",
     "Zoology/chapters/diagrams/Structural_Organizations_In_Animals/OtherDiagrams/FrogAnatomy.svg",

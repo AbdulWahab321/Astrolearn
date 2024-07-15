@@ -13,6 +13,7 @@ dirs_to_ignore_in_data = [".obsidian", "cache"]
 # Path to the data directory
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 STATIC = "--static-mode" in sys.argv
+WRITE_CACHE = "--write-cache" in sys.argv
 
 class HighlightExtension(Extension):
     def extendMarkdown(self, md):
@@ -100,6 +101,9 @@ def chapter(subject, chapter):
         html_content = markdown.markdown(content, extensions=['tables', HighlightExtension()])
         #print("HTML content:", html_content)  # Debug print
         html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')               
+        if WRITE_CACHE:
+            with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"w") as file:
+                file.write(html_content)
         return render_template('chapter.html', subject=subject, chapter=chapter, content=html_content)
     else:
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:

@@ -4,48 +4,48 @@
 {% block head %}
 {% endblock %}
 {% block content %}
-
-    <h1 class="text-4xl font-bold mb-8 text-center text-primary">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8 chapter-content" >
-        <div class="prose max-w-none markdown-content">
+    <div class="chapter-body">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 chapter-content" >
+        <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content">
             {{ content|safe }}
         </div>
     </div>
 
-    <div id="flashcard-container" class="bg-white rounded-lg shadow-md p-6">
-        <h2 class="text-2xl font-bold mb-4 text-primary">Flashcards</h2>
-        <div id="flashcard" class="bg-secondary text-white rounded-lg p-6 mb-4 min-h-[200px] flex items-center justify-center text-center">
+    <div id="flashcard-container" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold mb-4 text-primary-light dark:text-primary-dark">Flashcards</h2>
+        <div id="flashcard" class="bg-secondary-light dark:bg-secondary-dark text-white rounded-lg p-6 mb-4 min-h-[200px] flex items-center justify-center text-center">
             <div id="question" class="text-xl"></div>
             <div id="answer" class="hidden text-xl"></div>
         </div>
         <div class="flex justify-center space-x-4">
-            <button id="flip-btn" class="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Flip</button>
-            <button id="next-btn" class="bg-primary text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Next</button>
+            <button id="flip-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Flip</button>
+            <button id="next-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Next</button>
         </div>
     </div>
+    </div>
     <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                var buttons = document.querySelectorAll(".q_and_a_button");
-                buttons.forEach(function (button) {
-                    button.addEventListener("click", function () {
-                        var answer = this.nextElementSibling;
-                        if (!answer || !answer.classList.contains('q_and_a_answer')) {
-                            return;
-                        }
-                        if (answer.classList.contains('show')) {
-                            answer.classList.remove('show');
-                            this.textContent = "Show Answer";
-                            answer.style.maxHeight = null;
-                        } else {
-                            answer.classList.add('show');
-                            this.textContent = "Hide Answer";
-                            setTimeout(() => {
-                                answer.style.maxHeight = answer.scrollHeight + "px";
-                            }, 10);
-                        }
-                    });
+        document.addEventListener("DOMContentLoaded", function () {
+            var buttons = document.querySelectorAll(".q_and_a_button");
+            buttons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var answer = this.nextElementSibling;
+                    if (!answer || !answer.classList.contains('q_and_a_answer')) {
+                        return;
+                    }
+                    if (answer.classList.contains('show')) {
+                        answer.classList.remove('show');
+                        this.textContent = "Show Answer";
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.classList.add('show');
+                        this.textContent = "Hide Answer";
+                        setTimeout(() => {
+                            answer.style.maxHeight = answer.scrollHeight + "px";
+                        }, 10);
+                    }
                 });
-                
             });
+        });
     </script>
 {% endblock %}

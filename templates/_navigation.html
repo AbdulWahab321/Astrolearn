@@ -1,24 +1,27 @@
-<nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-  <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-          <a href="{{ url_for('index') }}" class="text-2xl font-bold text-primary">School Notes</a>
-          <div class="hidden md:flex space-x-4">
-              <a href="{{ url_for('index') }}" class="text-gray-600 hover:text-primary transition duration-300">Home</a>
-              {% for subject in get_subjects() %}
-                  <a href="{{ url_for('subject', subject=subject) }}" class="text-gray-600 hover:text-primary transition duration-300">{{ subject }}</a>
-              {% endfor %}
-          </div>
-          <button class="md:hidden" id="mobile-menu-button">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-              </svg>
-          </button>
-      </div>
-  </div>
-  <div class="md:hidden hidden" id="mobile-menu">
-      <a href="{{ url_for('index') }}" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
-      {% for subject in get_subjects() %}
-          <a href="{{ url_for('subject', subject=subject) }}" class="block py-2 px-4 text-sm hover:bg-gray-200">{{ subject }}</a>
-      {% endfor %}
-  </div>
+<nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <a href="{{ url_for('index') }}" class="text-2xl font-bold text-primary-light dark:text-primary-dark">School Notes</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="{{ url_for('index') }}" class="text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition duration-300">Home</a>
+                <button id="dark-mode-toggle" class="bg-gray-200 dark:bg-gray-600 rounded-full p-2">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="md:hidden" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+        <a href="{{ url_for('index') }}" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+        {% for subject in get_subjects() %}
+            <a href="{{ url_for('subject', subject=subject) }}" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">{{ subject }}</a>
+        {% endfor %}
+        <button id="mobile-dark-mode-toggle" class="w-full text-left py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Toggle Dark Mode</button>
+    </div>
 </nav>

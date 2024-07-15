@@ -3,13 +3,13 @@
 {% block title %}{{ subject }}{% endblock %}
 
 {% block content %}
-    <h1 class="text-4xl font-bold mb-8 text-center text-primary">{{ subject }} Chapters</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark">{{ subject }} Chapters</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 chapter-card">
         {% for chapter in chapters %}
-            <a href="{{ url_for('chapter', subject=subject, chapter=chapter) }}" class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+            <a href="{{ url_for('chapter', subject=subject, chapter=chapter) }}" class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
                 <div class="p-6">
-                    <h2 class="text-xl font-semibold mb-2 text-primary">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h2>
-                    <p class="text-gray-600">Click to view chapter content</p>
+                    <h2 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Click to view chapter content</p>
                 </div>
             </a>
         {% endfor %}

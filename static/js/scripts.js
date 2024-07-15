@@ -3,54 +3,116 @@ document.getElementById('mobile-menu-button').addEventListener('click', function
     document.getElementById('mobile-menu').classList.toggle('hidden');
 });
 
+// Dark mode toggle
+function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    let current_theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    update_images(current_theme);  // Update the images based on the new theme preference
+    localStorage.setItem('theme', current_theme);
+}
+function update_images(current_theme){
+    if (current_theme === "light") {
+        let img_tags = document.getElementsByTagName("img");
+        Array.prototype.forEach.call(img_tags, (img) => {
+            let current_src = img.src;
+            if (!current_src.endsWith("_light.svg")) {
+                let light_src = current_src.replace(".svg", "_light.svg");
+                img.src = light_src;
+            } else if (current_src.endsWith("_light.svg")) {
+                // Already a light image, do nothing
+            } else {
+                // Handle other cases if necessary
+            }
+        });
+    } else {
+        let img_tags = document.getElementsByTagName("img");
+        Array.prototype.forEach.call(img_tags, (img) => {
+            let current_src = img.src;
+            if (current_src.endsWith("_light.svg")) {
+                let original_src = current_src.replace("_light.svg", ".svg");
+                img.src = original_src;
+            } else if (current_src.endsWith(".svg")) {
+                // Already a dark image, do nothing
+            } else {
+                // Handle other cases if necessary
+            }
+        });
+    }
+}
+document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+document.getElementById('mobile-dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
+// Check for saved theme preference or use device preference
+const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+// Apply the saved theme on page load
+if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+}
+
+// The rest of your JavaScript code remains the same
 // Flashcard functionality
 document.addEventListener("DOMContentLoaded", function () {
     const flashcardContainer = document.getElementById('flashcard-container');
-    const flashcard = document.getElementById('flashcard');
-    const question = document.getElementById('question');
-    const answer = document.getElementById('answer');
-    const flipBtn = document.getElementById('flip-btn');
-    const nextBtn = document.getElementById('next-btn');
+    if (flashcardContainer) {
+        const flashcard = document.getElementById('flashcard');
+        const question = document.getElementById('question');
+        const answer = document.getElementById('answer');
+        const flipBtn = document.getElementById('flip-btn');
+        const nextBtn = document.getElementById('next-btn');
 
-    // Example flashcards (replace with actual data)
-    const flashcards = [
-        { question: "What is the capital of France?", answer: "Paris" },
-        { question: "What is 2 + 2?", answer: "4" },
-        // Add more flashcards here
-    ];
+        // Example flashcards (replace with actual data)
+        const flashcards = [
+            { question: "What is the capital of France?", answer: "Paris" },
+            { question: "What is 2 + 2?", answer: "4" },
+            // Add more flashcards here
+        ];
 
-    let currentCard = 0;
+        let currentCard = 0;
 
-    function showCard() {
-        question.textContent = flashcards[currentCard].question;
-        answer.textContent = flashcards[currentCard].answer;
-        answer.classList.add('hidden');
-        flashcardContainer.classList.remove('hidden');
-        
-        anime({
-            targets: flashcard,
-            scale: [0.9, 1],
-            opacity: [0, 1],
-            easing: 'easeOutElastic(1, .8)',
-            duration: 600
-        });
-    }
+        function showCard() {
+            question.textContent = flashcards[currentCard].question;
+            answer.textContent = flashcards[currentCard].answer;
+            answer.classList.add('hidden');
+            flashcardContainer.classList.remove('hidden');
+        }
 
-    flipBtn.addEventListener('click', () => {
-        flashcard.style.transform = 'rotateY(180deg)';
-        setTimeout(() => {
+        flipBtn.addEventListener('click', () => {
             question.classList.toggle('hidden');
             answer.classList.toggle('hidden');
-            flashcard.style.transform = 'rotateY(0deg)';
-        }, 150);
-    });
+        });
 
-    nextBtn.addEventListener('click', () => {
-        currentCard = (currentCard + 1) % flashcards.length;
+        nextBtn.addEventListener('click', () => {
+            currentCard = (currentCard + 1) % flashcards.length;
+            showCard();
+        });
+        update_images(theme);
         showCard();
-    });
+    }
+});
 
-    showCard();
+// Q&A functionality
+document.addEventListener("DOMContentLoaded", function () {
+    var buttons = document.querySelectorAll(".q_and_a_button");
+    buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            var answer = this.nextElementSibling;
+            if (!answer || !answer.classList.contains('q_and_a_answer')) {
+                return;
+            }
+            if (answer.classList.contains('show')) {
+                answer.classList.remove('show');
+                this.textContent = "Show Answer";
+                answer.style.maxHeight = null;
+            } else {
+                answer.classList.add('show');
+                this.textContent = "Hide Answer";
+                setTimeout(() => {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }, 10);
+            }
+        });
+    });
 });
 
 // Add smooth scrolling to all links
