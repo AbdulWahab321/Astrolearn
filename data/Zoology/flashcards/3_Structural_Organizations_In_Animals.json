@@ -1,0 +1,164 @@
+[
+    {
+        "question": "What is the scientific name of the Indian Bullfrog?",
+        "answer": "Rana tigrina",
+        "keywords": ["Indian Bullfrog", "Rana tigrina"],
+        "image": ""
+    },
+    {
+        "question": "To which phylum does the Indian Bullfrog belong?",
+        "answer": "Chordata",
+        "keywords": ["Phylum", "Chordata"],
+        "image": ""
+    },
+    {
+        "question": "To which class does the Indian Bullfrog belong?",
+        "answer": "Amphibia",
+        "keywords": ["Class", "Amphibia"],
+        "image": ""
+    },
+    {
+        "question": "What type of animals are Indian Bullfrogs?",
+        "answer": "Amphibians",
+        "keywords": ["Amphibians", "Indian Bullfrog"],
+        "image": ""
+    },
+    {
+        "question": "Are Indian Bullfrogs cold-blooded animals?",
+        "answer": "Yes, they are poikilotherms.",
+        "keywords": ["Cold-blooded", "Poikilotherm"],
+        "image": ""
+    },
+    {
+        "question": "What behavior do Indian Bullfrogs exhibit during peak summer?",
+        "answer": "They enter a state of aestivation.",
+        "keywords": ["Aestivation", "Summer", "Indian Bullfrog"],
+        "image": ""
+    },
+    {
+        "question": "What behavior do Indian Bullfrogs exhibit during peak winter?",
+        "answer": "They hibernate.",
+        "keywords": ["Hibernation", "Winter", "Indian Bullfrog"],
+        "image": ""
+    },
+    {
+        "question": "What is the term used for the protective membrane on a frog's eye?",
+        "answer": "Nictitating membrane",
+        "keywords": ["Nictitating membrane", "Protection", "Eyes"],
+        "image": ""
+    },
+    {
+        "question": "What is the function of the vocal sacs in male Indian Bullfrogs?",
+        "answer": "They produce a croaking sound.",
+        "keywords": ["Vocal sacs", "Croaking sound"],
+        "image": ""
+    },
+    {
+        "question": "What is the purpose of the cobulatory pad in male Indian Bullfrogs?",
+        "answer": "It helps in gripping.",
+        "keywords": ["Cobulatory pad", "Male", "Gripping"],
+        "image": ""
+    },
+    {
+        "question": "What is the color of the dorsal side of the Indian Bullfrog?",
+        "answer": "Greenish",
+        "keywords": ["Dorsal side", "Color", "Greenish"],
+        "image": ""
+    },
+    {
+        "question": "What color is present on the ventral side of the Indian Bullfrog?",
+        "answer": "Pale yellow",
+        "keywords": ["Ventral side", "Color", "Pale yellow"],
+        "image": ""
+    },
+    {
+        "question": "What feature makes the body of the Indian Bullfrog smooth and slippery?",
+        "answer": "Presence of mucus",
+        "keywords": ["Mucus", "Smooth", "Slippery"],
+        "image": ""
+    },
+    {
+        "question": "How many digits are present on the forelimbs and hindlimbs of the Indian Bullfrog?",
+        "answer": "Forelimbs have 4 digits and hindlimbs have 5 digits.",
+        "keywords": ["Forelimbs", "Hindlimbs", "Digits"],
+        "image": ""
+    },
+    {
+        "question": "What is the primary purpose of webbed digits in Indian Bullfrogs?",
+        "answer": "They help in swimming.",
+        "keywords": ["Webbed digits", "Swimming"],
+        "image": ""
+    },
+    {
+        "question": "What is the main characteristic of the Indian Bullfrog's body structure?",
+        "answer": "The body is divided into head and trunk, with no neck and tail.",
+        "keywords": ["Body structure", "Head", "Trunk"],
+        "image": ""
+    },
+    {
+        "question": "What does the nictitating membrane do?",
+        "answer": "It protects the eyes while the frog is in water.",
+        "keywords": ["Nictitating membrane", "Eyes", "Water"],
+        "image": ""
+    },
+    {
+        "question": "What is the role of the membranous tympanum in Indian Bullfrogs?",
+        "answer": "It receives sound signals.",
+        "keywords": ["Tympanum", "Sound signals"],
+        "image": ""
+    },
+    {
+        "question": "What parts are included in the alimentary canal of a frog?",
+        "answer": "Mouth, Pharynx, Oesophagus, Stomach, Intestine, Rectum, Cloaca.",
+        "keywords": ["Alimentary canal", "Digestive system"],
+        "image": "OtherDiagrams/FrogAnatomy.svg"
+    },
+    {
+        "question": "What digestive gland secretes bile in frogs?",
+        "answer": "Liver",
+        "keywords": ["Liver", "Bile", "Digestive gland"],
+        "image": ""
+    },
+    {
+        "question": "What is the function of bile in the digestive system of frogs?",
+        "answer": "Bile helps to break down fat.",
+        "keywords": ["Bile", "Fat breakdown"],
+        "image": ""
+    },
+    {
+        "question": "What gland secretes pancreatic juice in frogs?",
+        "answer": "Pancreas",
+        "keywords": ["Pancreas", "Pancreatic juice"],
+        "image": ""
+    },
+    {
+        "question": "What does pancreatic juice break down in frogs?",
+        "answer": "Carbohydrates and proteins.",
+        "keywords": ["Pancreatic juice", "Carbohydrates", "Proteins"],
+        "image": ""
+    },
+    {
+        "question": "What structure receives bile and pancreatic juice in the frog’s digestive system?",
+        "answer": "Duodenum",
+        "keywords": ["Duodenum", "Bile", "Pancreatic juice"],
+        "image": ""
+    },
+    {
+        "question": "What substance combines with chyme in the duodenum?",
+        "answer": "Bile and pancreatic juice.",
+        "keywords": ["Chyme", "Duodenum", "Bile", "Pancreatic juice"],
+        "image": ""
+    },
+    {
+        "question": "What is chyme?",
+        "answer": "Partially digested food.",
+        "keywords": ["Chyme", "Partially digested food"],
+        "image": ""
+    },
+    {
+        "question": "What is the purpose of the gastric gland in the stomach of frogs?",
+        "answer": "It secretes HCl and gastric juice.",
+        "keywords": ["Gastric gland", "HCl", "Gastric juice"],
+        "image": ""
+    }
+]

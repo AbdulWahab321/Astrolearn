@@ -1,9 +1,14 @@
 .obsidian
 .vscode
-__pycache__
+__pycache__/
 build
+data/.obsidian/*
 data/.obsidian
 data/cache
 crawled.txt
 crawler.py
 svgmodderlib/
+mktest.py
+templates/test.html
+templates/teststyles.css
+COMPLETE_TEST/

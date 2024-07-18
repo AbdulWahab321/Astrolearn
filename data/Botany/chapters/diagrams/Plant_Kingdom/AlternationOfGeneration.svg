@@ -1,22 +1,22 @@
-<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Definitions for arrow marker -->
-    <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#4FC3F7" />
-        </marker>
-    </defs>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="400" height="400">
+    
+    <ns0:defs>
+        <ns0:marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <ns0:path d="M 0 0 L 10 5 L 0 10 z" fill="#5a9bd5" />
+        </ns0:marker>
+    </ns0:defs>
 
-    <!-- Node: Gametophyte -->
-    <rect x="50" y="100" width="120" height="80" rx="10" ry="10" fill="#2D2D2D" stroke="#4FC3F7" stroke-width="1"/>
-    <text x="110" y="130" fill="#FFFFFF" font-family="Helvetica" font-size="12" font-weight="bold" text-anchor="middle">Gametophyte</text>
-    <text x="110" y="155" fill="#FFFFFF" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle">Haploid (n)</text>
+    
+    <ns0:rect x="50" y="100" width="120" height="80" rx="10" ry="10" fill="#3a3f5a" stroke="#4FC3F7" stroke-width="1" />
+    <ns0:text x="110" y="130" fill="#ffffff" font-family="Helvetica" font-size="12" font-weight="bold" text-anchor="middle">Gametophyte</ns0:text>
+    <ns0:text x="110" y="155" fill="#ffffff" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle">Haploid (n)</ns0:text>
 
-    <!-- Node: Sporophyte -->
-    <rect x="230" y="100" width="120" height="80" rx="10" ry="10" fill="#2D2D2D" stroke="#4FC3F7" stroke-width="1"/>
-    <text x="290" y="130" fill="#FFFFFF" font-family="Helvetica" font-size="12" font-weight="bold" text-anchor="middle">Sporophyte</text>
-    <text x="290" y="155" fill="#FFFFFF" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle">Diploid (2n)</text>
+    
+    <ns0:rect x="230" y="100" width="120" height="80" rx="10" ry="10" fill="#3a3f5a" stroke="#4FC3F7" stroke-width="1" />
+    <ns0:text x="290" y="130" fill="#ffffff" font-family="Helvetica" font-size="12" font-weight="bold" text-anchor="middle">Sporophyte</ns0:text>
+    <ns0:text x="290" y="155" fill="#ffffff" font-family="Helvetica" font-size="10" font-weight="bold" text-anchor="middle">Diploid (2n)</ns0:text>
 
-    <!-- Curved Arrows -->
-    <path d="M 110 95 C 110 50, 290 50, 290 95" stroke="#4FC3F7" stroke-width="2" fill="transparent" marker-end="url(#arrow)"/>
-    <path d="M 290 185 C 290 230, 110 230, 110 185" stroke="#4FC3F7" stroke-width="2" fill="transparent" marker-end="url(#arrow)"/>
-</svg>
+    
+    <ns0:path d="M 110 95 C 110 50, 290 50, 290 95" stroke="#4FC3F7" stroke-width="2" fill="transparent" marker-end="url(#arrow)" />
+    <ns0:path d="M 290 185 C 290 230, 110 230, 110 185" stroke="#4FC3F7" stroke-width="2" fill="transparent" marker-end="url(#arrow)" />
+</ns0:svg>

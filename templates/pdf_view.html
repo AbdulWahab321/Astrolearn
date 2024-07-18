@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}View PDF{% endblock %}
+
+{% block content %}
+<section class="text-center mb-12 animate__animated animate__fadeIn pdf-view-body">
+    <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">{{subject.split("XI")[1]}} {{year}} Question Paper</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style="margin-bottom: 4px;">From Hsslive.in</p>
+    <a href="{{ 'https://drive.google.com/uc?export=download&id='+pdf_link.split('https://drive.google.com/file/d/')[1].split('/preview')[0] }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Download PDF</a>
+</section>
+
+<section class="pdf-viewer flex justify-center items-center">
+    <div class="w-full md:w-3/4 lg:w-2/3 h-screen bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md overflow-hidden pdf-container">
+        <iframe 
+            src="{{ pdf_link }}" 
+            class="w-full h-full rounded-lg" 
+            frameborder="0" 
+            scrolling="auto">
+        </iframe>
+    </div>
+</section>
+{% endblock %}

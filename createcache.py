@@ -1,6 +1,5 @@
 import markdown
-from markdown.extensions import Extension
-from markdown.preprocessors import Preprocessor
+from lib.mdprocessorlib import markdown,CustomSyntaxExtension
 import os
 import re
 import jinja2
@@ -8,37 +7,7 @@ import jinja2
 # Define directories
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 
-class HighlightExtension(Extension):
-    def extendMarkdown(self, md):
-        md.preprocessors.register(HighlightPreprocessor(md), 'highlight', 30)
-
-class HighlightPreprocessor(Preprocessor):
-    def run(self, lines):
-        new_lines = []
-        multiline_question = False
-        question_text = ""
-        answer_lines = []
-        for line in lines:
-            line = re.sub(r'==(.+?)==', r'<strong><span class="highlighted_text">\1</span></strong>', line)
-            if multiline_question:
-                if re.search(r"}::>", line):
-                    answer_html = markdown.markdown("\n".join(answer_lines).strip())
-                    new_lines.append(f"""<div class="question"><p>{question_text.strip()}</p><button class="q_and_a_button" onclick="">Show Answer</button><div class="q_and_a_answer">{answer_html}</div></div>""")
-                    multiline_question = False
-                    question_text = ""
-                    answer_lines = []
-                else:
-                    answer_lines.append(line)
-                continue
-            match = re.match(r".+<Q::(.+?)::{\s*", line)
-            if match:
-                multiline_question = True
-                question_text = match.group(1)
-                continue
-            line = re.sub(r'<Q::(.+?)::(.+?)>', r"""<div class="question"><p>\1</p><button class="q_and_a_button" onclick="">Show Answer</button><p class="q_and_a_answer">\2</p></div>""", line)
-            new_lines.append(line)
-        return new_lines
-
+md = markdown.Markdown(extensions=["tables","attr_list",CustomSyntaxExtension(debug=False)])
 def get_subjects():
     return [d for d in os.listdir(DATA_DIR) if os.path.isdir(os.path.join(DATA_DIR, d)) and os.path.exists(os.path.join(DATA_DIR, d,"chapters"))]
 
@@ -64,7 +33,8 @@ def create_cache():
     for subject in get_subjects():
         for chapter in get_chapters(subject, True):
             content = get_markdown_content(subject, chapter)
-            html_content = markdown.markdown(content, extensions=['tables', HighlightExtension()])
+            
+            html_content = md.convert(content)
             html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')
             
             if not os.path.exists(os.path.join(DATA_DIR, "cache", subject)):

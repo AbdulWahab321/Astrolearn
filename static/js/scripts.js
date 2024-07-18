@@ -38,6 +38,7 @@ function update_images(current_theme){
             }
         });
     }
+
 }
 document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
 document.getElementById('mobile-dark-mode-toggle').addEventListener('click', toggleDarkMode);
@@ -52,45 +53,22 @@ if (theme === 'dark') {
 
 // The rest of your JavaScript code remains the same
 // Flashcard functionality
-document.addEventListener("DOMContentLoaded", function () {
-    const flashcardContainer = document.getElementById('flashcard-container');
-    if (flashcardContainer) {
-        const flashcard = document.getElementById('flashcard');
-        const question = document.getElementById('question');
-        const answer = document.getElementById('answer');
-        const flipBtn = document.getElementById('flip-btn');
-        const nextBtn = document.getElementById('next-btn');
 
-        // Example flashcards (replace with actual data)
-        const flashcards = [
-            { question: "What is the capital of France?", answer: "Paris" },
-            { question: "What is 2 + 2?", answer: "4" },
-            // Add more flashcards here
-        ];
 
-        let currentCard = 0;
+document.addEventListener('DOMContentLoaded', (event) => {
+    const developmentBox = document.getElementById('developmentBox');
+    const closeBtn = document.getElementById('closeBtn');
 
-        function showCard() {
-            question.textContent = flashcards[currentCard].question;
-            answer.textContent = flashcards[currentCard].answer;
-            answer.classList.add('hidden');
-            flashcardContainer.classList.remove('hidden');
-        }
-
-        flipBtn.addEventListener('click', () => {
-            question.classList.toggle('hidden');
-            answer.classList.toggle('hidden');
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentCard = (currentCard + 1) % flashcards.length;
-            showCard();
-        });
-        update_images(theme);
-        showCard();
+    // Check if the development box has been closed before
+    if (localStorage.getItem('developmentBoxClosed') === 'true') {
+        developmentBox.style.display = 'none';
     }
-});
 
+    closeBtn.addEventListener('click', () => {
+        developmentBox.style.display = 'none';
+        localStorage.setItem('developmentBoxClosed', 'true');
+    });
+});
 
 
 

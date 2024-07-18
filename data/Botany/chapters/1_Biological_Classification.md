@@ -52,3 +52,4 @@
 - Methanogens are present in the guts of Ruminant animals (Cow, Buffalo etc), They produce **Methane** (Biogas) from the dung of these animals
 
 ![Bacteria Classifications](ClassificationFlowcharts/BacteriaClassifications.svg)
+

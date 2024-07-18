@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Quiz Selection{% endblock %}
+
+{% block content %}
+<div class="container mx-auto my-8">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark">Quiz Selection</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for subject, chapters in quiz_structure.items() %}
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <div class="p-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-primary-light dark:text-primary-dark">{{ subject }}</h2>
+                    <ul class="space-y-2">
+                        {% for chapter in chapters %}
+                            <li>
+                                <a href="{{ url_for('quiz', subject=subject, chapter=chapter) }}" 
+                                   class="block py-2 px-4 rounded transition duration-300 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200">
+                                    {{ chapter.replace('_', ' ').title() }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

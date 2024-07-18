@@ -1,0 +1,53 @@
+{
+    "light": {
+        "{http://www.w3.org/2000/svg}rect": [
+            "#d8eaf7",
+            "#4fc3f7",
+            "#b0c4de"
+        ],
+        "{http://www.w3.org/2000/svg}ellipse": [
+            "#4fc3f7",
+            "#b0c4de"
+        ],
+        "{http://www.w3.org/2000/svg}g": [
+            "#333333"
+        ],
+        "{http://www.w3.org/2000/svg}path": [
+            "#5a9bd5",
+            "rgb(0, 0, 0)",
+            "#4fc3f7",
+            "transparent",
+            "#788aa3",
+            "#4fc3c7"
+        ],
+        "{http://www.w3.org/2000/svg}text": [
+            "#333333"
+        ]
+    },
+    "dark": {
+        "{http://www.w3.org/2000/svg}rect": [
+            "#3a3f5a",
+            "#4fc3f7",
+            "#1e1e1e"
+        ],
+        "{http://www.w3.org/2000/svg}ellipse": [
+            "#3a3f5a",
+            "#4fc3f7"
+        ],
+        "{http://www.w3.org/2000/svg}g": [
+            "#ffffff"
+        ],
+        "{http://www.w3.org/2000/svg}path": [
+            "#5a9bd5",
+            "rgb(0, 0, 0)",
+            "#4fc3f7",
+            "transparent",
+            "#788aa3",
+            "#4fc3c7"
+        ],
+        "{http://www.w3.org/2000/svg}text": [
+            "#ffffff",
+            "#ccfdff"
+        ]
+    }
+}

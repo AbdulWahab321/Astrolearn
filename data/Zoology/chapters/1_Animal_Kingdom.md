@@ -1,6 +1,6 @@
 Animals are multicellular, heterotrophic organisms
 
-## Basis of Classifications
+## Basis of Classifications 
 ---
 1. Notochord
 2. Levels of organisms
@@ -11,9 +11,10 @@ Animals are multicellular, heterotrophic organisms
 7. Segmentation
 8. Reproduction of development
 
+## 1. Classification based on **Notochord** 
 ![Phylum classification](PhylumClassification.svg)
 
-## Subphylum Vertebra
+## Subphylum Vertebra 
 ---
 
 ![Subphylum Vertebra](SubphylumVertebraClassification.svg)
