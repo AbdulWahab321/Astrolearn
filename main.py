@@ -146,7 +146,7 @@ def chapter(subject, chapter):
                 os.makedirs(os.path.join(DATA_DIR,"cache",subject))            
             with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"w") as file:
                 file.write(html_content)
-        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter))
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True)
     else:
 
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:

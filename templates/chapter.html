@@ -3,116 +3,24 @@
 {% block title %}{{ chapter.split("_", maxsplit=1)[1].replace('_', ' ') }}{% endblock %}
 
 {% block head %}
-<script src="https://kit.fontawesome.com/acee183fcc.js" crossorigin="anonymous"></script>    <style>
-        /* Custom styles for the sidebar */
-        .sidebar {
-            width: 300px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: -300px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-            z-index: 1000;
-            overflow-y: auto;
-        }
 
-        .sidebar.open {
-            left: 0;
-        }
-
-        .sidebar-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: transparent;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: left 0.3s ease;
-        }
-
-        .sidebar-toggle i {
-            color: #333;
-            font-size: 1.5rem;
-        }
-
-        .sidebar-toggle.open {
-            left: 310px;
-        }
-
-        .sidebar-content {
-            padding: 20px;
-        }
-
-        .toc-tree {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .toc-tree ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
-
-        .toc-tree li {
-            margin: 10px 0;
-        }
-
-        .toc-tree a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .toc-tree a:hover {
-            color: #007bff;
-        }
-
-        .collapse-icon {
-            cursor: pointer;
-            margin-right: 5px;
-        }
-
-        .chapter-body {
-            margin-left: 60px; /* Adjust to accommodate sidebar width */
-            transition: margin-left 0.3s ease-in-out;
-            width: 100%;
-        }
-
-        .sidebar.open + .chapter-body {
-            margin-left: 360px; /* Adjust to accommodate sidebar width */
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 250px;
-            }
-
-            .sidebar.open + .chapter-body {
-                margin-left: 250px;
-            }
-        }
-    </style>
 {% endblock %}
 
 {% block content %}
 <div class="chapter-container">
-    <!-- Sidebar toggle button (hamburger icon) -->
+    <!-- Sidebar toggle button (hamburger icon) 
     <button class="sidebar-toggle" id="sidebarToggle">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fas fa-bars"></i>
     </button>
-    
-    <!-- Sidebar content -->
+    -->
+    <!-- Sidebar content 
     <div class="sidebar" id="sidebar">
         <div class="sidebar-content">
             <h3>Table of Contents</h3>
             <ul id="tocTree" class="toc-tree"></ul>
         </div>
     </div>
-    
+    -->
     <!-- Main content area -->
     <div class="chapter-body">
         <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading" style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{ chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>
