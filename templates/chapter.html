@@ -1,97 +1,230 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}{% endblock %}
+{% block title %}{{ chapter.split("_", maxsplit=1)[1].replace('_', ' ') }}{% endblock %}
+
 {% block head %}
-{% endblock %}
-{% block content %}
-    <div class="chapter-body">
-        <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading" style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{ chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>
-    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 chapter-content" >
-        <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content">
-            {{ content|safe }}
-        </div>
-    </div>
- <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <div id="flashcard-container" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hidden">
-        <h2 class="text-2xl font-bold mb-4 text-primary-light dark:text-primary-dark">Flashcards</h2>
-        <div class="flashcard">
-            <div id="question" class="text-xl"></div>
-            <div id="answer" class="hidden text-xl"></div>
-        </div>
-        <div class="flex justify-center space-x-4">
-            <button id="flip-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Flip</button>
-            <button id="next-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Next</button>
-        </div>
-    </div>
-
-    </div>
-    <script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Q&A functionality
-    var buttons = document.querySelectorAll(".q_and_a_button");
-    buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            var answer = this.parentElement.querySelector('.q_and_a_answer');
-            if (!answer) {
-                return;
-            }
-            if (answer.classList.contains('show')) {
-                answer.classList.remove('show');
-                this.textContent = "Show Answer";
-                answer.style.maxHeight = null;
-                answer.style.opacity = 0;
-                answer.style.padding = 0;
-            } else {
-                answer.classList.add('show');
-                this.textContent = "Hide Answer";
-                answer.style.maxHeight = answer.scrollHeight + "10px";
-                answer.style.opacity = 1;
-                answer.style.padding = "10px";
-            }
-        });
-    });
-
-    const flashcardContainer = document.getElementById('flashcard-container');
-    if (flashcardContainer) {
-        const flashcard = document.querySelector('.flashcard');
-        const question = document.getElementById('question');
-        const answer = document.getElementById('answer');
-        const flipBtn = document.getElementById('flip-btn');
-        const nextBtn = document.getElementById('next-btn');
-
-        // Parsing the flashcards JSON data
-        const flashcards = JSON.parse({{ flashcards|tojson|safe }});
-        console.log(flashcards);
-        let currentCard = 0;
-
-        function showCard() {
-            question.textContent = flashcards[currentCard].question;
-            answer.textContent = flashcards[currentCard].answer;
-            answer.classList.add('hidden');
-            if (flashcards[currentCard].image) {
-                answer.innerHTML += `<br><img src="${flashcards[currentCard].image}" alt="Diagram" class="flashcard-image"/>`;
-            }
-            flashcardContainer.classList.remove('hidden');
+<script src="https://kit.fontawesome.com/acee183fcc.js" crossorigin="anonymous"></script>    <style>
+        /* Custom styles for the sidebar */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
         }
 
-        flipBtn.addEventListener('click', () => {
-            flashcard.classList.toggle('flip');
-        });
+        .sidebar.open {
+            left: 0;
+        }
 
-        nextBtn.addEventListener('click', () => {
-            if(!answer.classList.contains("hidden")){
-                answer.classList.add('hidden');
-                question.classList.remove("hidden");
+        .sidebar-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: transparent;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar-toggle i {
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .sidebar-toggle.open {
+            left: 310px;
+        }
+
+        .sidebar-content {
+            padding: 20px;
+        }
+
+        .toc-tree {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .toc-tree ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .toc-tree li {
+            margin: 10px 0;
+        }
+
+        .toc-tree a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toc-tree a:hover {
+            color: #007bff;
+        }
+
+        .collapse-icon {
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .chapter-body {
+            margin-left: 60px; /* Adjust to accommodate sidebar width */
+            transition: margin-left 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        .sidebar.open + .chapter-body {
+            margin-left: 360px; /* Adjust to accommodate sidebar width */
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 250px;
             }
-            currentCard = (currentCard + 1) % flashcards.length;
-            showCard();
+
+            .sidebar.open + .chapter-body {
+                margin-left: 250px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="chapter-container">
+    <!-- Sidebar toggle button (hamburger icon) -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar content -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <h3>Table of Contents</h3>
+            <ul id="tocTree" class="toc-tree"></ul>
+        </div>
+    </div>
+    
+    <!-- Main content area -->
+    <div class="chapter-body">
+        <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading" style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{ chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>
+        <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 chapter-content">
+            <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content">
+                {{ content|safe }}
+            </div>
+        </div>
+        
+        <!-- Flashcards container -->
+        <div id="flashcard-container" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hidden">
+            <h2 class="text-2xl font-bold mb-4 text-primary-light dark:text-primary-dark">Flashcards</h2>
+            <div class="flashcard">
+                <div id="question" class="text-xl"></div>
+                <div id="answer" class="hidden text-xl"></div>
+            </div>
+            <div class="flex justify-center space-x-4">
+                <button id="flip-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Flip</button>
+                <button id="next-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+        const tocTree = document.getElementById('tocTree');
+        const content = document.querySelector('.chapter-content');
+
+        // Toggle sidebar
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('open');
         });
 
-        showCard();
-    }    
-});
+        // Generate table of contents
+        function generateTOC() {
+            const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            const tocItems = [];
 
+            headings.forEach((heading, index) => {
+                const level = parseInt(heading.tagName.charAt(1));
+                const text = heading.textContent;
+                const id = `heading-${index}`;
+                heading.id = id;
 
-    </script>
+                const item = { level, text, id };
+                tocItems.push(item);
+            });
+                
+            buildTOCTree(tocItems);
+        }
+
+        // Build TOC tree
+        function buildTOCTree(items) {
+            let currentLevel = 1;
+            let currentParent = tocTree;
+
+            items.forEach(item => {
+                while (item.level > currentLevel) {
+                    const lastItem = currentParent.lastElementChild;
+                    
+                    if (lastItem) {
+                        if (!lastItem.querySelector('ul')) {
+                            const subList = document.createElement('ul');
+                            lastItem.appendChild(subList);
+                        }
+                        currentParent = lastItem.querySelector('ul');
+                    }
+                    currentLevel++;
+                }
+
+                while (item.level < currentLevel) {
+                    currentParent = currentParent.parentElement.parentElement;
+                    currentLevel--;
+                }
+
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = `#${item.id}`;
+                a.textContent = item.text;
+                
+                const subHeadings = items.filter(subItem => subItem.level === item.level + 1 && subItem.id.startsWith(item.id));
+
+                if (subHeadings.length > 0) {
+                    const collapseIcon = document.createElement('span');
+                    collapseIcon.className = 'collapse-icon';
+                    collapseIcon.innerHTML = '▶';
+                    collapseIcon.onclick = toggleCollapse;
+                    li.appendChild(collapseIcon);
+                }
+                
+                li.appendChild(a);
+                currentParent.appendChild(li);
+            });
+        }
+
+        // Toggle collapse/expand
+        function toggleCollapse(event) {
+            const icon = event.target;
+            const li = icon.parentElement;
+            const subList = li.querySelector('ul');
+            
+            if (subList) {
+                subList.style.display = subList.style.display === 'none' ? 'block' : 'none';
+                icon.innerHTML = subList.style.display === 'none' ? '▶' : '▼';
+            }
+        }
+
+        generateTOC();
+    });
+</script>
 {% endblock %}
