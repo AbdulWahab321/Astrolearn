@@ -1,3 +1,4 @@
 Flask
 gunicorn
 markdown2
+beautifulsoup4
