@@ -247,11 +247,9 @@ $$h\nu = h\nu_0\ + \frac{1}{2}mv^2$$
 # Mathematical Equations and Values
 
 ## Charge to Mass Ratio of Electron
-- **Value:** 
   $$\frac{e}{m} = 1.758820 \times 10^{11} \, \text{Ckg}^{-1}$$
 
 ## Charge on Electron
-- **Value:** 
   $$e = -1.6022 \times 10^{-19} \, \text{C}$$
 
 ## Mass of Electron
@@ -278,9 +276,11 @@ $$h\nu = h\nu_0\ + \frac{1}{2}mv^2$$
   
 ## Photoelectric Effect
   $$h\nu = h\nu_0 + \frac{1}{2}mv^2$$
+  
   - $hv$ = Energy of the incident light
   - $hv_0$ = Threshold energy (Work function, $W_0$)
   - $\frac{1}{2}mv^2$ = Kinetic energy of electrons
+
 
 ## Wave Nature of Electromagnetic Radiation
 - **Relationship between Frequency, Speed of Light, and Wavelength:** 
