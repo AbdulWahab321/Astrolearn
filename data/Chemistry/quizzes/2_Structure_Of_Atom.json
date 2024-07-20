@@ -1,0 +1,193 @@
+
+[
+  {
+    "question": "Who discovered electrons using the cathode ray discharge tube experiment?",
+    "options": ["J.J Thomson", "E. Goldstein", "James Chadwick", "R.A Millikan"],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the charge to mass ratio of an electron as calculated by J.J Thomson?",
+    "options": [
+      "$1.6022 \\times 10^{-19} \\text{ C/kg}$",
+      "$1.758820 \\times 10^{11} \\text{ C/kg}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$",
+      "$6.626 \\times 10^{-34} \\text{ Js}$"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "Which scientist determined the charge on the electron through the Oil Drop Experiment?",
+    "options": ["J.J Thomson", "E. Goldstein", "James Chadwick", "R.A Millikan"],
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the mass of an electron as determined from the charge to mass ratio and charge of the electron?",
+    "options": [
+      "$1.67493 \\times 10^{-27} \\text{ kg}$",
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$",
+      "$3.2 \\times 10^{-19} \\text{ C}$"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "Who discovered protons using a modified cathode ray discharge tube?",
+    "options": ["J.J Thomson", "E. Goldstein", "James Chadwick", "Rutherford"],
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the charge of a proton?",
+    "options": [
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$1.758820 \\times 10^{11} \\text{ C/kg}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$",
+      "$0 \\text{ C}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the mass of a proton?",
+    "options": [
+      "$1.67493 \\times 10^{-27} \\text{ kg}$",
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$",
+      "$3.2 \\times 10^{-19} \\text{ C}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Who discovered neutrons by bombarding a thin sheet of beryllium with alpha particles?",
+    "options": ["J.J Thomson", "E. Goldstein", "James Chadwick", "Rutherford"],
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the mass of a neutron?",
+    "options": [
+      "$1.67493 \\times 10^{-27} \\text{ kg}$",
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$",
+      "$3.2 \\times 10^{-19} \\text{ C}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What does the atomic number (Z) represent in an atom?",
+    "options": [
+      "Number of neutrons",
+      "Number of protons",
+      "Number of electrons",
+      "Mass number"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the mass number (A) of an atom equal to?",
+    "options": [
+      "Number of protons",
+      "Number of neutrons",
+      "Number of protons and neutrons",
+      "Number of electrons"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the charge on a proton?",
+    "options": [
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$1.67493 \\times 10^{-27} \\text{ kg}$",
+      "$-1.6022 \\times 10^{-19} \\text{ C}$",
+      "$9.1094 \\times 10^{-31} \\text{ kg}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Which of the following is an example of an isotope?",
+    "options": [
+      "$^{14}_{6}\\text{C}$ and $^{14}_{7}\\text{N}$",
+      "$^{12}_{6}\\text{C}$ and $^{13}_{6}\\text{C}$",
+      "$^{35}_{17}\\text{Cl}$ and $^{37}_{17}\\text{Cl}$",
+      "$^{40}_{18}\\text{Ar}$ and $^{40}_{20}\\text{Ca}$"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the wave number ($\\bar{\\nu}$) of electromagnetic radiation?",
+    "options": [
+      "The number of waves per unit length",
+      "The speed of light",
+      "The wavelength of the radiation",
+      "The frequency of the radiation"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the Planck constant (h)?",
+    "options": [
+      "$6.626 \\times 10^{-34} \\text{ Js}$",
+      "$1.6022 \\times 10^{-19} \\text{ C}$",
+      "$3 \\times 10^8 \\text{ m/s}$",
+      "$1.758820 \\times 10^{11} \\text{ C/kg}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Which of the following is true about photoelectric effect?",
+    "options": [
+      "Electrons are ejected only if the light has a frequency higher than the threshold frequency",
+      "The kinetic energy of ejected electrons depends on the intensity of the light",
+      "The number of electrons ejected is proportional to the frequency of light",
+      "Electrons are ejected immediately regardless of the light frequency"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the energy of a quantum of radiation proportional to?",
+    "options": [
+      "Frequency",
+      "Wavelength",
+      "Speed of light",
+      "Wave number"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the radius of an atom according to Rutherford's model?",
+    "options": [
+      "$10^{-10} \\text{ m}$",
+      "$10^{-15} \\text{ m}$",
+      "$1 \\text{ fm}$",
+      "$1 \\text{ nm}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "In which experiment did J.J Thomson discover the charge to mass ratio of the electron?",
+    "options": [
+      "Oil Drop Experiment",
+      "Gold Foil Experiment",
+      "Cathode Ray Tube Experiment",
+      "Alpha Particle Scattering Experiment"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What does the term 'isobars' refer to?",
+    "options": [
+      "Atoms of different elements with the same mass number",
+      "Atoms with the same number of neutrons but different atomic numbers",
+      "Atoms with the same number of protons but different mass numbers",
+      "Atoms with different numbers of protons and neutrons"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the frequency of electromagnetic radiation related to?",
+    "options": [
+      "Speed of light",
+      "Wavelength",
+      "Wave number",
+      "Both speed of light and wavelength"
+    ],
+    "correct_answer": 3
+  }
+]

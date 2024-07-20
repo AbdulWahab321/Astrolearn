@@ -36,7 +36,7 @@ It is the scientific naming of organisms having two parts, The first part repres
 -  It is the classification of organisms into different taxons (Rank/Levels)
 
 ![Taxons](Taxons.svg)
-- In taxonomic category, taxas are arranged from lower levels to higher levels called taxonomic hierarchy
+- In taxonomic category, taxa are arranged from lower levels to higher levels called taxonomic hierarchy
 
 ### Taxonomic Category of Man and Housefly
 

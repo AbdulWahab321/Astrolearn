@@ -39,6 +39,7 @@
     --heading-color-h3: #3f769b; /* Color for h3 headings */
     --heading-gradient: -webkit-linear-gradient(#4f86ff, #1706ff);
     --side-bar-h1-color: #766cff;
+    --headings-color-underline:#0084ff;
     /* UI element colors */
     --button-bg-color: #3498db; /* Background color for buttons */
     --button-text-color: #ffffff; /* Text color for buttons */
@@ -114,12 +115,13 @@
 
        
     /*--link-hover-color: #2980b9; /* Color for text links on hover */
-    
-    --heading-color-h1: #ecf0f1;
-    --heading-color-h2: #abc6d6;
-    --heading-color-h3: #88b8c5;
+    --headings-color:#0084ff;
+    --headings-color-underline:#0084ff;
+    --heading-color-h1: #569fff;
+    --heading-color-h2: #6bc9ff;
+    --heading-color-h3: #9ad5e6;
     --heading-gradient: -webkit-linear-gradient(#0b58ff, #06eeff);
-
+    
     --button-bg-color: #1269bb;
     --button-text-color: #1a1a1a;
     --button-hover-bg-color: #65adff;
@@ -188,8 +190,10 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+    color:var(--headings-color) ;
     margin-bottom: var(--spacing-medium);
     line-height: 1.2;
+    text-decoration: wavy dashed var(--headings-color-underline) 2px !important;
 }
 
 h1 { 

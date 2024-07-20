@@ -34,13 +34,20 @@
 
     <script>
         const quizData = {{ quiz_data | tojson | safe }};
+        var quiz_data = shuffleArray(quizData);
         const quizTimeLimit = {{ quiz_time_limit | tojson }};
+        console.log(quizData)
         let currentQuestion = 0;
         let score = 0;
         let userAnswers = [];
         let timer;
         let timeLeft;
-
+        function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+        }
+        }
         function initializeQuiz() {
             loadQuestion();
             if (quizTimeLimit !== false) {
@@ -52,13 +59,14 @@
 
         function loadQuestion() {
             const question = quizData[currentQuestion];
-            document.getElementById('question').textContent = question.question;
+            document.getElementById('question').innerHTML = question.question;
             const optionsContainer = document.getElementById('options');
             optionsContainer.innerHTML = '';
             
             question.options.forEach((option, index) => {
                 const button = document.createElement('button');
-                button.textContent = option;
+                button.innerHTML = option; // Use innerHTML instead of textContent for HTML content
+                button.id = "option-" + index;
                 button.className = 'option-btn';
                 button.onclick = () => selectOption(index);
                 optionsContainer.appendChild(button);
@@ -77,8 +85,10 @@
             questionContainer.style.animation = 'none';
             questionContainer.offsetHeight; // Trigger reflow
             questionContainer.style.animation = null;
-        }
 
+            // Process LaTeX with MathJax
+            MathJax.typeset();
+        }
         function startTimer(duration) {
             timeLeft = duration;
             updateTimerDisplay();

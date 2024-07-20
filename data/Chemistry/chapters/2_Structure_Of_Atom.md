@@ -214,6 +214,7 @@ $$c = \nu\lambda$$
 	2. The **energy** of quantum of radiation is **proportional** to its **Frequency**
 $$E \propto \nu $$
 $$E = h\nu $$
+$$E = \frac{hc}{\lambda}$$
 	$$h = planck's\ constant$$
 	$$h = 6.626 \times 10^{-34}$$
 	
@@ -222,8 +223,6 @@ $$E = h\nu $$
 - An **ideal body** which **emits and absorbs all frequencies of radiations** is called **Black body**
 - The radiation emitted by such body is called **Black body radiation**
 - The frequency of black body radiation only depends on **Temperature**
-$$E = h\nu$$
-$$E = \frac{hc}{\lambda}$$
 
 ## Photoelectric Effect
 
@@ -244,3 +243,193 @@ $$h\nu = h\nu_0\ + \frac{1}{2}mv^2$$
 2.  $hv_0$    => Threshold energy ($W_0$)
 3. $\frac{1}{2}mv^2$ => Kinetic energy of electrons
 
+
+# Mathematical Equations and Values
+
+## Charge to Mass Ratio of Electron
+- **Value:** 
+  $$\frac{e}{m} = 1.758820 \times 10^{11} \, \text{Ckg}^{-1}$$
+
+## Charge on Electron
+- **Value:** 
+  $$e = -1.6022 \times 10^{-19} \, \text{C}$$
+
+## Mass of Electron
+  $$m_e = \frac{e}{\left(\frac{e}{m_e}\right)} = \frac{1.6 \times 10^{-19}}{1.758820 \times 10^{11}} \color{#007acc} \approx 9.1094 \times 10^{-31} \, \text{kg}$$
+
+## Charge on Proton
+  $$1.6022 \times 10^{-19} \, \text{C}$$
+
+## Mass of Proton
+  $$1.67262 \times 10^{-27} \, \text{kg}$$
+
+## Mass of Neutron
+  $$1.67493 \times 10^{-27} \, \text{kg}$$
+
+## Speed of Light (c)
+  $$c = 3 \times 10^8 \, \text{m/s}$$
+
+## Planck's Constant (h)
+  $$h = 6.626 \times 10^{-34} \, \text{Js}$$
+
+## Energy of Photon/Quanta
+  $$E = h\nu$$
+  $$E = \frac{hc}{\lambda}$$
+  
+## Photoelectric Effect
+  $$h\nu = h\nu_0 + \frac{1}{2}mv^2$$
+  - $hv$ = Energy of the incident light
+  - $hv_0$ = Threshold energy (Work function, $W_0$)
+  - $\frac{1}{2}mv^2$ = Kinetic energy of electrons
+
+## Wave Nature of Electromagnetic Radiation
+- **Relationship between Frequency, Speed of Light, and Wavelength:** 
+  $$c = \nu \lambda$$
+
+## Wave Number
+  $$\bar{\nu} = \frac{1}{\lambda} \, \text{m}^{-1}$$
+
+
+
+# Questions
+
+<Q[1. Who discovered electrons?]?[J.J Thomson]>
+
+<Q[2. What experiment did J.J Thomson use to discover electrons?]?[Cathode ray discharge tube experiment]>
+
+<Q[3. At what conditions can the electrical discharge through gas be observed in the cathode ray tube?]?{
+- Very low pressure
+- High voltage
+};
+
+<Q[4. What materials were used to coat the tube behind the anode in the cathode ray experiment?]?[Fluorescent or phosphorescent materials like ZnS (zinc sulphide)]>
+
+<Q[5. In the absence of electric or magnetic fields, how do cathode rays travel?]?[In straight lines]>
+
+<Q[6. How do cathode rays behave in the presence of electric or magnetic fields?]?[They behave similar to negatively charged particles]>
+
+<Q[7. What does the behavior of cathode rays in electric or magnetic fields indicate?]?[That cathode rays consist of negatively charged particles called electrons]>
+
+<Q[8. Who measured the charge to mass ratio of an electron?]?[J.J Thomson]>
+
+<Q[9. What factors affect the deviation of cathode rays from their path in an electric or magnetic field?]?{
+- Magnitude of the negative charge on the particle
+- Mass of the particle
+- Strength of the electric or magnetic field
+};
+
+<Q[10. What is the charge to mass ratio value calculated by J.J Thomson?]?[$1.758820 × 10^{11} Ckg^{-1}$]>
+
+<Q[11. Who determined the charge on the electron?]?[R.A Millikan]>
+
+<Q[12. What experiment did R.A Millikan use to determine the charge on the electron?]?[Oil Drop Experiment]>
+
+<Q[13. What is the charge on the electron?]?[$-1.6022 × 10^{-19} C$]>
+
+<Q[14. What is the mass of an electron?]?[9.1094 × 10^{-31} kg]>
+
+<Q[15. Who discovered protons?]?[E. Goldstein]>
+
+<Q[16. Who named the positive charge as proton?]?[Rutherford]>
+
+<Q[17. What led to the discovery of positively charged particles called canal rays?]?[Electrical discharge carried out in a cathode ray tube]>
+
+<Q[18. What are the properties of canal rays?]?{
+- They are positively charged ions that depend upon the nature of gas
+- Charge to mass ratio of canal rays depends upon the nature of gas
+- Some of the positive charges carry multiple units of electric charge
+- The behavior of these particles in magnetic or electric fields is opposite to that of cathode rays
+- The smallest and lightest positive ion was obtained from hydrogen and was called proton
+};
+
+<Q[19. What is the charge on a proton?]?[$1.6022 × 10^{-19} C$]>
+
+<Q[20. What is the mass of a proton?]?[$1.67262 × 10^{-27} kg$]>
+
+<Q[21. Who discovered neutrons?]?[James Chadwick]>
+
+<Q[22. How were neutrons discovered?]?[By bombarding a thin sheet of beryllium with alpha particles]>
+
+<Q[23. What is the mass of a neutron?]?[1.67493 × 10^{-27} kg]>
+
+<Q[24. What is the atomic number (Z) of an atom?]?[The number of protons or electrons present in an atom]>
+
+<Q[25. What is the mass number (A) of an atom?]?[The total number of protons and neutrons in an atom]>
+
+<Q[26. What are isotopes?]?[Atoms with the same atomic number but different mass number]>
+
+<Q[27. What are isobars?]?[Atoms of different elements having the same mass number]>
+
+<Q[28. What are isotones?]?[Atoms having the same number of neutrons but different atomic numbers]>
+
+<Q[29. What is the speed of electromagnetic radiation in a vacuum?]?[$3 × 10^{8} m/s$]>
+
+<Q[30. What is Planck's constant?]?[$6.626 × 10^{-34} Js$]>
+
+<Q[31. What is a black body?]?[An ideal body which emits and absorbs all frequencies of radiation]>
+
+<Q[32. What is the photoelectric effect?]?[The ejection of electrons by certain metals when light falls on them]>
+
+<Q[33. What metals are examples of those that exhibit the photoelectric effect?]?{
+- Potassium
+- Rubidium
+- Cesium
+};
+
+<Q[34. What is the threshold frequency ($\nu_0$) in the context of the photoelectric effect?]?[The minimum frequency required for the ejection of electrons]>
+
+<Q[35. What is the work function ($W_0$) in the context of the photoelectric effect?]?[The corresponding minimum work required for the ejection of electrons]>
+
+<Q[36. What is J.J Thomson's model of the atom also known as?]?{
+- Plum pudding model
+- Raisin model
+- Watermelon model
+};
+
+<Q[37. What did Rutherford conclude from his alpha particle scattering experiment?]?{
+- Most of the space in an atom is empty
+- A heavy positive charged center is present in the atom called nucleus
+- Nucleus is very small compared to atom
+};
+
+<Q[38. What are the postulates of Rutherford's nuclear model of the atom?]?{
+- Most of the mass and all positive charge is concentrated at the center of the atom called nucleus
+- Electrons are revolving around the nucleus with a very high speed, in circular paths called orbits
+- Electrons and nucleus are held together by electrostatic force
+};
+
+<Q[39. What are the drawbacks of Rutherford's nuclear model of the atom?]?{
+- Failed to explain the stability of atom
+- Does not say anything about the electronic structure of atom
+};
+
+<Q[40. Who found electromagnetic radiation (EMR)?]?[James Maxwell]>
+
+<Q[41. What are the features of electromagnetic radiation (EMR)?]?{
+- Electric field and magnetic field are perpendicular to each other
+- Electric field and magnetic field are perpendicular to the direction of propagation of waves
+- They do not require any medium for propagation
+- They can move in vacuum with a speed of $3 × 10^{8} m/s$
+};
+
+<Q[42. What is the wave number (ν̄) in the context of electromagnetic radiation?]?[The number of waves per unit length, reciprocal of wavelength]>
+
+<Q[43. What is Planck's Quantum Theory?]?{
+- Atoms and molecules could emit or absorb energy not continuously but discontinuously in small packets of energy called quanta or photons
+- The energy of quantum of radiation is proportional to its frequency
+};
+
+<Q[44. What is a black body radiation?]?[The radiation emitted by an ideal body which emits and absorbs all frequencies of radiation]>
+
+<Q[45. What does the frequency of black body radiation depend on?]?[Temperature]>
+
+<Q[46. What are the characteristics of the photoelectric effect?]?{
+- For the ejection of electrons, the incident light must have a minimum frequency called threshold frequency (ν_0)
+- The kinetic energy of ejected electron depends on the frequency of radiation
+- The number of electrons ejected is proportional to the intensity of light
+- The electrons are ejected from the metal surface as soon as the beam of light strikes the surface
+};
+
+<Q[47. What was the formula given by Planck for the energy of quantum of radiation?]?[$E = h\nu$]>
+
+<Q[48. What is the formula for the energy of quantum of radiation in terms of wavelength?]?[$E = \frac{hc}{\lambda}$]>

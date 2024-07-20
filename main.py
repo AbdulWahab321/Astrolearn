@@ -106,7 +106,8 @@ def quiz_selection():
                 for chapter in os.listdir(subject_path) 
                 if chapter.endswith('.json')
             ]
-    
+            quiz_structure[subject].sort(key=lambda x:x.split("_",maxsplit=1)[0])
+
     return render_template('quiz_selection.html', quiz_structure=quiz_structure,website_name = WEBSITE_NAME)
 
 @app.route('/quiz/<subject>/<chapter>',endpoint="quiz")
@@ -145,8 +146,8 @@ def chapter(subject, chapter):
         if WRITE_CACHE:
             if not os.path.exists(os.path.join(DATA_DIR,"cache",subject)):
                 os.makedirs(os.path.join(DATA_DIR,"cache",subject))            
-            with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"w") as file:
-                file.write(html_content)
+            with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"wb") as file:
+                file.write(html_content.encode())
         return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True)
     else:
 
