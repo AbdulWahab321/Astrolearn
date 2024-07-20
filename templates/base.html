@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{website_name}}{% endblock %}</title>
+    <script src="https://kit.fontawesome.com/acee183fcc.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static', filename='js/pinger.js') }}"></script>
+    <script>
+        MathJax = {
+          tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+        };
+        </script>
+      <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+    </script>  
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -23,20 +33,16 @@
                 }
             }
         }
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to render LaTeX content
-            function renderMathJax() {
-                MathJax.typeset();
-            }
 
-            // Call the function when the page loads
-            renderMathJax();
-        });
+        
+    </script>
+
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     {% block head %}{% endblock %}
 </head>
 <body class="flex flex-col h-full bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-200">
+    
     <div class="development-box" id="developmentBox">
         <p>{{website_name}} is in development. It may contain errors or incomplete data.</p>
         <span class="close-btn" id="closeBtn">&times;</span>

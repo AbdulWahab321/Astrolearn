@@ -3,7 +3,7 @@ import os
 import re
 import json
 import sys
-from lib.mdprocessorlib import CustomSyntaxExtension,finalize_post_processing_md,markdown
+from lib.mdprocessorlib import CustomSyntaxExtension
 app = Flask(__name__)
 
 dirs_to_ignore_in_data = [".obsidian", "cache"]
@@ -12,7 +12,7 @@ WEBSITE_NAME = "AstroLearn"
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 STATIC = "--static-mode" in sys.argv
 WRITE_CACHE = "--write-cache" in sys.argv
-md = markdown.Markdown(extensions=["tables","attr_list",CustomSyntaxExtension(debug=False)])
+md = CustomSyntaxExtension(extras=["tables"])
     
 def get_subjects():
     """Get a list of subjects from the data directory."""
@@ -138,6 +138,7 @@ def chapter(subject, chapter):
         content = get_markdown_content(subject, chapter)
         
         html_content = md.convert(content)
+        #html_content = md.finalize(html_content)
         #html_content = finalize_post_processing_md(html_content)
         #print("HTML content:", html_content)  # Debug print
         html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')               

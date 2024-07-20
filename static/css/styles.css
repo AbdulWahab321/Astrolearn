@@ -6,11 +6,14 @@
     --tertiary-color: #e74c3c; /* Third accent color for highlights or warnings */
 
     /* Background colors */
+    --scrollbar-color:#71b8ff;
+    --scrollbar-track-color:#d3efff;
     --body-bg-color: #d8eaf7; /* Main background color for the body */
     --body-border-color: #f0f3f5; /* Main background color for the body */
     --card-bg-color: #ffffff; /* Background color for cards and content sections */
-    --header-bg-color: #34495e; /* Background color for the header */
+    --header-bg-color: #5eaeff; /* Background color for the header */
     --footer-bg-color: #7d9fc2; /* Background color for the footer */
+    --sidebar-bg-color:#cce6ff;
     --frame-color:var(--body-bg-color);
     /* Text colors */
     --text-color-primary: #2c3e50; /* Main text color */
@@ -35,6 +38,7 @@
     --heading-color-h2: #3c546d; /* Color for h2 headings */
     --heading-color-h3: #3f769b; /* Color for h3 headings */
     --heading-gradient: -webkit-linear-gradient(#4f86ff, #1706ff);
+    --side-bar-h1-color: #766cff;
     /* UI element colors */
     --button-bg-color: #3498db; /* Background color for buttons */
     --button-text-color: #ffffff; /* Text color for buttons */
@@ -43,12 +47,12 @@
     --input-border-color: #bdc3c7; /* Border color for input fields */
 
     /* Table colors */
-    --table-header-bg: #195e8d; /* Background color for table headers */
+    --table-header-bg: #37afff; /* Background color for table headers */
     --table-row-even-bg: #f9f9f9; /* Background color for even table rows */
     --table-row-odd-bg: #ffffff; /* Background color for odd table rows */
     --table-row-hover-bg: #ecf0f1; /* Background color for table rows on hover */
     --table-border-color: #bdc3c7; /* Color for table borders */
-
+    --table-header-color:#2c2a35;
     /* Code and pre colors */
     --code-bg-color: #f1f2f6; /* Background color for inline code */
     --code-text-color: #333333; /* Text color for inline code */
@@ -75,26 +79,32 @@
 
     /* Transitions */
     --transition-speed: 0.3s; /* Default transition speed */
+    --ul-1-color:#ffffff;
+    --ul-2-color:#9fdcff;
+    --ul-3-color:#003881;
+    --ul-4-color:#5f9fff;
 }
 
 /* Dark mode variables */
 .dark {
-    --primary-color: #fb6161;
+    --primary-color: #619efb;
     --secondary-color: #2ecc71;
     --tertiary-color: #e74c3c;
 
+    --scrollbar-color:#315170;
+    --scrollbar-track-color: #262b3a;
     --body-bg-color: #1e1e1e;
     --body-dark-color: #373e44; /* Main background color for the body */
     --card-bg-color: #2c3e50;
     --header-bg-color: #1c2833;
     --footer-bg-color: #6b8dad;
     --frame-color:var(--body-bg-color);
-
+    --sidebar-bg-color:#2c3e50;
     --text-color-primary: #e0e0e0;
     --text-color-secondary: #95a5a6;
-    --text-color: #d1fcff;
+    --text-color: #c7e1e4;
     --highlighted_text:#e74c3c; 
-    --bold_text:  #09ceff;
+    --bold_text:  #89CFF0;
     /* Link colors */
     --link-color: #3498db; /* Color for text links */
     --link-hover-color: var(--card-bg-color); 
@@ -115,7 +125,8 @@
     --button-hover-bg-color: #65adff;
     --input-bg-color: #34495e;
     --input-border-color: #4a6278;
-
+    
+    --table-header-color:#ffffff;
     --table-header-bg: #406285;
     --table-row-even-bg: #2c3e50;
     --table-row-odd-bg: #34495e;
@@ -127,12 +138,16 @@
     --pre-bg-color: #2c3e50;
     --pre-text-color: #e0e0e0;
 
-    --qa-bg-color: #2c3e50;
+
+    --qa-bg-color: #242931;
     --qa-border-color: #34495e;
 
     --q-option-selected-color:#107ac0;
     --q-option-text-color:#b0dffd;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
+    --side-bar-h1-color: #95c3ff;
+
 }
 
 /* Global Styles */
@@ -151,6 +166,25 @@ body {
     transition: background-color var(--transition-speed), color var(--transition-speed);
     scroll-behavior: smooth;
 }
+/* Scrollbar Styles */
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: var(--border-radius);
+    background-color: var(--scrollbar-track-color);
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--scrollbar-track-color);
+    color:var(--input-bg-color)
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: var(--border-radius);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: var(--scrollbar-color);
+    
+}
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -159,6 +193,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { 
+    text-align: center;
     font-size: 2.5em; 
     color: var(--heading-color-h1);
 }
@@ -265,35 +300,7 @@ main {
     background-color: var(--button-hover-bg-color);
 }
 
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--spacing-large);
-}
 
-th, td {
-    padding: var(--spacing-small);
-    text-align: left;
-    border-bottom: 1px solid var(--table-border-color);
-}
-
-th {
-    background-color: var(--table-header-bg);
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: var(--table-row-even-bg);
-}
-
-tr:nth-child(odd) {
-    background-color: var(--table-row-odd-bg);
-}
-
-tr:hover {
-    background-color: var(--table-row-hover-bg);
-}
 
 /* Code */
 code {
@@ -328,21 +335,6 @@ pre {
     box-shadow: var(--box-shadow);
 }
 
-.q_and_a_button {
-    cursor: pointer;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    border: none;
-    font-size: 14px;
-    border-radius: var(--border-radius);
-    padding: var(--spacing-small) var(--spacing-medium);
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-}
-
-.q_and_a_button:hover {
-    background-color: var(--button-hover-bg-color);
-    transform: scale(1.05);
-}
 
 .q_and_a_answer {
     max-height: 0;
@@ -670,9 +662,11 @@ footer {
     border-bottom-color: var(--link-hover-color);
 }
 
+
 .pdf-view-body a,
 .subjects a,
 .categories a{
+
     color: var(--link-color);
     background-color: var(--link-bg-color);
     border-color: var(--link-color);
@@ -681,6 +675,8 @@ footer {
     transition-duration: .5s;
     border: 1px solid var(--link-color); 
 }
+
+
 .pdf-view-body a:hover,
 .subjects a:hover,
 .categories a:hover {
@@ -956,7 +952,6 @@ img{
     font-size: 20px;
     margin-left: 20px;
 }
-
 /* Slide-in animation for the development box */
 @keyframes slideIn {
     from {
@@ -967,4 +962,299 @@ img{
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+.sidebar-toggle {
+    background: transparent;
+    color: #333;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1002;
+}
+
+.dark .sidebar-toggle {
+    color: #fff;
+}
+
+.sidebar-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle .icon {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-toggle.active .icon {
+    transform: rotate(180deg);
+}
+.sidebar-toggle {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 1002;
+}
+
+.dark .sidebar-toggle {
+    color: #fff;
+}
+
+.sidebar-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle .icon {
+    transition: transform 0.3s ease;
+}
+
+.sidebar-toggle .rotate{
+    transform: rotate(180deg) !important;
+    transition: transform 0.5s ease !important;
+}
+
+.sidebar {
+    width: 350px;
+    background: var(--sidebar-bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    position: fixed;
+    top: 64px;
+    left: -250px;
+    height: calc(100% - 64px);
+    overflow-y: auto;
+    transition: left 0.3s ease, transform 0.3s ease;
+    z-index: 1001;
+    transform: translateX(-100%);
+}
+
+.sidebar.active {
+    left: 0;
+    transform: translateX(0);
+}
+
+.sidebar h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+.sidebar .heading-1 { padding-left: 0; }
+.sidebar .heading-2 { padding-left: 15px; }
+.sidebar .heading-3 { padding-left: 30px; }
+.sidebar .heading-4 { padding-left: 45px; }
+.sidebar .heading-5 { padding-left: 60px; }
+.sidebar .heading-6 { padding-left: 75px; }
+
+.content {
+    transition: margin-left 0.3s ease, padding-left 0.3s ease;
+    margin-left: 0;
+}
+
+.content.shifted {
+    margin-left: 300px;
+    padding-left: 20px; /* Adjust padding for content to ensure space for sidebar */
+}
+.sidebar-content h3{
+    color:var(--heading-color-h2);
+    font-size: 1.4em;
+    
+}
+@media (max-width: 768px) {
+    .content.shifted {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .sidebar-toggle {
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+    }
+}
+
+.toc-tree ul {
+    list-style-type: none;
+    padding-left: 30px;
+    margin-bottom: 5px;
+}
+
+
+.toc-tree li {
+    margin-bottom: 5px;
+}
+
+
+.toc-tree .collapsible {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toc-tree .collapsible::before {
+    content: '\25B6';
+    display: inline-block;
+    margin-right: 6px;
+    transition: transform 0.3s;
+}
+
+.toc-tree .collapsible.expanded::before {
+    transform: rotate(90deg);
+}
+
+.toc-tree .hidden {
+    display: none;
+}
+
+.toc-tree a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;    
+}
+
+.toc-tree .toc-li-a-1{
+    color: var(--side-bar-h1-color) !important;
+    font-size: 1.2em !important;
+}
+
+.toc-tree .toc-li-a-2{
+    font-size: 1.1em !important;
+}
+.toc-tree .toc-li-a-3{
+    font-size: 0.9em !important;
+}
+.toc-tree .toc-li-a-4{
+    font-size: 0.8em !important;
+}
+
+.toc-tree a:hover{
+    color:var(--primary-color) !important;
+    transform: translateY(3px);
+    transition: transform 0.3s ease-in-out;
+
+}
+@media (max-width: 768px) {
+    .content.shifted {
+        margin-left: 0;
+    }
+}
+
+.question button{
+    font-size: 15px;
+    width: 20%;
+    height: 5%;
+    color: var(--link-color);
+    background-color: var(--link-bg-color);
+    border-color: var(--link-color);
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+    transition-duration: .5s;
+    border: 1px solid var(--link-color); 
+}
+
+
+.question button:hover{
+    color: var(--link-hover-color);
+    background-color: var(--link-hover-bg-color);
+    
+}
+/* Tables */
+/* Table styles */
+table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-bottom: 1em !important;
+    background-color: var(--table-border-color) !important; /* Match dark mode background */
+    color: var(--text-color) !important; /* Light text color for contrast */
+    border: 1px solid var(--table-border-color) !important; /* Table border */
+
+}
+
+table th, table td {
+    padding: 0.75em 1em !important;
+    border: 1px solid var(--table-border-color) !important; /* Border for table cells */
+    text-align: center !important; /* Ensure left alignment */
+}
+
+table th {
+    background-color: var(--table-header-bg) !important; /* Darker header background */
+    font-weight: bold !important;
+    color: var(--table-header-color) !important; /* Light text color */
+    font-size: 20px;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--table-row-odd-bg) !important; /* Alternating row color */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--table-row-even-bg) !important; /* Base row color */
+}
+
+
+
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block !important;
+    }
+
+    table tr {
+        margin-bottom: 1em !important;
+    }
+
+    table td, table th {
+        text-align: right !important;
+        padding-left: 50% !important;
+        position: relative !important;
+    }
+
+    table td::before, table th::before {
+        content: attr(data-label) !important;
+        position: absolute !important;
+        left: 0 !important;
+        width: 50% !important;
+        padding-left: 1em !important;
+        text-align: left !important;
+        font-weight: bold !important;
+    }
+}
+
+.math-block{
+    font-size: 18px;
+    
 }

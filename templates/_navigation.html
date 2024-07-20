@@ -1,9 +1,14 @@
-<nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-50">
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-50">
     <div class="container mx-auto px-4">
         <div class="flex justify-between items-center py-4">
-            <a href="{{ url_for('index') }}" class="text-2xl font-bold text-primary-light dark:text-primary-dark">{{ website_name }}</a>
+            <div class="flex items-center">
+                <button id="sidebarToggle" class="sidebar-toggle mr-4">
+                    <i class="fa-solid fa-bars icon"></i>
+                </button>
+                <a href="{{ url_for('index') }}" class="text-2xl font-bold text-primary-light dark:text-primary-dark">{{ website_name }}</a>
+            </div>
             <div class="hidden md:flex space-x-4">
-
                 <button id="dark-mode-toggle" class="bg-gray-200 dark:bg-gray-600 rounded-full p-2">
                     <svg class="w-6 h-6 text-gray-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>

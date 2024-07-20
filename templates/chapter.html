@@ -4,135 +4,185 @@
 
 {% block head %}
 
+
 {% endblock %}
 
 {% block content %}
+
 <div class="chapter-container">
-    <!-- Sidebar toggle button (hamburger icon) 
-    <button class="sidebar-toggle" id="sidebarToggle">
-        <i class="fas fa-bars"></i>
-    </button>
-    -->
-    <!-- Sidebar content 
-    <div class="sidebar" id="sidebar">
+    <div id="sidebar" class="sidebar">
         <div class="sidebar-content">
             <h3>Table of Contents</h3>
             <ul id="tocTree" class="toc-tree"></ul>
+            <br>
         </div>
     </div>
-    -->
-    <!-- Main content area -->
-    <div class="chapter-body">
-        <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading" style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{ chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>
-        <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
+    <div class="chapter-body content">
+        <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading"
+            style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{
+            chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>
+        <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">{{
+            chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h1>
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 chapter-content">
-            <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content">
+            <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content content">
                 {{ content|safe }}
-            </div>
-        </div>
-        
-        <!-- Flashcards container -->
-        <div id="flashcard-container" class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hidden">
-            <h2 class="text-2xl font-bold mb-4 text-primary-light dark:text-primary-dark">Flashcards</h2>
-            <div class="flashcard">
-                <div id="question" class="text-xl"></div>
-                <div id="answer" class="hidden text-xl"></div>
-            </div>
-            <div class="flex justify-center space-x-4">
-                <button id="flip-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Flip</button>
-                <button id="next-btn" class="bg-primary-light dark:bg-primary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 btn">Next</button>
             </div>
         </div>
     </div>
 </div>
-
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    $(document).ready(function () {
+        $("a").on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+
+                // Get the target element
+                var targetElement = $(this.hash);
+                if (targetElement.length) {
+                    // Get the offset from the top of the document
+                    var offset = targetElement.offset().top;
+
+                    // Get the height of the navbar, if it exists
+                    var navbarHeight = $("#navbar").outerHeight() || 0;
+
+                    // Adjust the scroll position by subtracting the navbar height
+                    var scrollPosition = offset - navbarHeight - 10;
+
+                    // Animate the scroll
+                    $('html, body').animate({
+                        scrollTop: scrollPosition
+                    }, 800);
+                }
+            }
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        var buttons = document.querySelectorAll(".q_and_a_button");
+        buttons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var answer = this.parentElement.querySelector('.q_and_a_answer');
+                if (!answer) {
+                    return;
+                }
+                if (answer.classList.contains('show')) {
+                    answer.classList.remove('show');
+                    this.textContent = "Show Answer";
+                    answer.style.maxHeight = null;
+                    answer.style.opacity = 0;
+                    answer.style.padding = 0;
+                } else {
+                    answer.classList.add('show');
+                    this.textContent = "Hide Answer";
+                    answer.style.maxHeight = answer.scrollHeight + "10px";
+                    answer.style.opacity = 1;
+                    answer.style.padding = "10px";
+                }
+            });
+        });
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
         const tocTree = document.getElementById('tocTree');
-        const content = document.querySelector('.chapter-content');
+        const content = document.querySelector(".markdown-content");
 
-        // Toggle sidebar
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('open');
+        if (sidebarToggle) {
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+                content.classList.toggle('shifted');
+                if (sidebarToggle.style.transform === 'rotate(180deg)') {
+                    sidebarToggle.style.transform = 'rotate(0deg)';
+                } else {
+                    sidebarToggle.style.transform = 'rotate(180deg)';
+                }
+                if (sidebarToggle.querySelector('.icon')) {
+                    const icon = sidebarToggle.querySelector('.icon');
+
+                }
+            });
+        }
+        document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('active') && !sidebar.contains(e.target) && !sidebarToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+
+                content.classList.remove('shifted');
+                if (sidebarToggle.querySelector('.icon')) {
+                    const icon = sidebarToggle.querySelector('.icon');
+
+                }
+            }
         });
+        function createTocItem(heading, index, level) {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            heading.id = "heading-id-" + index;
+            a.textContent = heading.textContent;
+            a.href = `#${heading.id}`;
 
-        // Generate table of contents
-        function generateTOC() {
-            const headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
-            const tocItems = [];
+            // Add padding based on the heading level
+            a.style.paddingLeft = `${(level - 1) * 30}px`;
+
+            li.appendChild(a);
+            return [li, a];
+        }
+        function createTocTree(headings) {
+            const tree = document.createElement('ul');
+            const stack = [{ level: 0, element: tree }];
+            let currentH1 = null;
 
             headings.forEach((heading, index) => {
                 const level = parseInt(heading.tagName.charAt(1));
-                const text = heading.textContent;
-                const id = `heading-${index}`;
-                heading.id = id;
+                const item_and_a = createTocItem(heading, index, level);
+                const item = item_and_a[0]
+                const a = item_and_a[1]
 
-                const item = { level, text, id };
-                tocItems.push(item);
-            });
-                
-            buildTOCTree(tocItems);
-        }
-
-        // Build TOC tree
-        function buildTOCTree(items) {
-            let currentLevel = 1;
-            let currentParent = tocTree;
-
-            items.forEach(item => {
-                while (item.level > currentLevel) {
-                    const lastItem = currentParent.lastElementChild;
-                    
-                    if (lastItem) {
-                        if (!lastItem.querySelector('ul')) {
-                            const subList = document.createElement('ul');
-                            lastItem.appendChild(subList);
-                        }
-                        currentParent = lastItem.querySelector('ul');
+                a.classList.add("toc-li-a-" + level)
+                if (level === 1) {
+                    // Start a new top-level section for each h1
+                    currentH1 = item;
+                    tree.appendChild(item);
+                    stack.length = 1; // Reset stack to root level
+                    stack[0] = { level: 1, element: item };
+                } else {
+                    // For other levels, find the appropriate parent
+                    while (level <= stack[stack.length - 1].level) {
+                        stack.pop();
                     }
-                    currentLevel++;
-                }
 
-                while (item.level < currentLevel) {
-                    currentParent = currentParent.parentElement.parentElement;
-                    currentLevel--;
-                }
+                    if (!stack[stack.length - 1].element.querySelector('ul')) {
+                        const ul = document.createElement('ul');
+                        stack[stack.length - 1].element.appendChild(ul);
+                    }
 
-                const li = document.createElement('li');
-                const a = document.createElement('a');
-                a.href = `#${item.id}`;
-                a.textContent = item.text;
-                
-                const subHeadings = items.filter(subItem => subItem.level === item.level + 1 && subItem.id.startsWith(item.id));
-
-                if (subHeadings.length > 0) {
-                    const collapseIcon = document.createElement('span');
-                    collapseIcon.className = 'collapse-icon';
-                    collapseIcon.innerHTML = '▶';
-                    collapseIcon.onclick = toggleCollapse;
-                    li.appendChild(collapseIcon);
+                    const parentUl = stack[stack.length - 1].element.querySelector('ul');
+                    parentUl.appendChild(item);
+                    stack.push({ level: level, element: item });
                 }
-                
-                li.appendChild(a);
-                currentParent.appendChild(li);
+            });
+
+            return tree;
+        }
+
+        if (content && tocTree) {
+            const headings = Array.from(content.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+            tocTree.innerHTML = ''; // Clear any existing content
+            tocTree.appendChild(createTocTree(headings));
+
+            // Add some basic styling to the TOC
+            tocTree.style.listStyleType = 'none';
+            tocTree.style.padding = '0';
+            tocTree.style.margin = '0';
+
+            // Style all anchors in the TOC
+            const tocAnchors = tocTree.querySelectorAll('a');
+            tocAnchors.forEach(a => {
+                a.style.display = 'block';
+                a.style.padding = '5px 0';
+                a.style.textDecoration = 'none';
+                a.style.color = 'inherit';
             });
         }
 
-        // Toggle collapse/expand
-        function toggleCollapse(event) {
-            const icon = event.target;
-            const li = icon.parentElement;
-            const subList = li.querySelector('ul');
-            
-            if (subList) {
-                subList.style.display = subList.style.display === 'none' ? 'block' : 'none';
-                icon.innerHTML = subList.style.display === 'none' ? '▶' : '▼';
-            }
-        }
-
-        generateTOC();
     });
 </script>
+
+
 {% endblock %}

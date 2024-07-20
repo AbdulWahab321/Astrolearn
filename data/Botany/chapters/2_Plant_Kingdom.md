@@ -109,13 +109,13 @@ The alternation between the **Haploid gametophyte** and **Diploid sporophyte** s
 -  Spores released from sporangia undergoe germination to produce gametophyte called **Prothallus (n)** 
 # Questions 
 
-#####  <Q::1. Who proposed the artificial system of classification?::Carolus Linnaeus>
-##### <Q::2. What criteria are used in the natural system of classification?::{
+#####  <Q[1. Who proposed the artificial system of classification?]?[Carolus Linnaeus]>
+##### <Q[2. What criteria are used in the natural system of classification?]?{
 - Morphology
 - Anatomy
 - Embryology
 - Phytochemistry
-}::>
+};
 ##### <Q::3. Who proposed the natural system of classification?::Bentham & Hooker>
 ##### <Q::4. Which scientists are associated with the phylogenetic system of classification?::Bessey & Engler>
 ##### <Q::5. What is the basis for cytotaxonomy?::Cell structure, Chromosome number, Behavior>

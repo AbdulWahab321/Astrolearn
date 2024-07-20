@@ -58,16 +58,16 @@ if (theme === 'dark') {
 document.addEventListener('DOMContentLoaded', (event) => {
     const developmentBox = document.getElementById('developmentBox');
     const closeBtn = document.getElementById('closeBtn');
-
     // Check if the development box has been closed before
     if (localStorage.getItem('developmentBoxClosed') === 'true') {
         developmentBox.style.display = 'none';
     }
-
+    
     closeBtn.addEventListener('click', () => {
         developmentBox.style.display = 'none';
         localStorage.setItem('developmentBoxClosed', 'true');
     });
+    update_images(theme)
 });
 
 

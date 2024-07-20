@@ -1,21 +1,15 @@
 import re
 import markdown2
 from bs4 import BeautifulSoup
-
 btn_class = "inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300 q_and_a_button"
-
 class CustomSyntaxExtension(markdown2.Markdown):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.math_blocks = []
-        self.inline_math = []
 
     def preprocess(self, text):
-        # Handle block math
+        # Handle inline math blocks
         text = re.sub(r'\$\$(.+?)\$\$', lambda m: self.process_math_block(m.group(1)), text)
-        
-        # Handle inline math
-        text = re.sub(r'(?<!\$)\$(?!\$)(.+?)(?<!\$)\$(?!\$)', lambda m: self.process_inline_math(m.group(1)), text)
 
         lines = text.split("\n")
         new_lines = []
@@ -73,10 +67,6 @@ class CustomSyntaxExtension(markdown2.Markdown):
         self.math_blocks.append(content)
         return f"<!-- math_block_{len(self.math_blocks) - 1} -->"
 
-    def process_inline_math(self, content):
-        self.inline_math.append(content)
-        return f"<!-- inline_math_{len(self.inline_math) - 1} -->"
-
     def process_tables(self, html_output):
         soup = BeautifulSoup(html_output, 'html.parser')
         tables = soup.find_all('table')
@@ -114,12 +104,6 @@ class CustomSyntaxExtension(markdown2.Markdown):
             math_html = f'<div class="math-block">$${math_content}$$</div>'
             placeholder = f"<!-- math_block_{i} -->"
             html_output = html_output.replace(placeholder, math_html)
-        
-        for i, math_content in enumerate(self.inline_math):
-            math_html = f'<span class="inline-math">${math_content}$</span>'
-            placeholder = f"<!-- inline_math_{i} -->"
-            html_output = html_output.replace(placeholder, math_html)
-        
         return html_output
 
     def convert(self, text):
@@ -133,24 +117,26 @@ if __name__ == "__main__":
     md = CustomSyntaxExtension(extras=["tables", "fenced-code-blocks", "code-friendly"])
 
     sample_text = """
-    This is a paragraph with an inline math block: $$ E = mc^2 $$ and some more text with inline math: $v = \frac{dx}{dt}$.
+    This is a paragraph with an inline math block: $$ E = mc^2 $$ and some more text.
 
     | Column 1 | Column 2 | Column 3 |
     |----------|----------|----------|
     | Normal text | $$ e = mc^2 $$ | More text |
-    | Another row | With content | $F = ma$ |
+    | Another row | With content | $$ F = ma $$ |
 
     ### Mass of electron
     - The charge to mass ratio of an electron was determined by Thomson as:
       $$ \frac{e}{m_e} = 1.758820 \times 10^{11} \, \text{C kg}^{-1} $$
     - The charge of the electron was determined by **R.A Millikan** by **Oil Drop Experiment** as:
-      $e = -1.6 \times 10^{-19} \, \text{C}$
+      $$ e = -1.6 \times 10^{-19} \, \text{C} $$
     - The mass of the electron was determined by as follows:
       $$ m_e = \frac{e}{\left(\frac{e}{m_e}\right)} = \frac{1.6 \times 10^{-19}}{1.758820 \times 10^{11}} \approx 9.1094 \times 10^{-31} \, \text{kg} $$
 
     Here's a ==highlighted== text.
 
-    <Q[What is the speed of light?][The speed of light in vacuum is approximately 299,792,458 meters per second.]>
-    """
+    <Q::1. What is the speed of light?::The speed of light in vacuum is approximately 299,792,458 meters per second.>
+
+ 
+"""
 
     print(md.convert(sample_text))
