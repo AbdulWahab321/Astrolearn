@@ -4,7 +4,7 @@ import re
 import json
 import sys,requests,threading,time
 from datetime import datetime
-
+from lib import icon_recommendations_using as icon_recommendations
 from lib.mdprocessorlib import CustomSyntaxExtension
 app = Flask(__name__)
 
@@ -15,6 +15,7 @@ DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 STATIC = "--static-mode" in sys.argv
 WRITE_CACHE = "--write-cache" in sys.argv
 md = CustomSyntaxExtension(extras=["tables","admonitions"])
+
     
 def get_subjects():
     """Get a list of subjects from the data directory."""
@@ -30,9 +31,10 @@ def get_chapters(subject, without_ext=False,spaced=False):
         chapters = [f.replace("_" if spaced else ""," " if spaced else "") for f in chapters]
     return chapters
 
-def get_markdown_content(subject, chapter):
+def get_markdown_content(subject, chapter, summary=False):
     """Read the content of a Markdown file for a given chapter."""
-    chapter_path = os.path.join(DATA_DIR, subject, 'chapters', chapter + '.md')
+    if not summary:chapter_path = os.path.join(DATA_DIR, subject, 'chapters', chapter + '.md')
+    else: chapter_path = os.path.join(DATA_DIR, "summary", subject, 'chapters', chapter + '.md')
     with open(chapter_path, 'r', encoding='utf-8') as f:
         content = f.read()
     return content
@@ -58,18 +60,18 @@ def inject_functions():
 def index():
     """Render the home page with the list of subjects."""
 
-    return render_template('index.html',website_name = WEBSITE_NAME)
+    return render_template('index.html',website_name = WEBSITE_NAME,icons=icon_recommendations)
 
 @app.route('/notes',endpoint="notes")
 def notes():
     subjects = get_subjects()
-    return render_template('notes.html',subjects=subjects,website_name = WEBSITE_NAME)
+    return render_template('notes.html',subjects=subjects,website_name = WEBSITE_NAME,icons=icon_recommendations)
 
 @app.route('/pyq')
 def pyq():
     with open(os.path.join(DATA_DIR,"pyqs.json")) as jsf:
         pyqs = json.load(jsf)    
-    return render_template('pyq.html',pyqs=pyqs,website_name = WEBSITE_NAME)
+    return render_template('pyq.html',pyqs=pyqs,website_name = WEBSITE_NAME,icons=icon_recommendations)
 
 @app.route('/view_pdf')
 def view_pdf():  # You can dynamically set this based on your requirements
@@ -79,7 +81,7 @@ def view_pdf():  # You can dynamically set this based on your requirements
     
     if not pdf_link:
         return "PDF link is missing", 400    
-    return render_template('pdf_view.html', pdf_link=pdf_link,subject= subject,year=year,website_name = WEBSITE_NAME)
+    return render_template('pdf_view.html', pdf_link=pdf_link,subject= subject,year=year,website_name = WEBSITE_NAME,icons=icon_recommendations)
 
 @app.route('/submit_quiz', methods=['POST'])
 def submit_quiz():
@@ -110,7 +112,7 @@ def quiz_selection():
             ]
             quiz_structure[subject].sort(key=lambda x:x.split("_",maxsplit=1)[0])
 
-    return render_template('quiz_selection.html', quiz_structure=quiz_structure,website_name = WEBSITE_NAME)
+    return render_template('quiz_selection.html', quiz_structure=quiz_structure,website_name = WEBSITE_NAME,icons=icon_recommendations)
 
 @app.route('/quiz/<subject>/<chapter>',endpoint="quiz")
 def quiz(subject, chapter):
@@ -119,7 +121,7 @@ def quiz(subject, chapter):
     if os.path.exists(quiz_file):
         with open(quiz_file, 'r') as f:
             quiz_data = json.load(f)
-        return render_template('quiz.html', subject=subject, chapter=chapter, quiz_data=quiz_data, quiz_time_limit=quiz_time_limit, website_name = WEBSITE_NAME)
+        return render_template('quiz.html', subject=subject, chapter=chapter, quiz_data=quiz_data, quiz_time_limit=quiz_time_limit, website_name = WEBSITE_NAME,icons=icon_recommendations)
     else:
         return render_template('404.html'), 404
 
@@ -130,7 +132,7 @@ def subject(subject):
         abort(404)
     navigation = get_navigation()
     chapters = get_chapters(subject, True)
-    return render_template('subject.html',website_name = WEBSITE_NAME, subject=subject,chapters=chapters, navigation=navigation)
+    return render_template('subject.html',website_name = WEBSITE_NAME, subject=subject,chapters=chapters, navigation=navigation,summary_exists=summary_exists,icons=icon_recommendations)
 
 @app.route('/<subject>/<chapter>')
 def chapter(subject, chapter):
@@ -154,14 +156,44 @@ def chapter(subject, chapter):
             os.makedirs(os.path.join(DATA_DIR,subject,"quizzes"))
         if chapter+".json" in os.listdir(os.path.join(DATA_DIR,subject,"quizzes")):
             quiz_path = url_for('quiz', subject=subject, chapter=chapter)
-        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path)
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations)
     else:
 
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:
             return htmlfile.read()
         
+@app.route('/summary/<subject>/<chapter>')
+def summary(subject, chapter):
+    if chapter not in get_chapters(subject, without_ext=True):
+        abort(404)
+    quiz_path = None
+    if not STATIC:
+        content = get_markdown_content(subject, chapter, True)
+        
+        html_content = md.convert(content)
+        #html_content = md.finalize(html_content)
+        #html_content = finalize_post_processing_md(html_content)
+        #print("HTML content:", html_content)  # Debug print
+        html_content = html_content.replace('src="', f'src="/data/{subject}/chapters/diagrams/{chapter}/')               
+        if WRITE_CACHE:
+            if not os.path.exists(os.path.join(DATA_DIR,"cache",subject)):
+                os.makedirs(os.path.join(DATA_DIR,"cache",subject))            
+            with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"wb") as file:
+                file.write(html_content.encode())
+        if not os.path.exists(os.path.join(DATA_DIR,subject,"quizzes")):
+            os.makedirs(os.path.join(DATA_DIR,subject,"quizzes"))
+        if chapter+".json" in os.listdir(os.path.join(DATA_DIR,subject,"quizzes")):
+            quiz_path = url_for('quiz', subject=subject, chapter=chapter)
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations)
+    else:
 
+        with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:
+            return htmlfile.read()        
+        
 
+def summary_exists(subject, chapter):
+    summary_path = os.path.join(DATA_DIR, 'summary', subject, 'chapters', f'{chapter}.md')
+    return os.path.exists(summary_path)
 
 @app.route('/data/<subject>/chapters/diagrams/<chapter>/<path:filename>')
 def serve_diagram(subject, chapter, filename):

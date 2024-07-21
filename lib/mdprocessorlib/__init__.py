@@ -27,6 +27,7 @@ class CustomSyntaxExtension(markdown2.Markdown):
 
         for line in lines:
             # Highlighting
+
             line = re.sub(r'==(.+?)==', r'<span class="highlighted_text">\1</span>', line)
              
             # Math block handling

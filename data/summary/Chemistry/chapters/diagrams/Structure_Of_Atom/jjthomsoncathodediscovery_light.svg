@@ -1,0 +1,54 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="https://boxy-svg.com" viewBox="-218.587 0 1040.245 655.687">
+  <ns0:defs>
+    <ns0:pattern id="pattern-1" viewBox="0 0 100 100" patternUnits="userSpaceOnUse" preserveAspectRatio="none" width="100" height="100" ns1:pinned="true" />
+  </ns0:defs>
+  <ns0:g transform="matrix(1, 0, 0, 1, -32.427353, 16.479147)">
+    <ns0:rect x="-68.068" y="143.896" width="757" height="180.584" style="stroke-linejoin: round;   stroke-linecap: round;   stroke-width: 2px;   mix-blend-mode: darken;   stroke: rgb(0, 0, 0);  " rx="70" />
+    <ns0:rect x="-67.122" y="143.844" width="740.098" height="181.634" style="stroke-linejoin: round;   stroke-linecap: round;   stroke-width: 2px;   stroke: rgb(0, 0, 0);   fill: rgb(186, 186, 186);  " rx="70" />
+    <ns0:rect x="-2.058" y="172.311" width="29.821" height="119.281" style="fill: #1e1e1e;   stroke: rgb(30, 30, 30);   paint-order: fill;   stroke-linecap: round;  " />
+    <ns0:rect x="579.449" y="173.666" width="29.821" height="119.281" style="fill: rgb(30, 30, 30);   paint-order: fill;   stroke: rgb(255, 255, 255);  " />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="599.69" cy="190.15" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="588.584" cy="225.142" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="600.521" cy="228.138" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="588.738" cy="251.706" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="591.61" cy="203.288" rx="2.305" ry="2.688" />
+    <ns0:g>
+      <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="600.196" cy="282.278" rx="2.305" ry="2.688" />
+      <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="589.82" cy="274.938" rx="2.305" ry="2.688" />
+      <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="600.956" cy="267.092" rx="2.305" ry="2.688" />
+      <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M -81.324 502.172 L 703.419 503.415" />
+      <ns0:rect x="187.217" y="427.617" width="18.222" height="134.565" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="214.982" y="457.282" width="17.451" height="75.237" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="243.201" y="427.617" width="18.222" height="134.565" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="270.968" y="457.282" width="17.451" height="75.237" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="299.186" y="427.617" width="18.222" height="134.565" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="326.952" y="457.282" width="17.451" height="75.237" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="355.17" y="427.617" width="18.222" height="134.565" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:rect x="382.937" y="457.282" width="17.451" height="75.237" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " />
+      <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M 185.016 531.274 L 101.242 568.673" />
+      <ns0:text style="white-space: pre;   fill: rgb(51, 51, 51);   font-family: Arial, sans-serif;   font-size: 28px;  " x="65.339" y="595.601">Cell</ns0:text>
+    </ns0:g>
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="590.072" cy="239.251" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="601.21" cy="240.517" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="590.903" cy="185.871" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="601.281" cy="251.424" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="601.281" cy="212.7" rx="2.305" ry="2.688" />
+    <ns0:ellipse style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " cx="588.302" cy="262.79" rx="2.305" ry="2.688" />
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);   transform-box: fill-box;   transform-origin: 50% 50%;  " d="M -3.66 232.92 L -81.324 232.92" />
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);   transform-box: fill-box;   transform-origin: 50% 50%;  " d="M 705.951 232.921 L 606.733 232.921" transform="matrix(1, 0, 0, 0.999999, 0, 0.000188)" />
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M -82.538 231.571 L -82.538 500.045" />
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M 704.264 231.571 L 704.265 502.59" />
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M 15.972 169.086 L 29.436 86.808" />
+    <ns0:text style="white-space: pre;   fill: rgb(51, 51, 51);   font-family: Arial, sans-serif;   font-size: 28px;  " x="-33.394" y="84.482">Cathode (-)</ns0:text>
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);   transform-box: fill-box;   transform-origin: 50% 50%;  " d="M 576.958 169.086 L 590.422 86.808" transform="matrix(0.933581, -0.358367, 0.358367, 0.933581, 0.000001, 0.000018)" />
+    <ns0:text style="white-space: pre;   fill: rgb(51, 51, 51);   font-family: Arial, sans-serif;   font-size: 28px;  " x="442.323" y="84.482">Perforated Anode (+)</ns0:text>
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M 324.14 93.125 L 340.596 51.238" />
+    <ns0:text style="white-space: pre;   fill: rgb(51, 51, 51);   font-family: Arial, sans-serif;   font-size: 28px;  " x="262.806" y="46.75">Vaccum Pump</ns0:text>
+    <ns0:path style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);  " d="M 685.861 208.888 L 713.236 174.67" />
+    <ns0:text style="white-space: pre;   fill: rgb(51, 51, 51);   font-family: Arial, sans-serif;   font-size: 28px;  " x="698.179" y="165.089">ZnS</ns0:text>
+    <ns0:g>
+      <ns0:path d="M 211.456 37.759 H 211.456 L 211.456 37.759 L 289.952 38.009 L 211.456 38.259 L 211.456 38.259 H 211.456 V 37.759 Z" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);   transform-box: fill-box;   transform-origin: 50% 50%;  " transform="matrix(0, 1, -1, 0, 110.280018, 66.714985)" ns1:shape="arrow 211.456 37.759 78.496 0.5 0.5 78.496 0 1@383ded01" />
+      <ns0:path d="M 207.157 8.154 H 207.157 L 207.157 8.154 L 284.058 8.208 L 207.157 8.262 L 207.157 8.262 H 207.157 V 8.154 Z" style="fill: rgb(216, 216, 216);   stroke: rgb(0, 0, 0);   transform-origin: 245.607px 8.208px;  " transform="matrix(0, 1, 1, 0, 30.029633, 97.313599)" ns1:shape="arrow 207.157 8.154 76.901 0.108 0.108 76.901 0 1@85a87bea" />
+    </ns0:g>
+  </ns0:g>
+</ns0:svg>

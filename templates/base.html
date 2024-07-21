@@ -53,36 +53,49 @@
 {% block sidebar %}
 <div id="sidebar" class="sidebar">
     <div class="sidebar-content">
-        <div class="flex justify-start items-center p-4">
-            <a href="{{ url_for('index') }}"
-                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                <i class="fa-solid fa-home text-xl mr-2"></i>
-                <span>Home</span>
-            </a>
+        <nav>
+        <ul class="sidebar-nav">
 
-        </div>
-        <div class="flex justify-start items-center p-4">
-            <a href="{{ url_for('pyq') }}"
-                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                <i class="fa-solid fa-question text-xl mr-2"></i>
-                <span>PYQ</span>
-            </a>
-        </div>
-        <div class="flex justify-start items-center p-4">
-            <a href="{{ url_for('quiz_selection') }}"
-                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <span>Quiz</span>
-            </a>
-        </div>
-        <div class="flex justify-start items-center p-4">
-            <a href="{{ url_for('notes') }}"
-                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                <i class="fa-solid fa-pen text-xl mr-2"></i>
-                <span>Notes</span>
-            </a>
+            <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('index') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="fa-solid fa-home text-xl mr-2"></i>
+                    <span>Home</span>
+                </a>
 
-        </div>
+            </div>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('pyq') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="{{icons['pyq'][0]}}"></i>
+                    <span>PYQ</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('quiz_selection') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="{{icons['quiz'][0]}}"></i>
+                    <span>Quiz</span>
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('notes') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="{{icons['notes'][0]}}"></i>
+                    <span>Notes</span>
+                </a>
+
+            </div>
+        </li>            
+            </ul>
+            </nav>
     </div>
 </div>
 </div>
