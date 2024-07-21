@@ -3,6 +3,3 @@ gunicorn
 markdown2
 beautifulsoup4
 requests
-threading
-time
-datetime 
