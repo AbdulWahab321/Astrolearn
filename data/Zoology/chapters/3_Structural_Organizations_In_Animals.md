@@ -1,6 +1,5 @@
 
-## Indian Bullfrog (*Rana tigrina*)
----
+# Indian Bullfrog (*Rana tigrina*)
 
 
 | Phylum   | Class    |
@@ -13,7 +12,7 @@
 - During peak summer, the frogs  enter a state of **aestivation**
 - During peak winter they **hibernate**
 
-### Morphology of frogs
+## Morphology of frogs
 - Males have vocal sacs, they produce croaking sound
 - **Nictitating membrane** present for protection of eyes while in water
 - Cobulatory pad present in males, for gripping
@@ -27,19 +26,19 @@
 - Feet have webbed digits that help for swimming
 - They exhibit sexual dimorphism (differentiation between male and female)
 
-### Anatomy
+## Anatomy
 
-#### Alimentary Canal
+### Alimentary Canal
 
 ![Frog Anatomy](OtherDiagrams/FrogAnatomy.svg)
 
-### Digestive system of Frog
+## Digestive system of Frog
 
 - It consists of Alimentary canal and digestive glands. In frogs alimentary canal short because they are carnivorous animals. 
 - Alimentary canal consists of Mouth (Buccal Cavity), Pharynx, Oesophagus, Stomach, Intestine, Rectum, and Cloaca.
 - Both the fecal matter, urine, and sperm is expelled out through this Cloaca.
 
-### Digestive Glands
+## Digestive Glands
 
 - Liver and pancreas are the main digestive gland present in Frog.
 - Liver secretes bile which is stored in gall bladder (Bile helps to break down fat).
