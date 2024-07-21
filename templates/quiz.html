@@ -4,6 +4,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+ 
 {% endblock %}
 
 {% block content %}
@@ -29,14 +30,17 @@
     <div id="results-container" class="results-container hidden">
         <h2>Quiz Results</h2>
         <p id="score" class="score"></p>
+        <div id="detailed-results"></div>
         <button id="retry-btn" class="retry-btn">Retry Quiz</button>
+        <div class="p-6">
+            <a href="{{ url_for('chapter', subject=subject, chapter=chapter) }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Learn</a>
+        </div>        
     </div>
 
     <script>
         const quizData = {{ quiz_data | tojson | safe }};
         var quiz_data = shuffleArray(quizData);
         const quizTimeLimit = {{ quiz_time_limit | tojson }};
-        console.log(quizData)
         let currentQuestion = 0;
         let score = 0;
         let userAnswers = [];
@@ -130,7 +134,53 @@
             document.getElementById('results-container').classList.remove('hidden');
             document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
             
+            showDetailedResults();
             showConfetti();
+        }
+
+        function showDetailedResults() {
+            const detailedResults = document.getElementById('detailed-results');
+            detailedResults.innerHTML = '';
+
+            quizData.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                let status, statusClass;
+
+                if (userAnswer === undefined) {
+                    status = 'Skipped';
+                    statusClass = 'skipped';
+                } else if (userAnswer === question.correct_answer) {
+                    status = 'Correct';
+                    statusClass = 'correct';
+                } else {
+                    status = 'Incorrect';
+                    statusClass = 'incorrect';
+                }
+
+                const resultCard = document.createElement('div');
+                resultCard.className = `result-card ${statusClass}`;
+
+                resultCard.innerHTML = `
+                    <div class="result-card-header">
+                        Question ${index + 1}
+                    </div>
+                    <div class="result-card-body">
+                        <div class="result-status status-${statusClass.toLowerCase()}">${status}</div>
+                        <p class="question-text">${question.question}</p>
+                        ${userAnswer !== undefined ? `
+                            <p class="answer-text">Your answer: <span class="user-answer ${statusClass === 'correct' ? 'correct-answer' : 'incorrect-answer'}">${question.options[userAnswer]}</span></p>
+                        ` : '<p class="answer-text">You skipped this question</p>'}
+                        ${statusClass === 'incorrect' ? `
+                            <p class="answer-text">Correct answer: <span class="correct-answer">${question.options[question.correct_answer]}</span></p>
+                        ` : ''}
+                    </div>
+                `;
+
+                detailedResults.appendChild(resultCard);
+            });
+
+            // Process LaTeX with MathJax for the detailed results
+            MathJax.typeset();
         }
 
         function showConfetti() {

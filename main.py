@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort, send_from_directory, jsonify
+from flask import Flask, render_template, request, abort, send_from_directory, jsonify, url_for
 import os
 import re
 import json
@@ -134,7 +134,7 @@ def subject(subject):
 def chapter(subject, chapter):
     if chapter not in get_chapters(subject, without_ext=True):
         abort(404)
-    
+    quiz_path = None
     if not STATIC:
         content = get_markdown_content(subject, chapter)
         
@@ -148,7 +148,11 @@ def chapter(subject, chapter):
                 os.makedirs(os.path.join(DATA_DIR,"cache",subject))            
             with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html"),"wb") as file:
                 file.write(html_content.encode())
-        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True)
+        if not os.path.exists(os.path.join(DATA_DIR,subject,"quizzes")):
+            os.makedirs(os.path.join(DATA_DIR,subject,"quizzes"))
+        if chapter+".json" in os.listdir(os.path.join(DATA_DIR,subject,"quizzes")):
+            quiz_path = url_for('quiz', subject=subject, chapter=chapter)
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path)
     else:
 
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:

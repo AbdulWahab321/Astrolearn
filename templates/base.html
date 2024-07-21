@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,21 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static', filename='js/pinger.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
     <script>
         MathJax = {
-          tex: {inlineMath: [['$', '$'], ['\\(', '\\)']], extensions: ["AMSmath.js", "AMSsymbols.js"]}
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], extensions: ["AMSmath.js", "AMSsymbols.js"] }
         };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
         </script>
-      <script type="text/javascript" id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>  
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                   
+
                     },
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
@@ -34,15 +36,54 @@
             }
         }
 
-        
+
     </script>
 
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     {% block head %}{% endblock %}
 </head>
-<body class="flex flex-col h-full bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-200">
-    
+{% block sidebar %}
+<div id="sidebar" class="sidebar">
+    <div class="sidebar-content">
+        <div class="flex justify-start items-center p-4">
+            <a href="{{ url_for('index') }}"
+                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                <i class="fa-solid fa-home text-xl mr-2"></i>
+                <span>Home</span>
+            </a>
+
+        </div>
+        <div class="flex justify-start items-center p-4">
+            <a href="{{ url_for('pyq') }}"
+                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                <i class="fa-solid fa-question text-xl mr-2"></i>
+                <span>PYQ</span>
+            </a>
+        </div>
+        <div class="flex justify-start items-center p-4">
+            <a href="{{ url_for('quiz_selection') }}"
+                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>Quiz</span>
+            </a>
+        </div>
+        <div class="flex justify-start items-center p-4">
+            <a href="{{ url_for('notes') }}"
+                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                <i class="fa-solid fa-pen text-xl mr-2"></i>
+                <span>Notes</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+<body
+    class="flex flex-col h-full bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-200">
+
     <div class="development-box" id="developmentBox">
         <p>{{website_name}} is in development. It may contain errors or incomplete data.</p>
         <span class="close-btn" id="closeBtn">&times;</span>
@@ -58,5 +99,5 @@
     </footer>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 </body>
-</html>
 
+</html>

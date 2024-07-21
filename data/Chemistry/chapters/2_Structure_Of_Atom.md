@@ -247,22 +247,24 @@ $$h\nu = h\nu_0\ + \frac{1}{2}mv^2$$
 # Mathematical Equations and Values
 
 ## Charge to Mass Ratio of Electron
-  $$\frac{e}{m} = 1.758820 \times 10^{11} \, \text{Ckg}^{-1}$$
+$$
+  \frac{e}{m} = 1.758 \times 10^{11} \, \text{Ckg}^{-1} \newline
+$$
 
 ## Charge on Electron
-  $$e = -1.6022 \times 10^{-19} \, \text{C}$$
+  $$e = -1.602 \times 10^{-19} \, \text{C}$$
 
 ## Mass of Electron
-  $$m_e = \frac{e}{\left(\frac{e}{m_e}\right)} = \frac{1.6 \times 10^{-19}}{1.758820 \times 10^{11}} \color{#007acc} \approx 9.1094 \times 10^{-31} \, \text{kg}$$
+  $$m_e = \frac{e}{\left(\frac{e}{m_e}\right)} = \frac{1.602 \times 10^{-19}}{1.758 \times 10^{11}} \approx 9.109 \times 10^{-31} \, \text{kg}$$
 
 ## Charge on Proton
-  $$1.6022 \times 10^{-19} \, \text{C}$$
+  $$1.602 \times 10^{-19} \, \text{C}$$
 
 ## Mass of Proton
-  $$1.67262 \times 10^{-27} \, \text{kg}$$
+  $$1.672 \times 10^{-27} \, \text{kg}$$
 
 ## Mass of Neutron
-  $$1.67493 \times 10^{-27} \, \text{kg}$$
+  $$1.674 \times 10^{-27} \, \text{kg}$$
 
 ## Speed of Light (c)
   $$c = 3 \times 10^8 \, \text{m/s}$$

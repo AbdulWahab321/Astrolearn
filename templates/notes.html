@@ -7,7 +7,26 @@
         <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">Welcome to {{website_name}}</h1>
         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore a variety of subjects and chapters to enhance your learning experience.</p>
     </section>
-
+    {% block sidebar %}
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <a href="{{ url_for('index') }}"
+                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                <i class="fa-solid fa-home text-xl mr-2"></i>
+                <span>Home</span>
+            </a>            
+            {% for subject in subjects %}
+                <div class="flex justify-start items-center p-4">
+                    <a href="{{ url_for('subject', subject=subject) }}"
+                        class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                        <span>{{subject}}</span>
+                    </a>
+        
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
     <section class="subjects">
         <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">Subjects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
