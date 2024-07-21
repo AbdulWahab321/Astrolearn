@@ -1,5 +1,5 @@
 
-- Elements and Atomic number upto 30
+- Elements and Atomic number up to 20
 
 | Element    | Symbol | Atomic Number (Z) |
 | ---------- | ------ | ----------------- |

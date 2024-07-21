@@ -2,7 +2,9 @@ from flask import Flask, render_template, request, abort, send_from_directory, j
 import os
 import re
 import json
-import sys
+import sys,requests,threading,time
+from datetime import datetime
+
 from lib.mdprocessorlib import CustomSyntaxExtension
 app = Flask(__name__)
 
@@ -183,4 +185,20 @@ def add_header(response):
     response.headers['Expires'] = '-1'
     return response
 if __name__ == '__main__':
+    url = "https://astrolearn-vmgl.onrender.com"  # Replace with your Render URL
+    interval = 30  # Interval in seconds
+
+    def reload_website():
+        while True:
+            try:
+                response = requests.get(url)
+                print(f"Reloaded at {datetime.now().isoformat()}: Status Code {response.status_code}")
+            except requests.RequestException as e:
+                print(f"Error reloading at {datetime.now().isoformat()}: {str(e)}")
+            
+            time.sleep(interval)
+
+    # Create and start the thread
+    reloader_thread = threading.Thread(target=reload_website, daemon=True)
+    reloader_thread.start()    
     app.run(debug=True)

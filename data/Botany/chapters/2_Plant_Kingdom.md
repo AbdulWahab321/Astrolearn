@@ -1,10 +1,10 @@
 # Classification Systems
 
-| Classification Systems | Scientists       | Basis/Criteria                                           |
-| ---------------------- | ---------------- | -------------------------------------------------------- |
-| **Artificial Systems** | Carolus Linnaeus | Morphology                                               |
-| **Natural Systems**    | Bentham & Hooker  | Morphology, <br> Anatomy, <br> Embryology, <br> Phytochemistry |
-| **Phylogenetic Systems** | Bessey & Engler  | Evolutionary relationships                               |
+| Classification Systems   | Scientists       | Basis/Criteria                                                 |
+| ------------------------ | ---------------- | -------------------------------------------------------------- |
+| **Artificial Systems**   | Carolus Linnaeus | Morphology                                                     |
+| **Natural Systems**      | Bentham & Hooker | Morphology, <br> Anatomy, <br> Embryology, <br> Phytochemistry |
+| **Phylogenetic Systems** | Bessey & Engler  | Evolutionary relationships                                     |
 
 ---
 
