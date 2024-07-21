@@ -1,0 +1,127 @@
+[
+    {
+      "question": "Which scientist proposed the Artificial System of classification?",
+      "options": ["Carolus Linnaeus", "Bentham & Hooker", "Bessey & Engler", "Darwin"],
+      "correct_answer": 0
+    },
+    {
+      "question": "What is the basis for the Natural System of classification proposed by Bentham & Hooker?",
+      "options": ["Only Morphology", "Only Anatomy", "Morphology, Anatomy, Embryology, and Phytochemistry", "Evolutionary relationships"],
+      "correct_answer": 2
+    },
+    {
+      "question": "Which scientists are associated with the Phylogenetic System of classification?",
+      "options": ["Carolus Linnaeus", "Bentham & Hooker", "Bessey & Engler", "None of the above"],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is Cytotaxonomy based on?",
+      "options": ["Chemical constitution", "Cell structure including chromosome number, structure, and behavior", "Numerous characters using computer techniques", "Evolutionary relationships"],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is Chemotaxonomy based on?",
+      "options": ["Cell structure", "Evolutionary relationships", "Chemical constitution", "Morphological features"],
+      "correct_answer": 2
+    },
+    {
+      "question": "How many groups is the Kingdom Plantae classified into?",
+      "options": ["3", "4", "5", "6"],
+      "correct_answer": 2
+    },
+    {
+      "question": "Why are Bryophytes known as the 'Amphibians of the Plant Kingdom'?",
+      "options": ["They live both in water and on land", "They require water for sexual reproduction", "They are green and photosynthetic", "They reproduce by fragmentation"],
+      "correct_answer": 1
+    },
+    {
+      "question": "The main plant body (gametophyte) in Bryophytes is _____",
+      "options": ["Haploid", "Diploid", "Triploid", "Tetraploid"],
+      "correct_answer": 0
+    },
+    {
+      "question": "Which of the following is NOT a method of reproduction in Bryophytes?",
+      "options": ["Sexual reproduction", "Asexual reproduction through spores", "Vegetative reproduction by fragmentation", "Reproduction through seeds"],
+      "correct_answer": 3
+    },
+    {
+      "question": "In which plant are Gemmae produced within Gemmae cups?",
+      "options": ["Funaria", "Marchantia", "Sphagnum", "Salvinia"],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is the male sex organ of Bryophytes called?",
+      "options": ["Antheridium", "Archegonium", "Sporangium", "Gametangium"],
+      "correct_answer": 0
+    },
+    {
+      "question": "What is produced within the Archegonium of Bryophytes?",
+      "options": ["Antherozoid", "Spore", "Egg", "Zygote"],
+      "correct_answer": 2
+    },
+    {
+      "question": "What are the three parts of the Sporophyte in Bryophytes?",
+      "options": ["Root, Stem, Leaf", "Protonema, Gametophyte, Sporophyte", "Antheridium, Archegonium, Sporangium", "Foot, Seta, Capsule"],
+      "correct_answer": 3
+    },
+    {
+      "question": "What process occurs in the Capsule of Bryophytes to produce haploid spores?",
+      "options": ["Mitosis", "Meiosis", "Fertilization", "Germination"],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is the alternation between haploid gametophyte and diploid sporophyte stages called?",
+      "options": ["Alternation of Generation", "Meiosis", "Fertilization", "Sporulation"],
+      "correct_answer": 0
+    },
+    {
+      "question": "What type of plant body do Pteridophytes have?",
+      "options": ["Haploid Gametophyte", "Diploid Sporophyte", "Both Haploid and Diploid", "Neither Haploid nor Diploid"],
+      "correct_answer": 1
+    },
+    {
+      "question": "Which of the following is NOT an example of a Pteridophyte?",
+      "options": ["Neprolepis", "Salagenella", "Salvinia", "Marchantia"],
+      "correct_answer": 3
+    },
+    {
+      "question": "What is the gametophyte of Pteridophytes called?",
+      "options": ["Prothallus", "Protonema", "Thallus", "Strobilus"],
+      "correct_answer": 0
+    },
+    {
+      "question": "Which of the following is a Heterosporous Pteridophyte?",
+      "options": ["Neprolepis", "Pteris", "Salagenella", "Dryopteris"],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is a cluster of sporophylls called in Pteridophytes?",
+      "options": ["Strobilus", "Prothallus", "Thallus", "Sporangium"],
+      "correct_answer": 0
+    },
+    {
+      "question": "Which of the following is NOT a class of Pteridophytes?",
+      "options": ["Psilopsida", "Lycopsida", "Sphenopsida", "Bryopsida"],
+      "correct_answer": 3
+    },
+    {
+      "question": "What type of plants are Gymnosperms?",
+      "options": ["Seedless vascular plants", "Non-vascular plants", "Naked seeded plants", "Flowering plants"],
+      "correct_answer": 2
+    },
+    {
+      "question": "Which Gymnosperm is known as the 'Living Fossil'?",
+      "options": ["Cycas", "Pinus", "Ginkgo biloba", "Sequoia"],
+      "correct_answer": 2
+    },
+    {
+      "question": "What type of root system do Gymnosperms typically have?",
+      "options": ["Fibrous root system", "Taproot system", "Adventitious root system", "No root system"],
+      "correct_answer": 1
+    },
+    {
+      "question": "Which Gymnosperm has a symbiotic association with cyanobacteria in its roots?",
+      "options": ["Pinus", "Cycas", "Ginkgo biloba", "Sequoia"],
+      "correct_answer": 1
+    }
+  ]

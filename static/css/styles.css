@@ -10,7 +10,7 @@
     --scrollbar-track-color:#d3efff;
     --body-bg-color: #d8eaf7; /* Main background color for the body */
     --body-border-color: #f0f3f5; /* Main background color for the body */
-    --card-bg-color: #ffffff; /* Background color for cards and content sections */
+    --card-bg-color: #ebf9ff; /* Background color for cards and content sections */
     --header-bg-color: #5eaeff; /* Background color for the header */
     --footer-bg-color: #7d9fc2; /* Background color for the footer */
     --sidebar-bg-color:#cce6ff;
@@ -63,6 +63,9 @@
     /* Q&A section colors */
     --qa-bg-color: #f8f9fa; /* Background color for Q&A sections */
     --qa-border-color: #e9ecef; /* Border color for Q&A sections */
+    --q-option-selected-color:#107ac0;
+    --q-option-text-color:#ffffff;    
+    --q-option-text-color-selected:#ffffff;    
     --result-background-color:#E8F5E9;
     /* Misc */
     --border-radius: 5px; /* Default border radius for UI elements */
@@ -90,6 +93,13 @@
     --results-correct-bg:#4CAF50;
     --correct-ans-color: #00af06;
     --incorrect-ans-color: #F44336;  
+
+    --admonition-bg-main: #D8EAF7;
+    --admonition-bg: #FFF9E6;
+    --admonition-text: #333333;
+    --admonition-title: #856404;
+    --admonition-border: #ffd700;
+    --admonition-link-hover: #533f03;    
 }
 
 /* Dark mode variables */
@@ -152,6 +162,7 @@
     --result-background-color:#445b70;
     --q-option-selected-color:#107ac0;
     --q-option-text-color:#b0dffd;
+    --q-option-text-color-selected:#ffffff;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
     --side-bar-h1-color: #95c3ff;
@@ -159,7 +170,16 @@
     --results-incorrect-bg:#d1362b;
     --results-correct-bg:#3da341;
     --correct-ans-color: #00cf07;
-    --incorrect-ans-color: #ff1100;      
+    --incorrect-ans-color: #ff1100;  
+
+
+
+    --admonition-bg-main: #1E1E1E;
+    --admonition-bg: #2d2a20;
+    --admonition-text: #e0e0e0;
+    --admonition-title: #ffd700;
+    --admonition-border: #ffd700;
+    --admonition-link-hover: #fff7cc;    
 }
 
 /* Global Styles */
@@ -629,6 +649,7 @@ footer {
 
 .chapter-content ul,
 .chapter-content ol {
+    list-style-position: inside !important;
     margin-bottom: 1.2em;
     padding-left: 2em;
 }
@@ -1343,4 +1364,38 @@ table tbody tr:nth-child(even) {
 .math-block{
     font-size: 18px;
     
+}
+.admonition.warning {
+    background-color: var(--admonition-bg);
+    border-left: 5px solid var(--admonition-border);
+    color: var(--admonition-text);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admonition.warning .strong {
+    color: var(--admonition-title);
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0.5rem;
+}
+
+.admonition.warning strong::before {
+    content: "⚠️ ";
+    margin-right: 0.5rem;
+}
+
+.admonition.warning p {
+    margin: 0.5rem 0;
+}
+
+.admonition.warning a {
+    color: var(--admonition-title);
+    text-decoration: underline;
+}
+
+.admonition.warning a:hover {
+    color: var(--admonition-link-hover);
 }

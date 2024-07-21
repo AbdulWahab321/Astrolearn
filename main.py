@@ -12,7 +12,7 @@ WEBSITE_NAME = "AstroLearn"
 DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 STATIC = "--static-mode" in sys.argv
 WRITE_CACHE = "--write-cache" in sys.argv
-md = CustomSyntaxExtension(extras=["tables"])
+md = CustomSyntaxExtension(extras=["tables","admonitions"])
     
 def get_subjects():
     """Get a list of subjects from the data directory."""
