@@ -116,7 +116,7 @@ def quiz_selection():
 
 @app.route('/quiz/<subject>/<chapter>',endpoint="quiz")
 def quiz(subject, chapter):
-    quiz_time_limit = 600  # 10 minutes, adjust as needed
+    quiz_time_limit = (60*60)+(30*60)  # 10 minutes, adjust as needed
     quiz_file = f'data/{subject}/quizzes/{chapter}.json'
     if os.path.exists(quiz_file):
         with open(quiz_file, 'r') as f:
@@ -156,7 +156,8 @@ def chapter(subject, chapter):
             os.makedirs(os.path.join(DATA_DIR,subject,"quizzes"))
         if chapter+".json" in os.listdir(os.path.join(DATA_DIR,subject,"quizzes")):
             quiz_path = url_for('quiz', subject=subject, chapter=chapter)
-        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations)
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations,summary_exists=summary_exists)
+
     else:
 
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:
@@ -184,7 +185,7 @@ def summary(subject, chapter):
             os.makedirs(os.path.join(DATA_DIR,subject,"quizzes"))
         if chapter+".json" in os.listdir(os.path.join(DATA_DIR,subject,"quizzes")):
             quiz_path = url_for('quiz', subject=subject, chapter=chapter)
-        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations)
+        return render_template('chapter.html',website_name = WEBSITE_NAME, subject=subject, chapter=chapter, content=html_content, flashcards = get_flash_cards(subject,chapter),is_chapter_page=True,quiz_path=quiz_path,icons=icon_recommendations,is_summary=True)
     else:
 
         with open(os.path.join(DATA_DIR,"cache",subject,chapter+".html")) as htmlfile:

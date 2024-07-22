@@ -32,6 +32,29 @@
                     </div>
                     </li>
                     {% endif %}
+                    {% if not is_summary %}
+                        {% if summary_exists(subject, chapter) %}
+                        <li>
+                            <div class="flex items-center">
+                                <a href="{{ url_for('summary', subject=subject, chapter=chapter) }}"
+                                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                                    <i class="{{icons['chapter'][0]}}"></i>
+                                    <span>Read summary</span>
+                                </a>
+                            </div>
+                            </li> 
+                        {% endif %}  
+                    {% else %}
+                    <li>
+                        <div class="flex items-center">
+                            <a href="{{ url_for('chapter', subject=subject, chapter=chapter) }}"
+                                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                                <i class="{{icons['chapter'][0]}}"></i>
+                                <span>Read chapter</span>
+                            </a>
+                        </div>
+ 
+                    {% endif %}                  
                     <br>
                     <h3 style="margin-top: 1px;">Table of Contents</h3>
                     <ul id="tocTree" class="toc-tree"></ul>

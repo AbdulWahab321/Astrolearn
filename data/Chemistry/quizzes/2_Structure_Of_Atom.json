@@ -1,4 +1,3 @@
-
 [
   {
     "question": "Who discovered electrons using the cathode ray discharge tube experiment?",
@@ -21,7 +20,7 @@
     "correct_answer": 3
   },
   {
-    "question": "What is the mass of an electron as determined from the charge to mass ratio and charge of the electron?",
+    "question": "What is the mass of an electron?",
     "options": [
       "$1.67493 \\times 10^{-27} \\text{ kg}$",
       "$1.6022 \\times 10^{-19} \\text{ C}$",
@@ -91,21 +90,11 @@
     "correct_answer": 2
   },
   {
-    "question": "What is the charge on a proton?",
-    "options": [
-      "$1.6022 \\times 10^{-19} \\text{ C}$",
-      "$1.67493 \\times 10^{-27} \\text{ kg}$",
-      "$-1.6022 \\times 10^{-19} \\text{ C}$",
-      "$9.1094 \\times 10^{-31} \\text{ kg}$"
-    ],
-    "correct_answer": 0
-  },
-  {
     "question": "Which of the following is an example of an isotope?",
     "options": [
       "$^{14}_{6}\\text{C}$ and $^{14}_{7}\\text{N}$",
       "$^{12}_{6}\\text{C}$ and $^{13}_{6}\\text{C}$",
-      "$^{35}_{17}\\text{Cl}$ and $^{37}_{17}\\text{Cl}$",
+      "$^{1}_{1}\\text{H}$ and $^{4}_{2}\\text{He}$",
       "$^{40}_{18}\\text{Ar}$ and $^{40}_{20}\\text{Ca}$"
     ],
     "correct_answer": 1
@@ -133,10 +122,10 @@
   {
     "question": "Which of the following is true about photoelectric effect?",
     "options": [
-      "Electrons are ejected only if the light has a frequency higher than the threshold frequency",
+      "Electrons are ejected only if the light has a frequency higher than or equal to the threshold frequency",
       "The kinetic energy of ejected electrons depends on the intensity of the light",
       "The number of electrons ejected is proportional to the frequency of light",
-      "Electrons are ejected immediately regardless of the light frequency"
+      "Electrons are ejected with a time gap of $10^{-5}s$"
     ],
     "correct_answer": 0
   },
@@ -155,7 +144,7 @@
     "options": [
       "$10^{-10} \\text{ m}$",
       "$10^{-15} \\text{ m}$",
-      "$1 \\text{ fm}$",
+      "$10^{-15} \\text{ fm}$",
       "$1 \\text{ nm}$"
     ],
     "correct_answer": 0
@@ -175,7 +164,7 @@
     "options": [
       "Atoms of different elements with the same mass number",
       "Atoms with the same number of neutrons but different atomic numbers",
-      "Atoms with the same number of protons but different mass numbers",
+      "Atoms with the same number of electrons but different mass numbers",
       "Atoms with different numbers of protons and neutrons"
     ],
     "correct_answer": 0
@@ -189,5 +178,347 @@
       "Both speed of light and wavelength"
     ],
     "correct_answer": 3
-  }
-]
+  },
+  {
+    "question": "What material was used to coat the cathode ray tube in J.J Thomson's experiment?",
+    "options": [
+      "Zinc Sulfide (ZnS)",
+      "Sodium Chloride (NaCl)",
+      "Copper Oxide (CuO)",
+      "Silver Nitrate (AgNO3)"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Which of the following is NOT a characteristic of cathode rays?",
+    "options": [
+      "They travel from cathode to anode",
+      "They are invisible",
+      "They depend on the material of electrodes",
+      "They possess kinetic energy"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What happens to the deflection of cathode rays when the magnitude of the negative charge on particles increases?",
+    "options": [
+      "Deflection increases",
+      "Deflection decreases",
+      "Deflection remains the same",
+      "Deflection becomes zero"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Which atomic model is also known as the 'Plum pudding model'?",
+    "options": [
+      "Rutherford's model",
+      "Bohr's model",
+      "J.J Thomson's model",
+      "Dalton's model"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What was the main drawback of Rutherford's atomic model?",
+    "options": [
+      "It couldn't explain the stability of the atom",
+      "It didn't account for the discovery of neutrons",
+      "It assumed that electrons were stationary",
+      "It overestimated the size of the nucleus"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "According to Planck's Quantum Theory, how do atoms and molecules emit or absorb energy?",
+    "options": [
+      "Continuously in any amount",
+      "Discontinuously, in small packets called quanta",
+      "Continuously ,in small packets called photons",
+      "Continuously ,in small packets called quanta"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "What is the relationship between the energy (E) of a quantum and its frequency ($\\nu$) according to Planck's theory?",
+    "options": [
+      "$E = h\\nu$",
+      "$E = mc^2$",
+      "$E = \\frac{1}{2}mv^2$",
+      "$E = hc\\lambda$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is a black body in the context of radiation?",
+    "options": [
+      "A body that absorbs all light",
+      "A body that reflects all light",
+      "An ideal body that emits and absorbs all frequencies of radiation",
+      "A body at absolute zero temperature"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What determines the frequency of black body radiation?",
+    "options": [
+      "The material of the black body",
+      "The size of the black body",
+      "The temperature of the black body",
+      "The pressure surrounding the black body"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the threshold frequency ($\\nu_0$) in the context of the photoelectric effect?",
+    "options": [
+      "The maximum frequency of incident light",
+      "The minimum frequency required to eject electrons",
+      "The frequency at which the metal melts",
+      "The frequency of the ejected electrons"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "In the photoelectric effect, what does the work function ($W_0$) represent?",
+    "options": [
+      "The kinetic energy of ejected electrons",
+      "The energy of incident photons",
+      "The minimum work required to eject an electron",
+      "The work done by the electric field"
+    ],
+    "correct_answer": 2
+  },
+  {
+    "question": "What is the relationship between the intensity of light and the number of ejected electrons in the photoelectric effect?",
+    "options": [
+      "They are inversely proportional",
+      "They are directly proportional",
+      "They are not related",
+      "They have a logarithmic relationship"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "Which equation represents the photoelectric effect?",
+    "options": [
+      "$h\\nu = h\\nu_0 + \\frac{1}{2}mv^2$",
+      "$E = mc^2$",
+      "$F = ma$",
+      "$PV = nRT$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the speed of electromagnetic waves in vacuum?",
+    "options": [
+      "$3 \\times 10^8 \\text{ m/s}$",
+      "$3 \\times 10^6 \\text{ m/s}$",
+      "$3 \\times 10^4 \\text{ m/s}$",
+      "$3 \\times 10^2 \\text{ m/s}$"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "Which of the following is NOT a type of electromagnetic radiation?",
+    "options": [
+      "Radio waves",
+      "X-rays",
+      "Gamma rays",
+      "Sound waves"
+    ],
+    "correct_answer": 3
+  },
+  {
+    "question": "What is the relationship between wavelength ($\\lambda$) and wave number ($\\bar{\\nu}$)?",
+    "options": [
+      "$\\bar{\\nu} = \\lambda$",
+      "$\\bar{\\nu} = \\frac{1}{\\lambda}$",
+      "$\\bar{\\nu} = \\lambda^2$",
+      "$\\bar{\\nu} = \\sqrt{\\lambda}$"
+    ],
+    "correct_answer": 1
+  },
+  {
+    "question": "What did Rutherford's gold foil experiment reveal about the structure of the atom?",
+    "options": [
+      "Atoms are mostly empty space",
+      "Electrons are uniformly distributed",
+      "The nucleus is negatively charged",
+      "Protons are located outside the nucleus"
+    ],
+    "correct_answer": 0
+  },
+  {
+    "question": "What is the approximate ratio of the radius of an atom to the radius of its nucleus?",
+    "options": [
+      "1:1",
+      "10:1",
+      "1000:1",
+      "10000:1"
+    ],
+    "correct_answer": 3
+  },
+    {
+      "question": "What is the main difference between isotopes and isobars?",
+      "options": [
+        "Isotopes have the same number of protons, isobars have the same mass number",
+        "Isotopes have the same mass number, isobars have the same number of protons",
+        "Isotopes have the same number of neutrons, isobars have the same atomic number",
+        "Isotopes have the same atomic number, isobars have the same number of neutrons"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "question": "What are isotones?",
+      "options": [
+        "Atoms with the same number of protons",
+        "Atoms with the same number of neutrons",
+        "Atoms with the same mass number",
+        "Atoms with the same number of electrons"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Which of the following is an example of isobars?",
+      "options": [
+        "$^{12}_{6}\\text{C}$ and $^{13}_{6}\\text{C}$",
+        "$^{14}_{6}\\text{C}$ and $^{14}_{7}\\text{N}$",
+        "$^{35}_{17}\\text{Cl}$ and $^{37}_{17}\\text{Cl}$",
+        "$^{14}_{6}\\text{C}$ and $^{15}_{7}\\text{N}$"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is the correct representation of an atom with 6 protons and 8 neutrons?",
+      "options": [
+        "$^{14}_{6}\\text{X}$",
+        "$^{14}_{8}\\text{X}$",
+        "$^{6}_{14}\\text{X}$",
+        "$^{8}_{6}\\text{X}$"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "question": "According to J.J. Thomson's atomic model, what was the distribution of electrons in an atom?",
+      "options": [
+        "Electrons were concentrated in the nucleus",
+        "Electrons orbited the nucleus in fixed paths",
+        "Electrons were embedded in a positively charged sphere",
+        "Electrons were arranged in shells around the nucleus"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What was the significance of Rutherford's gold foil experiment?",
+      "options": [
+        "It proved the existence of electrons",
+        "It discovered the neutron",
+        "It showed that atoms are mostly empty space with a dense nucleus",
+        "It demonstrated the wave nature of particles"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "In Rutherford's model, what keeps the electrons orbiting the nucleus?",
+      "options": [
+        "Gravitational force",
+        "Magnetic force",
+        "Electrostatic force",
+        "Strong nuclear force"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is the main limitation of Rutherford's atomic model?",
+      "options": [
+        "It couldn't explain helium spectrum",
+        "It didn't account for the existence of neutrons",
+        "It failed to explain the stability of the atom",
+
+        "It overestimated the size of the nucleus"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is the relationship between frequency ($\\nu$), wavelength ($\\lambda$), and speed of light ($c$) for electromagnetic waves?",
+      "options": [
+        "$c = \\nu\\lambda$",
+        "$c = \\frac{\\nu}{\\lambda}$",
+        "$c = \\frac{\\lambda}{\\nu}$",
+        "$c = \\nu + \\lambda$"
+      ],
+      "correct_answer": 0
+    },
+    {
+      "question": "Which scientist proposed that energy is quantized?",
+      "options": [
+        "Albert Einstein",
+        "Niels Bohr",
+        "Max Planck",
+        "Erwin Schr&ouml;dinger"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is the unit of Planck's constant?",
+      "options": [
+        "Joule (J)",
+        "Joule-second ($\\text{J}\\cdot\\text{s}$)",
+        "Watt (W)",
+        "Hertz (Hz)"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "question": "In the photoelectric effect, what happens when the frequency of incident light is below the threshold frequency?",
+      "options": [
+        "Electrons are ejected with maximum kinetic energy",
+        "Electrons are ejected with minimum kinetic energy",
+        "No electrons are ejected",
+        "The metal becomes positively charged"
+      ],
+      "correct_answer": 2
+    },
+    {
+      "question": "What is the significance of the photoelectric effect in the development of quantum theory?",
+      "options": [
+        "It proved that light behaves only as a wave",
+        "It demonstrated the particle nature of light",
+        "It showed that electrons have wave properties",
+        "It disproved the existence of photons"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "question": "Which of the following electromagnetic waves has the highest frequency?",
+      "options": [
+        "Radio waves",
+        "Visible light",
+        "X-rays",
+        "Microwaves"
+      ],
+      "correct_answer": 2
+    },
+
+    {
+      "question": "What is the order of electromagnetic waves from longest to shortest wavelength?",
+      "options": [
+        "Gamma rays, X-rays, UV, Visible, IR, Microwaves, Radio waves",
+        "Radio waves, Microwaves, IR, Visible, UV, X-rays, Gamma rays",
+        "X-rays, Gamma rays, UV, Visible, IR, Microwaves, Radio waves",
+        "IR, Visible, UV, X-rays, Gamma rays, Microwaves, Radio waves"
+      ],
+      "correct_answer": 1
+    },
+    {
+      "question": "What is the main difference between the atomic models of Thomson and Rutherford?",
+      "options": [
+        "Thomson's model included neutrons, Rutherford's did not",
+        "Thomson's model had a nucleus, Rutherford's did not",
+        "Thomson's model had electrons embedded in a positive sphere, Rutherford's had a dense positive nucleus",
+        "Thomson's model had electrons in orbit, Rutherford's had stationary electrons"
+      ],
+      "correct_answer": 2
+    }
+  ]
