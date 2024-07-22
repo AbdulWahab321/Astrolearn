@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     const sidebarToggle = document.getElementById('sidebarToggle');
     const tocTree = document.getElementById('tocTree');
-    const content = document.querySelector(".markdown-content");
+    const content = document.querySelector(".chapter-container");
+    const actual_contents = document.querySelector(".markdown-content");
 
     if (sidebarToggle) {
         sidebarToggle.addEventListener('click', () => {
@@ -129,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (content && tocTree) {
-        const headings = Array.from(content.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+        const headings = Array.from(actual_contents.querySelectorAll('h1, h2, h3, h4, h5, h6'));
         tocTree.innerHTML = ''; // Clear any existing content
         tocTree.appendChild(createTocTree(headings));
 

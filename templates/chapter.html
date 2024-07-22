@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="chapter-container">
+<div class="chapter-container content">
     {% block sidebar %}
     <div id="sidebar" class="sidebar">
         <div class="sidebar-content">
@@ -42,7 +42,7 @@
     </div>
     {% endblock %}
 
-    <div class="chapter-body content">
+    <div class="chapter-body ">
         <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading"
             style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{
             chapter.split("_",maxsplit=1)[0].replace('_',' ') }}</h3>

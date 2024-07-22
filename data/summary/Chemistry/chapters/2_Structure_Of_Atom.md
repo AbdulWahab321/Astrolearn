@@ -29,7 +29,7 @@
 	- Mass of particle
 		- $\downarrow \text{Mass,} \uparrow \text{Deflection}$
 	- Strength of Electric or Magnetic field
-		- $\uparrow \text{Voltage } OR \uparrow{Magnetic field, } \uparrow \text{Deflection}$
+		- $\uparrow \text{Voltage } \text{ OR } \uparrow \text{ Magnetic field, } \uparrow \text{Deflection}$
 - $\frac{e}{m_e} = 1.758 \times 10^{11}Ckg^{-1}$
 
 ### Charge of electron
@@ -169,7 +169,7 @@
 
 ### Characteristics of Photoelectric effect
 - To **eject electrons**, the **incident light** must have a **minimum frequency** called **threshold frequency ($\nu_0$)**, corresponding **minimum work** is called **Work function ($W_0$)**
-- The **Kinetic energy** of ejected electron **depends** on **frequency ($\nu_0$)**
+- The **Kinetic energy** of ejected electron **depends** on **frequency ($\nu$)**
 - **Number of ejected $e^- \propto \text{ intensity of light}$**
 - **Electrons** are **ejected as soon as light strikes** 
 - $h\nu = h\nu_0 + \frac{1}{2}mv^2$
