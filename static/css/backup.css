@@ -195,7 +195,7 @@
 
 body {
     font-family: var(--font-family-main);
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     background-color: var(--body-bg-color);
     color: var(--text-color-primary);
@@ -233,17 +233,17 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { 
     text-align: center;
-    font-size: var(--font-size-xxl);
+    font-size: 2.5em; 
     color: var(--heading-color-h1);
 }
 
 h2 { 
-    font-size: var(--font-size-xl);
+    font-size: 2em; 
     color: var(--heading-color-h2);
 }
 
 h3 { 
-    font-size: var(--font-size-large);
+    font-size: 1.75em; 
     color: var(--heading-color-h3);
 }
 
@@ -263,16 +263,15 @@ a:hover {
 
 /* Layout */
 .container {
-    width: 95%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 var(--spacing-medium);    
+    padding: 0 var(--spacing-medium);
 }
 
 /* Header */
 header {
     background-color: var(--header-bg-color);
-    padding: var(--spacing-small) 0;
+    padding: var(--spacing-medium) 0;
     position: fixed;
     width: 100%;
     top: 0;
@@ -316,8 +315,8 @@ main {
     background-color: var(--card-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: var(--spacing-medium);
-    margin-bottom: var(--spacing-medium);
+    padding: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -332,7 +331,6 @@ main {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     padding: var(--spacing-small) var(--spacing-medium);
-    font-size: var(--font-size-small);
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed);
 }
@@ -355,11 +353,10 @@ code {
 pre {
     background-color: var(--pre-bg-color);
     color: var(--pre-text-color);
+    padding: var(--spacing-medium);
     border-radius: var(--border-radius);
     overflow-x: auto;
-    padding: var(--spacing-small);
-    margin-bottom: var(--spacing-medium);
-    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-large);
 }
 
 /* Q&A Styles */
@@ -367,9 +364,9 @@ pre {
     background-color: var(--qa-bg-color);
     border: 1px solid var(--qa-border-color);
     border-radius: var(--border-radius);
+    padding: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    padding: var(--spacing-medium);
-    margin-bottom: var(--spacing-medium);    
 }
 
 .question:hover {
@@ -537,11 +534,11 @@ footer {
     display: block;
     background-color: var(--qa-bg-color);
     color: var(--text-color-primary);
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
     border-radius: var(--border-radius);
     cursor: pointer;
     transition: background-color var(--transition-speed);
-    padding: var(--spacing-small);
-    margin-bottom: var(--spacing-small);
 }
 
 .quiz-options label:hover {
@@ -1517,58 +1514,8 @@ pre {
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-small);
 }
-/*
 
-@media screen and (max-width: 768px) {
-    html {
-        --font-size-base: 14px;
-        --font-size-small: 0.775rem;
-        --font-size-medium: .5rem;
-        --font-size-large: 1.0rem;
-        --font-size-xl: 1.25rem;
-        --font-size-xxl: 1.1rem;     
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    h1 { font-size: var(--font-size-xl); }
-    h2 { font-size: var(--font-size-large); }
-    h3 { font-size: var(--font-size-medium); }
-
-    .card {
-        padding: var(--spacing-small);
-    }
-
-    #flashcard {
-        min-height: 120px;
-    }
-
-    .flashcard {
-        height: 120px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 12px ;
-    }
-    body{
-        
-    }
-    .btn {
-        padding: 0.4rem 0.8rem;
-    }
-
-    #flashcard {
-        min-height: 100px;
-    }
-
-    .flashcard {
-        height: 100px;
-    }
-}
+/* Responsive styles */
 @media screen and (max-width: 768px) {
     html {
         font-size: 14px;
@@ -1597,7 +1544,7 @@ pre {
 
 @media screen and (max-width: 480px) {
     html {
-        font-size: 12px;
+        font-size: 12px ;
     }
 
     .btn {
@@ -1612,4 +1559,3 @@ pre {
         height: 100px;
     }
 }
-*/
