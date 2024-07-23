@@ -50,12 +50,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     {% block head %}{% endblock %}
 </head>
-{% block sidebar %}
+
 <div id="sidebar" class="sidebar">
     <div class="sidebar-content">
         <nav>
         <ul class="sidebar-nav">
-
+           
             <li>
             <div class="flex items-center">
                 <a href="{{ url_for('index') }}"
@@ -93,13 +93,25 @@
                 </a>
 
             </div>
-        </li>            
+        </li>   
+        <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('about') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="{{icons['about'][0]}}"></i>
+                    <span>About</span>
+                </a>
+
+            </div>
+        </li>          
+        {% block sidebar %}
+        {% endblock %}          
             </ul>
             </nav>
     </div>
 </div>
 </div>
-{% endblock %}
+
 
 <body
     class="flex flex-col h-full bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-200">

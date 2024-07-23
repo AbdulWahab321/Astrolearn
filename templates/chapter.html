@@ -5,23 +5,13 @@
 {% block content %}
 
 <div class="chapter-container content">
-    {% block sidebar %}
     <div id="sidebar" class="sidebar">
         <div class="sidebar-content">
             <nav>
                 <ul class="sidebar-nav">
-
-                    <li>
-                        <div class="flex items-center">
-                            <a href="{{ url_for('index') }}"
-                                class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                                <i class="fa-solid fa-home text-xl mr-2"></i>
-                                <span>Home</span>
-                            </a>
-
-                        </div>
-                    </li>
-                    {% if quiz_path %}
+    
+    {% block sidebar %}
+                   {% if quiz_path %}
                     <li>
                     <div class="flex items-center">
                         <a href="{{ quiz_path }}"
@@ -54,17 +44,18 @@
                             </a>
                         </div>
  
-                    {% endif %}                  
+                    {% endif %}   
                     <br>
                     <h3 style="margin-top: 1px;">Table of Contents</h3>
                     <ul id="tocTree" class="toc-tree"></ul>
+                    <br>                                   
                     <br>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    {% endblock %}
 
+    {% endblock %}
+</ul>
+</nav>
+</div>
+</div>
     <div class="chapter-body ">
         <h3 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading"
             style="text-align: center;font-size: 1.7rem !important;margin-bottom: -10px;">Chapter: {{

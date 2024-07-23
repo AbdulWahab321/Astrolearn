@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Hey There! | About Us{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <section class="animate__animated animate__fadeIn">
+            <h1 class="text-5xl font-bold mb-8">What's This All About?</h1>
+            
+            <div class="card mb-12 shadow-lg rounded-lg p-8" style="background-color: var(--card-bg-color);">
+                <h2 class="text-3xl font-semibold mb-6">The Guy Behind this website</h2>
+                <p class="text-xl mb-4">👋 Hey! I'm AbdulWahab. I'm the developer who made this website. Why? Well, I'm a bit of a programming nerd, and I thought, "Hey, why not make something cool that might help people?"</p>
+                <p class="text-xl mb-6">Wanna chat or see what I'm up to? Find me on Insta: <a href="https://www.instagram.com/cychronex" class="text-blue-600 hover:underline font-medium">@cychronex</a></p>
+            </div>
+
+            <div class="card mb-12 shadow-lg rounded-lg p-8" style="background-color: var(--card-bg-color);">
+                <h2 class="text-3xl font-semibold mb-6">Wanna Join the Fun?</h2>
+                <p class="text-xl mb-4">🚀 I'm on the lookout for some awesome people to help keep this website alive. No need to be a coding genius - if you've got a computer and some enthusiasm, You got it!</p>
+                <h3 class="text-2xl font-semibold mb-3">Why Should You Care?</h3>
+                <ul class="text-left list-disc list-inside mb-6 text-xl">
+                    <li>It's like a donation, but cooler - you're helping keep this website alive!</li>
+                    <li>Super flexible - contribute whenever you feel like it. No pressure!</li>
+                    <li>You get to be part of something pretty neat (if I do say so myself)</li>
+                </ul>
+                <p class="text-xl">Interested? Awesome! Just slide into my DMs on Instagram and we'll chat!</p>
+            </div>
+            
+            <div class="text-center">
+                <a href="{{ url_for('index') }}" class="btn inline-block py-3 px-8 rounded-full hover:bg-opacity-80 transition duration-300 text-xl font-medium transform hover:scale-105">
+                    Back to the Cool Stuff
+                </a>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

@@ -4,25 +4,14 @@
 <style>
 
 </style>
-
-{% block sidebar %}
 <div id="sidebar" class="sidebar">
     <div class="sidebar-content">
         <nav>
             <ul class="sidebar-nav">
 
-                <li>
-                    <div class="flex items-center">
-                        <a href="{{ url_for('index') }}"
-                            class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                            <i class="fa-solid fa-home text-xl mr-2"></i>
-                            <span>Home</span>
-                        </a>
-
-                    </div>
-                </li>
+                {% block sidebar %}
                 <br>
-                <h3 style="margin-top: 1px;margin-bottom: -10px;">Chapters</h3>                     
+                <h3 style="margin-top: 1px;margin-bottom: -10px;">Chapters</h3>
                 {% for chapter in chapters %}
                 <li>
                     <div class="flex items-center">
@@ -32,14 +21,13 @@
                             <span>{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</span>
                         </a>
                     </div>
-                </li>                
+                </li>
                 {% endfor %}
-     
+                {% endblock %}
             </ul>
         </nav>
     </div>
 </div>
-{% endblock %}
 <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark">{{ subject }} Chapters</h1>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {% for chapter in chapters %}

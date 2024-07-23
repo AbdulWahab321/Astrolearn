@@ -7,23 +7,13 @@
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore a variety of subjects and chapters to
         enhance your learning experience.</p>
 </section>
-{% block sidebar %}
 <div id="sidebar" class="sidebar">
     <div class="sidebar-content">
         <nav>
             <ul class="sidebar-nav">
 
-                <li>
-                    <div class="flex items-center">
+{% block sidebar %}
 
-                        <a href="{{ url_for('index') }}"
-                            class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
-                            <i class="fa-solid fa-home text-xl mr-2"></i>
-                            <span>Home</span>
-                        </a>
-
-                    </div>
-                </li>
                 <br>
                 <h3 style="margin-top: 1px;margin-bottom: -10px;">Subjects</h3>                     
                 {% for subject in subjects %}
@@ -37,11 +27,11 @@
                     </div>
                 </li>     
                 {% endfor %}
-            </ul>
-        </nav>
-    </div>
-</div>
 {% endblock %}
+</ul>
+</nav>
+</div>
+</div>
 <section class="subjects">
     <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">Subjects</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

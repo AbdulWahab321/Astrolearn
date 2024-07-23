@@ -49,5 +49,6 @@ icon_recommendations_using = {
     "notes": ["fa-solid fa-note-sticky", "fa-solid fa-pen-to-square"],
     "quiz": ["fa-solid fa-question-circle", "fa-solid fa-clipboard-question"],
     "subject": ["fa-solid fa-book", "fa-solid fa-graduation-cap"],
-    "chapter": ["fa-solid fa-bookmark", "fa-solid fa-file-lines"]
+    "chapter": ["fa-solid fa-bookmark", "fa-solid fa-file-lines"],
+    "about": ["fa-solid fa-info-circle", "fa-solid fa-user"]
 }

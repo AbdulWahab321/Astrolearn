@@ -62,6 +62,13 @@ def index():
 
     return render_template('index.html',website_name = WEBSITE_NAME,icons=icon_recommendations)
 
+@app.route('/about')
+def about():
+    """Render the home page with the list of subjects."""
+
+    return render_template('about.html',website_name = WEBSITE_NAME,icons=icon_recommendations)
+
+
 @app.route('/notes',endpoint="notes")
 def notes():
     subjects = get_subjects()
