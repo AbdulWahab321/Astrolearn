@@ -210,7 +210,7 @@ def serve_diagram(subject, chapter, filename):
 @app.errorhandler(404)
 def page_not_found(e):
     """Render the 404 error page."""
-    return render_template('404.html'), 404
+    return render_template('404.html',icons=icon_recommendations), 404
 @app.after_request
 def add_header(response):
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
