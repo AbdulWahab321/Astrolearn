@@ -11,11 +11,7 @@ svgmodderlib/
 mktest.py
 templates/test.html
 templates/teststyles.css
-<<<<<<< HEAD
 data/astrolearn.json
 COMPLETE_TEST/
 lib\mdprocessorlib\test.fnc
 lib\mdprocessorlib\test.py
-=======
-COMPLETE_TEST/
->>>>>>> 445d473cad7454cad9dbdc82ea9a0224b7c991ae
