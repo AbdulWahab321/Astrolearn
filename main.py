@@ -1,11 +1,14 @@
 from flask import Flask, render_template, request, abort, send_from_directory, jsonify, url_for
 import os
-import re
+import re,sys
 import json
-import sys,requests,threading,time
 from datetime import datetime
-from lib import icon_recommendations_using as icon_recommendations
+from dateutil import parser
+from lib import icon_recommendations_using as icon_recommendations, get_internet_datetime
 from lib.mdprocessorlib import CustomSyntaxExtension
+from lib.db import get_homeworks,homeworks as dbhws
+from google.cloud import firestore
+
 app = Flask(__name__)
 
 dirs_to_ignore_in_data = [".obsidian", "cache"]
@@ -67,6 +70,54 @@ def about():
     """Render the home page with the list of subjects."""
 
     return render_template('about.html',website_name = WEBSITE_NAME,icons=icon_recommendations)
+
+    
+@app.route('/otherschoolstuffs')
+def otherschoolstuffs():
+    """Render the home page with the list of subjects."""
+    datetime_ = {
+        "dateTime":"2024-07-26T17:47:21.2681063",
+        "dayOfWeek":"Friday"
+    }
+    datetime_ = get_internet_datetime()
+
+    dayOfWeek = datetime_["day_of_week"]
+    #current_time = parser.isoparse().replace(tzinfo=None)
+    return render_template('otherschoolstuffs.html', 
+                           website_name=WEBSITE_NAME, 
+                           icons=icon_recommendations, 
+                           dayOfWeek=dayOfWeek,
+                           current_time=datetime_["utc_datetime"],
+                           homework_data=get_homeworks())
+
+@app.route('/update_homework', methods=['POST'])
+def update_homework():
+    homework_data = request.json
+    
+    # db existing homeworks for all subjects
+    dbhws.set({})
+
+    for subject, homeworks_list in homework_data.items():
+        subject_homeworks = []
+        for homework in homeworks_list:
+            try:due_date = datetime.fromisoformat(homework['due'].replace('Z', '+00:00'))
+            except:due_date = homework["due"]
+            subject_homeworks.append({
+                "chapter": homework['chapter'],
+                "homework_title": homework['homework_title'],
+                "description": homework['description'],
+                "due": due_date
+            })
+        
+        dbhws.update({
+            subject: subject_homeworks
+        })
+
+    return jsonify({'status': 'success'})
+
+@app.route('/get_homeworks', methods=['GET'])
+def get_homework_data():
+    return jsonify(get_homeworks())
 
 
 @app.route('/notes',endpoint="notes")
@@ -226,4 +277,4 @@ def add_header(response):
     return response
 if __name__ == '__main__':
 
-    app.run(debug=True)
+    app.run(debug=True,extra_files=["data/"])

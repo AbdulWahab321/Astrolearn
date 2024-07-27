@@ -1,6 +1,3 @@
-
-# Subatomic Particles
-
 ## Discovery of Electron
 - Found by **J.J Thomson**
 - **Cathode ray tube** experiment

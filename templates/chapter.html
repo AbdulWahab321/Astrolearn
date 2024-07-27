@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
-
+{% block head %}
+    <script src="{{url_for('static',filename='js/canvasrenderer.js')}}"></script>
+{% endblock %}
 
 {% block content %}
 

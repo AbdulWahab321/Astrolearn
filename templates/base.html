@@ -12,6 +12,7 @@
     <meta property="og:description" content="Website containing my school notes">
 
     <title>{% block title %}{{website_name}}{% endblock %}</title>
+
     <script src="https://kit.fontawesome.com/acee183fcc.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -94,6 +95,15 @@
 
             </div>
         </li>   
+        <li>
+            <div class="flex items-center">
+                <a href="{{ url_for('otherschoolstuffs') }}"
+                    class="inline-flex items-center bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">
+                    <i class="{{icons['schoolstuff'][0]}}"></i>
+                    <span>School Stuffs</span>
+                </a>
+            </div>
+        </li>
         <li>
             <div class="flex items-center">
                 <a href="{{ url_for('about') }}"

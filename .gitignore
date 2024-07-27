@@ -12,3 +12,6 @@ mktest.py
 templates/test.html
 templates/teststyles.css
 COMPLETE_TEST/
+lib\mdprocessorlib\test.fnc
+lib\mdprocessorlib\test.py
+data\astrolearn.json

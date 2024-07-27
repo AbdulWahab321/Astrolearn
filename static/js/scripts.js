@@ -9,7 +9,9 @@ function toggleDarkMode() {
     let current_theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     update_images(current_theme);  // Update the images based on the new theme preference
     localStorage.setItem('theme', current_theme);
+    window.dispatchEvent(new Event('themeChanged'));
 }
+
 function update_images(current_theme){
     if (current_theme === "light") {
         let img_tags = document.getElementsByTagName("img");
