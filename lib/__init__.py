@@ -1,3 +1,5 @@
+import requests, datetime
+
 icon_recommendations = {
     "PYQ": ["fa-solid fa-clock-rotate-left", "fa-solid fa-archive"],
     "Notes": ["fa-solid fa-note-sticky", "fa-solid fa-pen-to-square"],
@@ -50,5 +52,19 @@ icon_recommendations_using = {
     "quiz": ["fa-solid fa-question-circle", "fa-solid fa-clipboard-question"],
     "subject": ["fa-solid fa-book", "fa-solid fa-graduation-cap"],
     "chapter": ["fa-solid fa-bookmark", "fa-solid fa-file-lines"],
-    "about": ["fa-solid fa-info-circle", "fa-solid fa-user"]
+    "about": ["fa-solid fa-info-circle", "fa-solid fa-user"],
+    "schoolstuff": ["fa-solid fa-graduation-cap","fa-solid fa-school"]
 }
+def get_internet_datetime(time_zone: str = "Asia/Kolkata"):
+    """
+    Get the current internet time from:
+    'https://www.timeapi.io/api/Time/current/zone?timeZone=etc/utc'
+    """
+    timeapi_url = "https://www.timeapi.io/api/Time/current/zone"
+    timeapi_url = f"http://worldtimeapi.org/api/timezone/{time_zone}"
+    headers = {
+        "Accept": "application/json",
+    }
+    request = requests.get(timeapi_url, headers=headers, timeout=120)
+    r_dict = request.json()
+    return r_dict

@@ -1,0 +1,656 @@
+You are an amazing full stack developer,
+
+base.html: 
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{website_name}}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='js/pinger.js') }}"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                   
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to render LaTeX content
+            function renderMathJax() {
+                MathJax.typeset();
+            }
+
+            // Call the function when the page loads
+            renderMathJax();
+        });
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body class="flex flex-col h-full bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-200">
+    <div class="development-box" id="developmentBox">
+        <p>{{website_name}} is in development. It may contain errors or incomplete data.</p>
+        <span class="close-btn" id="closeBtn">&times;</span>
+    </div>
+    {% include '_navigation.html' %}
+    <main class="flex-grow container mx-auto px-4 py-8 mt-16">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-gray-800 dark:bg-gray-950 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 AbdulWahab Melethil Shibu. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+
+index.html: 
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+    <section class="text-center mb-12 animate__animated animate__fadeIn">
+        <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">Welcome to {{website_name}}</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore a variety of subjects and chapters through Previous Year Questions, Quizzes, and Notes to enhance your learning experience.</p>
+    </section>
+
+    <section class="categories">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">Explore Our Resources</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Previous Year Questions Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">Previous Year Questions (PYQ)</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Access and practice questions from previous years to prepare better for your exams.</p>
+                    <a href="{{ url_for('pyq') }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">View PYQs</a>
+                </div>
+            </div>
+
+            <!-- Quizzes Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">Quizzes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Test your knowledge with our interactive quizzes and improve your understanding of various subjects.</p>
+                    <a href="{{ url_for('quiz_selection') }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Take a Quiz</a>
+                </div>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">Notes</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Explore detailed notes on various subjects to aid your study and deepen your understanding.</p>
+                    <a href="{{ url_for('notes') }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">View Notes</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+
+notes.html: 
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section class="text-center mb-12 animate__animated animate__fadeIn">
+        <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">Welcome to {{website_name}}</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore a variety of subjects and chapters to enhance your learning experience.</p>
+    </section>
+
+    <section class="subjects">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">Subjects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for subject in subjects %}
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">{{ subject }}</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">Explore {{ subject }} chapters</p>
+                        <a href="{{ url_for('subject', subject=subject) }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">View Chapters</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+pdf_view.html: 
+{% extends 'base.html' %}
+
+{% block title %}View PDF{% endblock %}
+
+{% block content %}
+<section class="text-center mb-12 animate__animated animate__fadeIn pdf-view-body">
+    <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">{{subject.split("XI")[1]}} {{year}} Question Paper</h1>
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" style="margin-bottom: 4px;">From Hsslive.in</p>
+    <a href="{{ 'https://drive.google.com/uc?export=download&id='+pdf_link.split('https://drive.google.com/file/d/')[1].split('/preview')[0] }}" class="inline-block bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded hover:bg-opacity-80 transition duration-300">Download PDF</a>
+</section>
+
+<section class="pdf-viewer flex justify-center items-center">
+    <div class="w-full md:w-3/4 lg:w-2/3 h-screen bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md overflow-hidden pdf-container">
+        <iframe 
+            src="{{ pdf_link }}" 
+            class="w-full h-full rounded-lg" 
+            frameborder="0" 
+            scrolling="auto">
+        </iframe>
+    </div>
+</section>
+{% endblock %}
+
+pyq.html: 
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <section class="text-center mb-12 animate__animated animate__fadeIn">
+        <h1 class="text-4xl font-bold mb-4 text-primary-light dark:text-primary-dark">Welcome to {{website_name}}</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Explore a variety of subjects and chapters to enhance your learning experience.</p>
+    </section>
+
+    <section class="subjects">
+        <h2 class="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">Previous Year Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for subject,years in pyqs.items() %}
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">{{ subject.split("XI")[1] }}</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Explore Previous Year Questions</p>
+                    <div class="flex flex-wrap">
+                        {% for year,link in years.items() %}
+                        <a href="{{ url_for('view_pdf', pdf_link=link, subject=subject, year=year) }}" class="bg-secondary-light dark:bg-secondary-dark text-white py-2 px-4 rounded m-1 hover:bg-opacity-80 transition duration-300">{{ year }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+quiz.html: 
+{% extends 'base.html' %}
+
+{% block title %}Quiz: {{ chapter }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="development-box" id="developmentBox" style="align-self: center;top:75%">
+    <p>Please note that the Quizzes section is still under development. The questions are placeholders and may not be accurate, and you might encounter unexpected behaviors.
+    </p>
+</div>
+    <div class="quiz-container" id="quiz-container">
+        <div class="timer-container">
+            <div id="timer" class="timer"></div>
+        </div>
+        <div id="question-container" class="question-container">
+            <h2 id="question" class="question"></h2>
+            <div id="options" class="options"></div>
+        </div>
+        <div class="navigation">
+            <button id="prev-btn" class="nav-btn">Previous</button>
+            <span id="question-number" class="question-number"></span>
+            <button id="next-btn" class="nav-btn">Next</button>
+        </div>
+    </div>
+
+    <div id="results-container" class="results-container hidden">
+        <h2>Quiz Results</h2>
+        <p id="score" class="score"></p>
+        <button id="retry-btn" class="retry-btn">Retry Quiz</button>
+    </div>
+
+    <script>
+        const quizData = {{ quiz_data | tojson | safe }};
+        const quizTimeLimit = {{ quiz_time_limit | tojson }};
+        let currentQuestion = 0;
+        let score = 0;
+        let userAnswers = [];
+        let timer;
+        let timeLeft;
+
+        function initializeQuiz() {
+            loadQuestion();
+            if (quizTimeLimit !== false) {
+                startTimer(quizTimeLimit);
+            } else {
+                document.getElementById('timer').textContent = 'No time limit';
+            }
+        }
+
+        function loadQuestion() {
+            const question = quizData[currentQuestion];
+            document.getElementById('question').textContent = question.question;
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'option-btn';
+                button.onclick = () => selectOption(index);
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+            document.getElementById('prev-btn').disabled = currentQuestion === 0;
+            document.getElementById('next-btn').textContent = currentQuestion === quizData.length - 1 ? 'Finish' : 'Next';
+
+            if (userAnswers[currentQuestion] !== undefined) {
+                selectOption(userAnswers[currentQuestion]);
+            }
+
+            // Add animation to question container
+            const questionContainer = document.getElementById('question-container');
+            questionContainer.style.animation = 'none';
+            questionContainer.offsetHeight; // Trigger reflow
+            questionContainer.style.animation = null;
+        }
+
+        function startTimer(duration) {
+            timeLeft = duration;
+            updateTimerDisplay();
+            timer = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    showResults();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function selectOption(index) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach((button, i) => {
+                if (i === index) {
+                    button.classList.add('selected');
+                } else {
+                    button.classList.remove('selected');
+                }
+            });
+            userAnswers[currentQuestion] = index;
+        }
+
+        function showResults() {
+            if (timer) clearInterval(timer);
+            score = quizData.reduce((acc, question, index) => {
+                return acc + (userAnswers[index] === question.correct_answer ? 1 : 0);
+            }, 0);
+            
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('results-container').classList.remove('hidden');
+            document.getElementById('score').textContent = `You scored ${score} out of ${quizData.length}`;
+            
+            showConfetti();
+        }
+
+        function showConfetti() {
+            const confettiCount = 200;
+            const colors = ['#fce18a', '#ff726d', '#b48def', '#f4306d'];
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.opacity = Math.random();
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        });
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        });
+
+        document.getElementById('retry-btn').addEventListener('click', () => {
+            currentQuestion = 0;
+            score = 0;
+            userAnswers = [];
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('results-container').classList.add('hidden');
+            initializeQuiz();
+        });
+
+        initializeQuiz();
+    </script>
+{% endblock %}
+
+subject.html: 
+{% extends 'base.html' %}
+
+{% block title %}{{ subject }}{% endblock %}
+
+{% block content %}
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark">{{ subject }} Chapters</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 chapter-card">
+        {% for chapter in chapters %}
+            <a href="{{ url_for('chapter', subject=subject, chapter=chapter) }}" class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition duration-300">
+                <div class="p-6">
+                    <h2 class="text-xl font-semibold mb-2 text-primary-light dark:text-primary-dark">{{ chapter.split("_",maxsplit=1)[1].replace('_',' ') }}</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Click to view chapter content</p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
+test.html: 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Physics Playground</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <h1>Interactive Physics Playground</h1>
+
+    <!-- Newton's Second Law of Motion Section -->
+    <section>
+        <h2>Newton's Second Law of Motion</h2>
+        <div id="newton-playground-container"></div>
+        <div>
+            <label for="mass">Mass (kg):</label>
+            <input type="number" id="mass" value="1" step="0.1">
+            <label for="force">Force (N):</label>
+            <input type="number" id="force" value="1" step="0.1">
+            <button id="run-newton">Run</button>
+        </div>
+        <div>
+            <p id="acceleration">Acceleration: 1 m/s²</p>
+        </div>
+    </section>
+
+    <!-- Kinetic and Potential Energy Section -->
+    <section>
+        <h2>Kinetic and Potential Energy</h2>
+        <div id="energy-playground-container"></div>
+        <div>
+            <label for="mass-energy">Mass (kg):</label>
+            <input type="number" id="mass-energy" value="1" step="0.1">
+            <label for="velocity">Velocity (m/s):</label>
+            <input type="number" id="velocity" value="0" step="0.1">
+            <label for="height">Height (m):</label>
+            <input type="number" id="height" value="1" step="0.1">
+            <button id="update-energy">Update</button>
+        </div>
+        <div>
+            <p id="kinetic-energy">Kinetic Energy: 0 J</p>
+            <p id="potential-energy">Potential Energy: 9.8 J</p>
+        </div>
+    </section>
+
+    <!-- Projectile Motion Section -->
+    <section>
+        <h2>Projectile Motion</h2>
+        <div id="projectile-playground-container"></div>
+        <div>
+            <label for="velocity-projectile">Initial Velocity (m/s):</label>
+            <input type="number" id="velocity-projectile" value="10" step="0.1">
+            <label for="angle">Launch Angle (degrees):</label>
+            <input type="number" id="angle" value="45" step="1">
+            <button id="run-projectile">Run</button>
+        </div>
+        <div>
+            <p id="range">Range: 10.2 m</p>
+            <p id="max-height">Max Height: 5.1 m</p>
+        </div>
+    </section>
+
+    <script>
+        let mass = 1, force = 1, velocity = 0, height = 1, angle = 45;
+
+        // Newton's Second Law of Motion
+        let newtonCanvas;
+        let newtonBallX = 200, newtonBallY = 150;
+        let newtonAcceleration;
+
+        function setup() {
+            newtonCanvas = createCanvas(400, 200);
+            newtonCanvas.parent('newton-playground-container');
+            noLoop(); // Stop looping
+            // Add Run button event listener
+            document.getElementById('run-newton').addEventListener('click', runNewtonPhysics);
+            runNewtonPhysics();
+        }
+
+        function draw() {
+            background(220);
+            fill(255, 0, 0);
+            ellipse(newtonBallX, newtonBallY, 50, 50); // Draw the ball
+            textSize(16);
+            fill(0);
+            text(`Acceleration: ${newtonAcceleration.toFixed(2)} m/s²`, 10, 20);
+            if (frameCount % 10 === 0) {
+                newtonBallX += newtonAcceleration;
+            }
+            if (newtonBallX > width) {
+                newtonBallX = width;
+            }
+        }
+
+        function runNewtonPhysics() {
+            mass = parseFloat(document.getElementById('mass').value);
+            force = parseFloat(document.getElementById('force').value);
+            newtonAcceleration = force / mass;
+            document.getElementById('acceleration').textContent = `Acceleration: ${newtonAcceleration.toFixed(2)} m/s²`;
+            newtonBallX = 200; // Reset ball position
+            newtonBallY = 150; // Reset ball position
+            loop(); // Start animation
+        }
+
+        // Kinetic and Potential Energy
+        let energyCanvas;
+        function setupEnergy() {
+            energyCanvas = createCanvas(400, 200);
+            energyCanvas.parent('energy-playground-container');
+            noLoop();
+            // Add Update button event listener
+            document.getElementById('update-energy').addEventListener('click', updateEnergy);
+            updateEnergy();
+        }
+
+        function drawEnergy() {
+            background(220);
+            fill(255, 0, 0);
+            ellipse(width / 2, height / 2, 50, 50);
+            const g = 9.8;
+            const kineticEnergy = 0.5 * mass * velocity * velocity;
+            const potentialEnergy = mass * g * height;
+            textSize(16);
+            fill(0);
+            text(`Kinetic Energy: ${kineticEnergy.toFixed(2)} J`, 10, 20);
+            text(`Potential Energy: ${potentialEnergy.toFixed(2)} J`, 10, 40);
+        }
+
+        function updateEnergy() {
+            mass = parseFloat(document.getElementById('mass-energy').value);
+            velocity = parseFloat(document.getElementById('velocity').value);
+            height = parseFloat(document.getElementById('height').value);
+            redraw();
+            const kineticEnergy = 0.5 * mass * velocity * velocity;
+            const potentialEnergy = mass * 9.8 * height;
+            document.getElementById('kinetic-energy').textContent = `Kinetic Energy: ${kineticEnergy.toFixed(2)} J`;
+            document.getElementById('potential-energy').textContent = `Potential Energy: ${potentialEnergy.toFixed(2)} J`;
+        }
+
+        setupEnergy();
+
+        // Projectile Motion
+        let projectileCanvas;
+        let projectileX = 0, projectileY = 200;
+        let projectileVelocity, projectileAngle, projectileT = 0;
+
+        function setupProjectile() {
+            projectileCanvas = createCanvas(400, 200);
+            projectileCanvas.parent('projectile-playground-container');
+            noLoop();
+            // Add Run button event listener
+            document.getElementById('run-projectile').addEventListener('click', runProjectile);
+            runProjectile();
+        }
+
+        function drawProjectile() {
+            background(220);
+            fill(255, 0, 0);
+            ellipse(projectileX, projectileY, 20, 20);
+            const g = 9.8;
+            projectileX = projectileVelocity * Math.cos(projectileAngle) * projectileT;
+            projectileY = height - (projectileVelocity * Math.sin(projectileAngle) * projectileT - 0.5 * g * projectileT * projectileT);
+            textSize(16);
+            fill(0);
+            text(`Range: ${((projectileVelocity ** 2) * Math.sin(2 * projectileAngle) / g).toFixed(2)} m`, 10, 20);
+            text(`Max Height: ${((projectileVelocity ** 2 * Math.sin(projectileAngle) ** 2) / (2 * g)).toFixed(2)} m`, 10, 40);
+            projectileT += 0.1;
+            if (projectileY < height) {
+                ellipse(projectileX, projectileY, 20, 20);
+            }
+        }
+
+        function runProjectile() {
+            projectileVelocity = parseFloat(document.getElementById('velocity-projectile').value);
+            projectileAngle = parseFloat(document.getElementById('angle').value) * (Math.PI / 180);
+            projectileT = 0; // Reset time
+            loop(); // Start animation
+        }
+
+        setupProjectile();
+    </script>
+</body>
+</html>
+
+teststyles.css: 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#newton-playground-container,
+#energy-playground-container,
+#projectile-playground-container {
+    border: 2px solid #000;
+    margin-bottom: 20px;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    margin-right: 10px;
+}
+.development-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Slide-in animation for the development box */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+_navigation.html: 
+<nav class="fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-50">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+            <a href="{{ url_for('index') }}" class="text-2xl font-bold text-primary-light dark:text-primary-dark">{{ website_name }}</a>
+            <div class="hidden md:flex space-x-4">
+
+                <button id="dark-mode-toggle" class="bg-gray-200 dark:bg-gray-600 rounded-full p-2">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                    </svg>
+                </button>
+            </div>
+            <button class="md:hidden" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="md:hidden hidden" id="mobile-menu">
+        <a href="{{ url_for('index') }}" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Home</a>
+        {% for subject in get_subjects() %}
+            <a href="{{ url_for('subject', subject=subject) }}" class="block py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">{{ subject }}</a>
+        {% endfor %}
+        <button id="mobile-dark-mode-toggle" class="w-full text-left py-2 px-4 text-sm hover:bg-gray-200 dark:hover:bg-gray-700">Toggle Dark Mode</button>
+    </div>
+</nav>

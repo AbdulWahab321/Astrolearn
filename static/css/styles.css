@@ -34,8 +34,8 @@
 
 
     /* Heading colors */
-    --heading-color-h1: #2c3e50; /* Color for h1 headings */
-    --heading-color-h2: #3c546d; /* Color for h2 headings */
+    --heading-color-h1: #2a4866; /* Color for h1 headings */
+    --heading-color-h2: #4a6480; /* Color for h2 headings */
     --heading-color-h3: #3f769b; /* Color for h3 headings */
     --heading-gradient: -webkit-linear-gradient(#4f86ff, #1706ff);
     --side-bar-h1-color: #766cff;
@@ -73,17 +73,17 @@
 
     /* Typography */
     --font-family-main: 'Poppins', sans-serif; /* Main font family */
-    --font-size-base: 16px;
-    --font-size-small: 0.875rem;
-    --font-size-medium: 1rem;
-    --font-size-large: 1.25rem;
-    --font-size-xl: 1.5rem;
-    --font-size-xxl: 2rem;
+    --font-size-base: clamp(14px, 2vw, 16px);
+    --font-size-small: clamp(12px, 1.5vw, 14px);
+    --font-size-medium: clamp(16px, 2.5vw, 18px);
+    --font-size-large: clamp(18px, 3vw, 20px);
+    --font-size-xl: clamp(20px, 3.5vw, 24px);
+    --font-size-xxl: clamp(24px, 4vw, 32px);
 
-    /* Updated spacing */
-    --spacing-small: 0.5rem;
-    --spacing-medium: 1rem;
-    --spacing-large: 2rem;
+    /* Responsive spacing */
+    --spacing-small: clamp(0.25rem, 1vw, 0.5rem);
+    --spacing-medium: clamp(0.5rem, 2vw, 1rem);
+    --spacing-large: clamp(1rem, 3vw, 2rem);
 
     /* Transitions */
     --transition-speed: 0.3s; /* Default transition speed */
@@ -114,16 +114,16 @@
 
     --scrollbar-color:#315170;
     --scrollbar-track-color: #262b3a;
-    --body-bg-color: #1e1e1e;
-    --body-dark-color: #373e44; /* Main background color for the body */
+    --body-bg-color: #22242b;
+    --body-dark-color: #3d4852; /* Main background color for the body */
     --card-bg-color: #2c3e50;
-    --header-bg-color: #1c2833;
+    --header-bg-color: #061424;
     --footer-bg-color: #6b8dad;
     --frame-color:var(--body-bg-color);
-    --sidebar-bg-color:#2c3e50;
+    --sidebar-bg-color:#344d66;
     --text-color-primary: #e0e0e0;
     --text-color-secondary: #95a5a6;
-    --text-color: #c7e1e4;
+    --text-color: #d3f4f7;
     --highlighted_text:#e74c3c; 
     --bold_text:  #89CFF0;
     /* Link colors */
@@ -137,9 +137,12 @@
     /*--link-hover-color: #2980b9; /* Color for text links on hover */
     --headings-color:#0084ff;
     --headings-color-underline:#0084ff;
-    --heading-color-h1: #569fff;
-    --heading-color-h2: #6bc9ff;
-    --heading-color-h3: #9ad5e6;
+    --heading-color-h1: #3487da; /* Color for h1 headings */
+    --heading-color-h2: #72b2fc; /* Color for h2 headings */
+    --heading-color-h3: #95bbd4; /* Color for h3 headings */
+    --heading-color-h4: #a0bfd3; /* Color for h4 headings */
+    --heading-color-h5: #cae3f3; /* Color for h5 headings */
+    --heading-color-h6: #dcf1ff; /* Color for h6 headings */
     --heading-gradient: -webkit-linear-gradient(#0b58ff, #06eeff);
     
     --button-bg-color: #1269bb;
@@ -185,7 +188,10 @@
     --admonition-border: #ffd700;
     --admonition-link-hover: #fff7cc;    
 }
+html{
+    font-size: var(--font-size-base);
 
+}
 /* Global Styles */
 * {
     margin: 0;
@@ -196,7 +202,7 @@
 body {
     font-family: var(--font-family-main);
     font-size: var(--font-size-medium);
-    line-height: var(--line-height-base);
+    line-height: 1.6;
     background-color: var(--body-bg-color);
     color: var(--text-color-primary);
     transition: background-color var(--transition-speed), color var(--transition-speed);
@@ -234,20 +240,21 @@ h1, h2, h3, h4, h5, h6 {
 h1 { 
     text-align: center;
     font-size: var(--font-size-xxl);
-    color: var(--heading-color-h1);
+    color: var(--heading-color-h1) !important;
 }
 
 h2 { 
     font-size: var(--font-size-xl);
-    color: var(--heading-color-h2);
+    color: var(--heading-color-h2) !important;
 }
 
 h3 { 
     font-size: var(--font-size-large);
-    color: var(--heading-color-h3);
+    color: var(--heading-color-h3) !important;
 }
 
 p {
+    color: var(--text-color);
     margin-bottom: var(--spacing-medium);
 }
 
@@ -287,7 +294,7 @@ nav {
 
 .logo a {
     color: var(--text-color-light);
-    font-size: 1.5em;
+    font-size: var(--font-size-large);
     font-weight: 600;
 }
 
@@ -308,7 +315,7 @@ nav {
 /* Main Content */
 main {
     margin-top: 80px; /* Adjust based on header height */
-    padding: var(--spacing-large) 0;
+    padding: var(--spacing-medium) 0;
 }
 
 /* Cards */
@@ -331,7 +338,7 @@ main {
     display: inline-block;
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
-    padding: var(--spacing-small) var(--spacing-medium);
+    padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 2vw, 1rem);
     font-size: var(--font-size-small);
     border-radius: var(--border-radius);
     transition: background-color var(--transition-speed);
@@ -350,16 +357,17 @@ code {
     padding: 0.2em 0.4em;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
+    font-size: var(--font-size-small);
 }
 
 pre {
     background-color: var(--pre-bg-color);
     color: var(--pre-text-color);
     border-radius: var(--border-radius);
-    overflow-x: auto;
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-medium);
     font-size: var(--font-size-small);
+    overflow-x: auto;
 }
 
 /* Q&A Styles */
@@ -369,7 +377,7 @@ pre {
     border-radius: var(--border-radius);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     padding: var(--spacing-medium);
-    margin-bottom: var(--spacing-medium);    
+    margin-bottom: var(--spacing-medium); 
 }
 
 .question:hover {
@@ -475,7 +483,7 @@ footer {
 #flashcard {
     background-color: var(--card-bg-color);
     color: var(--text-color-primary);
-    min-height: 200px;
+    min-height: clamp(120px, 20vh, 200px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -487,10 +495,11 @@ footer {
 .flashcard {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: clamp(120px, 20vh, 200px);
     transform-style: preserve-3d;
     transition: transform 0.6s;
     perspective: 1000px;
+    
 }
 
 .flashcard.flip {
@@ -630,7 +639,7 @@ footer {
     margin-bottom: 0.5em;
 }
 .chapter-content h1 {
-    font-size: 2.5em;
+    font-size: clamp(1.5em, 4vw, 2.5em);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.3em;
     margin-bottom: 0.5em; /* Added margin for spacing */
@@ -638,18 +647,19 @@ footer {
 }
 
 .chapter-content h2 {
-    font-size: 2em;
+    font-size: clamp(1.3em, 3.5vw, 2em);
     margin-bottom: 0.8em; /* Added margin for spacing */
     color: var(--heading-h2-color); /* Optional: Add color for consistency */
 }
 
 .chapter-content h3 {
-    font-size: 1.5em;
+    font-size: clamp(1.1em, 3vw, 1.5em);
     color: var(--heading-h3-color);
     margin-bottom: 0.7em; /* Added margin for spacing */
 }
 
 .chapter-content p {
+    font-size: clamp(14px, 2vw, 16px);
     margin-bottom: 1.2em;
     line-height: 1.6; /* Improved readability */
     color: var(--text-color); /* Added color for consistency */
@@ -657,6 +667,7 @@ footer {
 
 .chapter-content ul,
 .chapter-content ol {
+    font-size: clamp(14px, 2vw, 16px);
     list-style-position: inside !important;
     margin-bottom: 1.2em;
     padding-left: 2em;
@@ -670,13 +681,13 @@ footer {
 
 .chapter-content ul li::marker {
     color: var(--list-bullet-color);
-    font-size: 1.2em; /* Increased size for better visibility */
+    font-size: clamp(14px, 2vw, 16px); /* Increased size for better visibility */
 }
 
 .chapter-content ol li::marker {
     color: var(--list-bullet-color);
     font-weight: bold;
-    font-size: 1.2em; /* Increased size for better visibility */
+    font-size: clamp(14px, 2vw, 16px); /* Increased size for better visibility */
 }
 
 /* Optional: Add custom styles for list items */
@@ -684,7 +695,7 @@ footer {
 .chapter-content ol li::before {
     content: "\2022"; /* Unicode character for a bullet */
     color: var(--list-bullet-color); /* Color for the bullet */
-    font-size: 1.5em; /* Size of the bullet */
+    font-size: clamp(14px, 2vw, 16px); /* Size of the bullet */
     vertical-align: middle; /* Align with the text */
     margin-right: 0.5em; /* Space between the bullet and the text */
 }
@@ -852,6 +863,8 @@ strong{
 img{
     color: var(--body-bg-color);
     background-color: var(--body-bg-color) !important;
+    max-width: 100%;
+    height: auto; 
 }
 
 .flashcard-image {
@@ -890,7 +903,7 @@ img{
     background-color: var(--card-bg-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    padding: var(--spacing-large);
+    padding: clamp(1rem, 3vw, 2rem);
     margin-bottom: var(--spacing-large);
     transition: background-color var(--transition-speed);
 }
@@ -911,7 +924,7 @@ img{
 }
 
 .question {
-    font-size: 1.2em;
+    font-size: clamp(16px, 2.5vw, 18px);
     color: var(--text-color-primary);
     margin-bottom: var(--spacing-medium);
 }
@@ -931,6 +944,9 @@ img{
     transition-duration: .5s;
     border: 1px solid var(--link-color); 
     min-height:40px !important;
+    font-size: clamp(14px, 2vw, 16px);
+    padding: clamp(0.5rem, 1.5vw, 1rem);
+
 }
 
 .option-btn:hover {
@@ -1048,11 +1064,11 @@ img{
     right: 20px;
     background-color: #f44336;
     color: white;
-    padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    font-size: 14px;
+    font-size: clamp(12px, 1.5vw, 14px);
+    padding: clamp(0.5rem, 1.5vw, 1rem);
     font-family: Arial, sans-serif;
     animation: slideIn 0.5s ease-in-out;
     display: flex;
@@ -1086,7 +1102,7 @@ img{
     background: transparent;
     color: #333;
     border: none;
-    padding: 8px;
+    padding: clamp(6px, 1.5vw, 8px);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1398,15 +1414,16 @@ table tbody tr:nth-child(even) {
 }
 
 .math-block{
-    font-size: 18px;
+    font-size: clamp(14px, 2.5vw, 18px);
+    overflow-x: auto;
     
 }
 .admonition.warning {
     background-color: var(--admonition-bg);
     border-left: 5px solid var(--admonition-border);
     color: var(--admonition-text);
-    padding: 1rem;
-    margin: 1rem 0;
+    padding: clamp(0.5rem, 2vw, 1rem);
+    margin: clamp(0.5rem, 2vw, 1rem) 0;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -1517,99 +1534,69 @@ pre {
     padding: var(--spacing-small);
     margin-bottom: var(--spacing-small);
 }
-/*
 
-@media screen and (max-width: 768px) {
-    html {
-        --font-size-base: 14px;
-        --font-size-small: 0.775rem;
-        --font-size-medium: .5rem;
-        --font-size-large: 1.0rem;
-        --font-size-xl: 1.25rem;
-        --font-size-xxl: 1.1rem;     
-    }
-
-    .container {
+@media (max-width: 768px) {
+    .sidebar {
         width: 100%;
+        left: -100%;
     }
-
-    h1 { font-size: var(--font-size-xl); }
-    h2 { font-size: var(--font-size-large); }
-    h3 { font-size: var(--font-size-medium); }
-
-    .card {
-        padding: var(--spacing-small);
-    }
-
-    #flashcard {
-        min-height: 120px;
-    }
-
-    .flashcard {
-        height: 120px;
+    
+    .content.shifted {
+        margin-left: 0;
     }
 }
 
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 12px ;
-    }
-    body{
-        
-    }
-    .btn {
-        padding: 0.4rem 0.8rem;
+/* Responsive Table */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
     }
 
-    #flashcard {
-        min-height: 100px;
+    table tr {
+        margin-bottom: 1em;
     }
 
-    .flashcard {
-        height: 100px;
+    table td, table th {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    table td::before, table th::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
     }
 }
-@media screen and (max-width: 768px) {
-    html {
-        font-size: 14px;
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
     }
 
-    .container {
+    .burger {
+        display: block;
+    }
+
+    .nav-active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 8vh;
+        background-color: var(--header-bg-color);
         width: 100%;
+        padding: var(--spacing-medium);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
     }
 
-    h1 { font-size: var(--font-size-xl); }
-    h2 { font-size: var(--font-size-large); }
-    h3 { font-size: var(--font-size-medium); }
-
-    .card {
-        padding: var(--spacing-small);
-    }
-
-    #flashcard {
-        min-height: 120px;
-    }
-
-    .flashcard {
-        height: 120px;
+    .nav-active li {
+        margin: var(--spacing-small) 0;
     }
 }
-
-@media screen and (max-width: 480px) {
-    html {
-        font-size: 12px;
-    }
-
-    .btn {
-        padding: 0.4rem 0.8rem;
-    }
-
-    #flashcard {
-        min-height: 100px;
-    }
-
-    .flashcard {
-        height: 100px;
-    }
-}
-*/

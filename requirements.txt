@@ -3,3 +3,4 @@ gunicorn
 markdown2
 beautifulsoup4
 requests
+firebase-admin
