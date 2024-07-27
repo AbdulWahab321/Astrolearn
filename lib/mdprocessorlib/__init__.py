@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import re
 import markdown2
 from bs4 import BeautifulSoup
@@ -358,5 +357,5 @@ if __name__ == "__main__":
     <Q[What is the speed of light?][The speed of light in vacuum is approximately 299,792,458 meters per second.]>
     """
 
->>>>>>> 77990087da15310786318a82e2d150ed2cfa2a62
+>>>>>>> 445d473cad7454cad9dbdc82ea9a0224b7c991ae
     print(md.convert(sample_text))
