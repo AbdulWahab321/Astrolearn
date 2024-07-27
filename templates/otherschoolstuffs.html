@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% block head %}
@@ -190,4 +191,198 @@ initializeHomeworkManager(
 //highlightCurrentTimeTable({{dayOfWeek}})
 });
 </script>
+=======
+{% extends 'base.html' %}
+
+{% block head %}
+<script src="{{url_for('static',filename='js/canvasrenderer.js')}}"></script>
+<style>
+    /* ... existing styles ... */
+    .deleteBtn:hover{
+        transition:color;
+        transition-duration: .5s;
+        color: rgb(255, 71, 71);
+    }
+    #homeworkTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    #homeworkTable th,
+    #homeworkTable td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    #homeworkTable th {
+        background-color: #f2f2f2;
+    }
+
+    .editable {
+        min-width: 100px;
+    }
+
+    .addHomework,
+    .removeHomework {
+        cursor: pointer;
+        display: none;
+        /* Hidden by default */
+    }
+
+    .addHomework {
+        color: green;
+    }
+
+    .removeHomework {
+        color: red;
+    }
+
+    #editModeToggle {
+        margin-bottom: 10px;
+    }
+
+    .edit-mode .addHomework,
+    .edit-mode .removeHomework {
+        display: inline;
+        /* Shown in edit mode */
+    }
+    .highlighted {
+        border:2px solid greenyellow !important;
+    }    
+    .current-dayofweek::before{
+        content: "&#9654" !important;
+        color: greenyellow !important;
+        background-color: aqua !important;      
+    }
+    a{
+        border: none !important;
+        background-color: none !important;
+    }
+    a:hover{
+        border: none !important;
+        background-color: none !important;
+    }    
+</style>
+{% endblock %}
+
+{% block content %}
+
+</div>
+<div class="chapter-body ">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary-light dark:text-primary-dark chapter-heading">School
+        Stuffs</h1>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8 chapter-content">
+        <div class="prose max-w-none text-text-light dark:text-text-dark markdown-content content">
+            <h2>Timetable</h2>
+            <table id="timetable">
+                <tr>
+                    <th>Day</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                </tr>
+                <tr id="Monday">
+                    <td id="start">Monday</td>
+                    <td>Second Language</td>
+                    <td>Physics</td>
+                    <td>English</td>
+                    <td>Chemistry</td>
+                    <td>Physics</td>
+                    <td>Botany</td>
+                    <td id="end">Zoology</td>
+                </tr>
+                <tr id="Tuesday">
+                    <td id="start">Tuesday</td>
+                    <td>Chemistry</td>
+                    <td>Second Language</td>
+                    <td>Physics</td>
+                    <td>English</td>
+                    <td>Maths</td>
+                    <td>Physics</td>
+                    <td id="end">Maths</td>
+                </tr>
+                <tr id="Wednesday">
+                    <td id="start">Wednesday</td>
+                    <td>Second Language</td>
+                    <td>Physics</td>
+                    <td>Zoology</td>
+                    <td>Chemistry</td>
+                    <td>Botany</td>
+                    <td>Maths</td>
+                    <td id="end">English</td>
+                </tr>
+                <tr id="Thursday">
+                    <td id="start">Thursday</td>
+                    <td>Maths</td>
+                    <td>English</td>
+                    <td>Chemistry</td>
+                    <td>Zoology</td>
+                    <td>Botany</td>
+                    <td>Maths</td>
+                    <td id="end">Chemistry</td>
+                </tr>
+                <tr id="Friday">
+                    <td id="start">Friday</td>
+                    <td>Second Language</td>
+                    <td>Maths</td>
+                    <td>Chemistry</td>
+                    <td></td>
+                    <td></td>
+                    <td>English</td>
+                    <td id="end">Physics</td>
+
+                </tr>
+            </table>
+
+            <h2>Homeworks</h2>
+            <div id="editModeToggle">
+                <label>
+                    <input type="checkbox" id="editModeCheckbox" onchange="toggleEditMode()">
+                    Edit Mode
+                </label>
+            </div>
+            <table id="homeworkTable">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Chapter</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Due Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table body will be populated by JavaScript -->
+                </tbody>
+                <button id="addHomeworkBtn" class="mt-2 px-2 py-1 text-sm bg-green-500 text-white rounded hover:bg-green-600" style="display: none;">Add Homework</button>
+            </table>
+           
+            <button id="updateButton" onclick="updateHomework()" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" style="display: none;">Update Homework</button>
+            
+        </div>
+    </div>
+</div>
+
+<script src="{{url_for('static',filename='js/hwmanager.js')}}">
+    
+    </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+initializeHomeworkManager(
+    {{homework_data|tojson|safe}}, 
+    "{{current_time|safe}}", 
+    "{{dayOfWeek}}"
+)
+//highlightCurrentTimeTable({{dayOfWeek}})
+});
+</script>
+>>>>>>> 77990087da15310786318a82e2d150ed2cfa2a62
 {% endblock %}

@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 Flask
 gunicorn
 markdown2
 beautifulsoup4
 requests
+=======
+Flask
+gunicorn
+markdown2
+beautifulsoup4
+requests
+>>>>>>> 77990087da15310786318a82e2d150ed2cfa2a62
 firebase-admin
