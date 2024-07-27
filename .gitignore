@@ -11,7 +11,7 @@ svgmodderlib/
 mktest.py
 templates/test.html
 templates/teststyles.css
+data/astrolearn.json
 COMPLETE_TEST/
 lib\mdprocessorlib\test.fnc
 lib\mdprocessorlib\test.py
-data\astrolearn.json
