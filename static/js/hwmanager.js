@@ -8,7 +8,7 @@ function initializeHomeworkManager(data, currentTime, dayOfWeek_) {
     currentTime = serverTime = new Date(currentTime);
     renderHomeworkTable();
     document.getElementById('addHomeworkBtn').addEventListener('click', addHomework);
-    highlightCurrentPeriod(dayOfWeek);
+    //highlightCurrentPeriod(dayOfWeek);
     
 }
 
