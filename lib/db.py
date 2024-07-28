@@ -7,7 +7,11 @@ ASTROLEARNJSON = "/etc/secrets/astrolearn_service_account.json"
 if not os.path.exists(ASTROLEARNJSON):
     ASTROLEARNJSON = os.path.join(DATA_DIR, "astrolearn.json")
 
-cred = credentials.Certificate(ASTROLEARNJSON)
+try:
+    cred = credentials.Certificate(ASTROLEARNJSON)
+except:
+    ASTROLEARNJSON = os.path.join(os.path.dirname(DATA_DIR),"astrolearn_service_account.json")
+    cred = credentials.Certificate(ASTROLEARNJSON)
 app = firebase_admin.initialize_app(cred)
 db = firestore.client(app)
 schoolstuffs = db.collection('SchoolStuffs')
